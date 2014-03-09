@@ -1,5 +1,5 @@
 <?php
-// Start the engine the other way
+// Start the engine the other way around
 
 add_action('genesis_setup','genesischild_theme_setup'); 
 function genesischild_theme_setup() { 
