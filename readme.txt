@@ -1,0 +1,1 @@
+This is a basic started template for Genesis Child Theme
