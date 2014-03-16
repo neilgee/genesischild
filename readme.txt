@@ -1,1 +1,1 @@
-this is a starter template for a Genesis Child Theme
+This is a starter template for a Genesis Child Theme
