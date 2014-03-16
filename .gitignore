@@ -1,4 +1,4 @@
-*.txt
+#*.txt
 .DS_Store
 *.zip
 *.gz
