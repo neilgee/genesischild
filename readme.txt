@@ -1,1 +1,1 @@
-read me please - please read m hello world
+this is a starter template for a Genesis Child Theme
