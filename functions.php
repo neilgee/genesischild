@@ -9,3 +9,7 @@ function genesischild_theme_setup() {
 	add_theme_support( 'genesis-footer-widgets', 3 );
 	
 }
+
+//Functions Go Here
+
+//Script-Tac-ulous -> All the Scripts Registered and Enqueued
