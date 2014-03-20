@@ -1,18 +1,6 @@
-This is a basic started template for Genesis Child Theme
+This is a basic starter template for Genesis Child Theme to be used with the Genesis Framework.
 
-17th March
-Added into functions.php scripts and styles register & enqueue
+This child theme is declaring support for HTML5, viewport, footer widgets and a number of javascripts and CSS styles.
 
-Google Fonts
-FontAwesome
-Placeholder.js
-Responsive Menu
+Place this theme in your WordPress installation "/wp-content/themes/" and activate in WordPress Dashboard
 
-Added in JS folder
-
-placeholder.js
-responsive.js
-
-Added in style.css
-
-responsive menu CSS
