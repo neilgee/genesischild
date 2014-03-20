@@ -13,6 +13,8 @@ Added in commented Facebook function and action and CSS for Responsive LikeBox -
 
 Positioned main theme CSS style so it loads after all other CSS styles
 
+Added some Woo Commerce CSS
+
 
 17th March
 Added into functions.php 4 scripts and styles which are registered & enqueued
