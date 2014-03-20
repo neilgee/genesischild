@@ -1,0 +1,23 @@
+20th March
+Created a changelog.txt file
+
+Updated readme.txt
+
+Commented out theme support for woo commerce in functions.php
+//add_theme_support( 'genesis-connect-woocommerce' );
+
+
+17th March
+Added into functions.php 4 scripts and styles which are registered & enqueued
+
+- Google Fonts -> script to call in Google Fonts with sample font; 'Open Sans'
+- FontAwesome -> script to call in FontAwesome fonts version 4.0.3
+- Placeholder.js -> backward compatible form placeholder text for IE >10
+- Responsive Menu -> script to enable mobile hamburger menu on all Genesis Menus
+
+Added in JS folder
+- placeholder.js
+- responsive.js
+
+Added in style.css
+- responsive menu CSS for responsive.js
