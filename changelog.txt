@@ -3,8 +3,11 @@ Created a changelog.txt file
 
 Updated readme.txt
 
-Commented out theme support for woo commerce in functions.php
+Added in commented out theme support for woo commerce in functions.php
 //add_theme_support( 'genesis-connect-woocommerce' );
+
+Added in theme support for custom backgrounds in functions.php
+add_theme_support( 'custom-background' );
 
 
 17th March
