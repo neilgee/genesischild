@@ -8,6 +8,10 @@ function genesischild_theme_setup() {
 	add_theme_support( 'genesis-responsive-viewport' );
 	add_theme_support( 'genesis-footer-widgets', 3 );
 	add_theme_support( 'custom-background' );
+	//add_theme_support( 'genesis-connect-woocommerce' );
+	//add_action('genesis_before', 'likebox_facebook_script');
+	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
+	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 999 );
 	
 }
 
@@ -28,3 +32,8 @@ function genesischild_scripts_styles(){
 	wp_enqueue_style('googlefonts');
 	wp_enqueue_style('fontawesome');
 }
+
+//Function for Facebook HTML5 Script needs to go after body - escape all inner double quotes
+//function likebox_facebook_script () {
+//	echo "";
+//}

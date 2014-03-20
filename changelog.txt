@@ -4,10 +4,14 @@ Created a changelog.txt file
 Updated readme.txt
 
 Added in commented out theme support for woo commerce in functions.php
-//add_theme_support( 'genesis-connect-woocommerce' );
+ - //add_theme_support( 'genesis-connect-woocommerce' );
 
 Added in theme support for custom backgrounds in functions.php
-add_theme_support( 'custom-background' );
+ - add_theme_support( 'custom-background' );
+
+Added in commented Facebook function and action and CSS for Responsive LikeBox - empty placeholder - just add FB HTML5 script code and uncomment
+
+Positioned main theme CSS style so it loads after all other CSS styles
 
 
 17th March
