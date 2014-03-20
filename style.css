@@ -1413,13 +1413,35 @@ Site Footer
 /*Facebook Like Box Responsiveness*/
  
 #fb-root {
-display: none;
+	display: none;
 }
  
-.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
-width: 100% !important;
+.fb_iframe_widget, 
+.fb_iframe_widget span, 
+.fb_iframe_widget span iframe[style] {
+	width: 100% !important;
 }
+/*Woo Commerce */
 
+/* Woo Commerce */
+
+.woocommerce a.button, 
+.woocommerce button.button, 
+.woocommerce input.button, 
+.woocommerce #respond input#submit, 
+.woocommerce #content input.button, 
+.woocommerce-page a.button, 
+.woocommerce-page button.button, 
+.woocommerce-page input.button, 
+.woocommerce-page #respond input#submit, 
+.woocommerce-page #content input.button {
+	font-size: 12px;
+	font-size: 1.2rem;
+}
+.woocommerce ul.products li.product, 
+.woocommerce-page ul.products li.product {
+	padding: 1%;
+}
 
 /*
 Media Queries
