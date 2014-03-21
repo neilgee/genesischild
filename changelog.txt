@@ -1,3 +1,9 @@
+21st March
+Remove @import call for 'Lato' font in style.css
+
+Added Google 'Cabin' font in functions.php Google script
+
+
 20th March
 Created a changelog.txt file
 
