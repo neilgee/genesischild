@@ -61,7 +61,7 @@ Template: genesis
 Imports
 ---------------------------------------------------------------------------------------------------- */
 
-@import url(//fonts.googleapis.com/css?family=Lato:300,700);
+
 
 
 /*
@@ -237,7 +237,7 @@ h4,
 h5,
 h6 {
 	color: #333;
-	font-family: Lato, sans-serif;
+	font-family: 'Cabin',Arial, sans-serif;
 	font-weight: 700;
 	line-height: 1.2;
 	margin: 0 0 16px;
@@ -836,7 +836,7 @@ Site Header
 
 .title-area {
 	float: left;
-	font-family: Lato, sans-serif;
+	font-family: 'Cabin', Arial, sans-serif;
 	font-weight: 700;
 	padding: 16px 0;
 	padding: 1.6rem 0;
@@ -924,7 +924,7 @@ Site Navigation
 .genesis-nav-menu {
 	clear: both;
 	color: #999;
-	font-family: Lato, sans-serif;
+	font-family: 'Cabin', Arial, sans-serif;
 	line-height: 1.5;
 	width: 100%;
 }
