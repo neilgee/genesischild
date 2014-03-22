@@ -1,3 +1,8 @@
+22nd March
+
+Removed default footer
+Added in Widgetised footer available in WP Dashboard Widgets
+
 21st March
 Remove @import call for 'Lato' font in style.css
 
