@@ -2,6 +2,7 @@
 
 Removed default footer
 Added in Widgetised footer available in WP Dashboard Widgets
+Added in functionality to allow PHP and ShortCode to run in Widgets - function and filters in function.php
 
 21st March
 Remove @import call for 'Lato' font in style.css

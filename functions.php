@@ -14,7 +14,9 @@ function genesischild_theme_setup() {
 	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 999 );
 	remove_action( 'genesis_footer', 'genesis_do_footer' );
 	add_action( 'widgets_init', 'genesischild_extra_widgets' );	
-	add_action('genesis_footer','genesischild_footer_widget');			
+	add_action('genesis_footer','genesischild_footer_widget');	
+	add_filter('widget_text', 'do_shortcode');	
+	add_filter('widget_text','execute_php_widgets',10);	
 }
 
 //Functions Go Here
@@ -52,6 +54,16 @@ function genesischild_footer_widget() {
         'after' => '</div>',));
 }
 
+//Allow PHP to run in Widgets
+function execute_php_widgets($html){
+   if(strpos($html,"<"."?php")!==false){
+   ob_start();
+   eval("?".">".$html);
+   $html=ob_get_contents();
+   ob_end_clean();
+   }
+return $html;
+}
 
 /*Function for Facebook HTML5 Script needs to go after body - escape all inner double quotes
 function likebox_facebook_script () {
