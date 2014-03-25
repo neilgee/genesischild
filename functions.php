@@ -11,7 +11,8 @@ function genesischild_theme_setup() {
 	//add_theme_support( 'genesis-connect-woocommerce' );
 	//add_action('genesis_before', 'likebox_facebook_script');
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 999 );
+	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 998);
+	add_action( 'wp_enqueue_scripts', 'genesischild_scripts_styles',999);	
 	remove_action( 'genesis_footer', 'genesis_do_footer' );
 	add_action( 'widgets_init', 'genesischild_extra_widgets' );	
 	add_action('genesis_footer','genesischild_footer_widget');	
@@ -28,11 +29,17 @@ function genesischild_scripts_styles(){
 	wp_register_script ('responsive', get_stylesheet_directory_uri() . '/js/responsive.js', array( 'jquery' ),'1',true);
 	wp_register_style ('googlefonts','http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic','', '2', 'all');
 	wp_register_style ('fontawesome','//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css','', '4.0.3', 'all');
+	wp_register_style( 'ie8', get_stylesheet_directory_uri() . '/ie8.css'  );
+	$GLOBALS['wp_styles']->add_data( 'ie8', 'conditional', '/css/lte IE 8' );
+	wp_register_style( 'ieall', get_stylesheet_directory_uri() . '/css/ieall.css'  );
+	$GLOBALS['wp_styles']->add_data( 'ieall', 'conditional', 'IE' );
 
 	wp_enqueue_script('responsive');
 	wp_enqueue_script('placeholder');
 	wp_enqueue_style('googlefonts');
 	wp_enqueue_style('fontawesome');
+	wp_enqueue_style( 'ie8' );
+	wp_enqueue_style( 'ieall' );
 }
 
 //Add in new Widget areas
