@@ -1423,8 +1423,6 @@ Site Footer
 }
 /*Woo Commerce */
 
-/* Woo Commerce */
-
 .woocommerce a.button, 
 .woocommerce button.button, 
 .woocommerce input.button, 
@@ -1443,6 +1441,67 @@ Site Footer
 	padding: 1%;
 }
 
+.woocommerce a[title="View Cart"]{
+	display: block;
+	clear:both;
+}
+.woocommerce ul li {
+	list-style-type: none;
+}
+
+.woocommerce .input-checkbox, 
+.woocommerce .input-radio {
+	box-shadow: none;
+	width: auto;
+}
+
+.woocommerce .related ul li.product img, 
+.woocommerce .related ul.products li.product img, 
+.woocommerce .upsells.products ul li.product img, 
+.woocommerce .upsells.products ul.products li.product img, 
+.woocommerce-page .related ul li.product img, 
+.woocommerce-page .related ul.products li.product img, 
+.woocommerce-page .upsells.products ul li.product img, 
+.woocommerce-page .upsells.products ul.products li.product img {
+	width: auto;
+}
+
+.woocommerce .related ul li.product, 
+.woocommerce .related ul.products li.product, 
+.woocommerce .upsells.products ul li.product, 
+.woocommerce .upsells.products ul.products li.product, 
+.woocommerce-page .related ul li.product, 
+.woocommerce-page .related ul.products li.product, 
+.woocommerce-page .upsells.products ul li.product, 
+.woocommerce-page .upsells.products ul.products li.product {
+	padding: 4%;
+}
+
+/*----------------------------------------------Client Fun Starts Here-------------------------------------------------------*/
+
+
+/*----------------------------------------------Structure-------------------------------------------------------*/
+
+
+/*----------------------------------------------Colors-------------------------------------------------------*/
+
+
+/*----------------------------------------------Fonts-------------------------------------------------------*/
+
+
+/*----------------------------------------------Header-------------------------------------------------------*/
+
+
+/*----------------------------------------------Primary Navigation-------------------------------------------------------*/
+
+
+/*----------------------------------------------Optin-------------------------------------------------------*/
+
+
+/*----------------------------------------------Home Content-------------------------------------------------------*/
+
+
+/*----------------------------------------------Footer Navigation-------------------------------------------------------*/
 /*
 Media Queries
 ---------------------------------------------------------------------------------------------------- */
