@@ -22,7 +22,7 @@ function genesischild_theme_setup() {
 
 //Functions Go Here
 
-//Script-Tac-ulous -> All the Scripts Registered and Enqueued
+//Script-Tac-ulous -> All the Scripts and Styles Registered and Enqueued, scripts first - then styles
 function genesischild_scripts_styles(){
 	//thescript
 	wp_register_script ('placeholder', get_stylesheet_directory_uri() . '/js/placeholder.js', array( 'jquery' ),'1',true);

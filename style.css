@@ -1680,12 +1680,13 @@ Media Queries
 
 
 /* Responsive Navigation
----------------------------------------------------------------------------------------------------- */
+---------------------------------------------------------------------------------------------------- 
+Adjusted just to make Primary Nav responsive to make all menus responsive search and replace .nav-primary for nav*/
 
 /* Standard Navigation
 --------------------------------------------- */
 
-nav {
+.nav-primary {
 	clear: both;
 }
 
@@ -1703,7 +1704,7 @@ nav {
 
 @media only screen and (min-width: 768px) {
 
-	nav {
+	.nav-primary {
 		display: block !important;
 	}
 }
@@ -1715,8 +1716,8 @@ nav {
 	.menu-toggle,
 	.sub-menu-toggle {
 		display: block;
-		font-size: 40px;
-		font-size: 4rem;
+		font-size: 20px;
+		font-size: 2rem;
 		font-weight: 700;
 		margin: 0 auto;
 		overflow: hidden;
@@ -1729,7 +1730,7 @@ nav {
 	button.menu-toggle,
 	button.sub-menu-toggle {
 		background-color: transparent;
-		color: #5bd9d1;
+		color: #000;
 	}
 
 	.sub-menu-toggle {
@@ -1741,11 +1742,11 @@ nav {
 	}
 
 	.menu-toggle:before {
-		content: "\2261";
+		content: "Menu\2261";
 	}
 
 	.menu-toggle.activated:before {
-		content: "\2191";
+		content: "Menu\2191";
 	}
 
 	.sub-menu-toggle:before {
@@ -1756,7 +1757,7 @@ nav {
 		content: "-";
 	}
 
-	nav {
+	.nav-primary {
 		display: none;
 		position: relative;
 	}

@@ -1,3 +1,8 @@
+1st April
+- Adjusted Responsive Menu JS and CSS to only affect primary navigation.
+- Added word 'Menu' with Hamburger Icon, colored #OOO and set to smaller font size
+
+
 29th March
 - More woo commerce CSS styling
 - page.php and front-page.php templates added to child
