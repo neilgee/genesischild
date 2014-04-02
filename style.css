@@ -141,6 +141,11 @@ body {
 	font-weight: 300;
 	line-height: 1.625;
 }
+/*Fix Chrome Resizing Fonts*/
+body > div {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
 
 a,
 button,
