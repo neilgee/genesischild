@@ -1,5 +1,5 @@
 <?php
-// Start the engine the other way around - set up child after parent
+// Start the engine the other way around - set up child after parent - add in theme supports, actions and filters
 
 add_action('genesis_setup','genesischild_theme_setup'); 
 function genesischild_theme_setup() { 
@@ -21,7 +21,7 @@ function genesischild_theme_setup() {
 	add_filter( 'excerpt_more', 'genesischild_read_more_link' );
 }
 
-//Functions Go Here
+//Child Theme Functions Go Here
 
 //Script-Tac-ulous -> All the Scripts and Styles Registered and Enqueued, scripts first - then styles
 function genesischild_scripts_styles(){
@@ -39,9 +39,9 @@ function genesischild_scripts_styles(){
 	wp_enqueue_script('placeholder');
 	wp_enqueue_style('googlefonts');
 	wp_enqueue_style('fontawesome');
-	wp_enqueue_style( 'ie8' );
-	wp_enqueue_style( 'ieall' );
-	//wp_enqueue_style( 'dashicons' );
+	wp_enqueue_style('ie8');
+	wp_enqueue_style('ieall');
+	//wp_enqueue_style('dashicons');
 }
 
 //Add in new Widget areas
@@ -74,11 +74,10 @@ function execute_php_widgets($html){
 return $html;
 }
 
-//Read More
+//Read More Button For Excerpt
 function genesischild_read_more_link() {
-	return '... <a href="' . get_permalink() . '" class="more-link" title="Read More" >Read More</a>';
+	return '... <a href="' . get_permalink() . '"class="more-link" title="Read More">Read More</a>';
 }
-
 
 /*Function for Facebook HTML5 Script needs to go after body - escape all inner double quotes
 function likebox_facebook_script () {

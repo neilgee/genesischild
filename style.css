@@ -1485,6 +1485,7 @@ Site Footer
 
 
 a.more-link {
+	display:inline-block;
 	font-size:14px;
 	margin-top:10px;
 	padding:5px 20px;
