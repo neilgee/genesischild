@@ -1481,6 +1481,26 @@ Site Footer
 .woocommerce-page .upsells.products ul.products li.product {
 	padding: 4%;
 }
+/* Read More */
+
+
+a.more-link {
+	font-size:14px;
+	margin-top:10px;
+	padding:5px 20px;
+	border-radius:4px;
+	color:#fff;
+	background-color:#9c9c9c;
+	border:1px solid #7e7e7e;
+	transition-property: opacity;
+	transition-delay: 0.3s;
+	transition-duration: .5s;
+	
+}
+a.more-link:hover {
+	opacity:.6;
+	color:#fff;
+}
 
 /*----------------------------------------------Client Fun Starts Here-------------------------------------------------------*/
 
@@ -1812,3 +1832,5 @@ Adjusted just to make Primary Nav responsive to make all menus responsive search
 	}
 
 }
+
+
