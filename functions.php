@@ -18,6 +18,7 @@ function genesischild_theme_setup() {
 	add_action('genesis_footer','genesischild_footer_widget');	
 	add_filter('widget_text', 'do_shortcode');	
 	add_filter('widget_text','execute_php_widgets',10);	
+	add_filter( 'excerpt_more', 'genesischild_read_more_link' );
 }
 
 //Functions Go Here
@@ -40,6 +41,7 @@ function genesischild_scripts_styles(){
 	wp_enqueue_style('fontawesome');
 	wp_enqueue_style( 'ie8' );
 	wp_enqueue_style( 'ieall' );
+	//wp_enqueue_style( 'dashicons' );
 }
 
 //Add in new Widget areas
@@ -71,6 +73,12 @@ function execute_php_widgets($html){
    }
 return $html;
 }
+
+//Read More
+function genesischild_read_more_link() {
+	return '... <a href="' . get_permalink() . '" class="more-link" title="Read More" >Read More</a>';
+}
+
 
 /*Function for Facebook HTML5 Script needs to go after body - escape all inner double quotes
 function likebox_facebook_script () {
