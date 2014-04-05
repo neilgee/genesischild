@@ -1,3 +1,9 @@
+5th April
+- Added Function for Read More to a neutral linked button
+- CSS styles updated for .more-link
+- Dashicons added to enqueue list but commented out
+- Chrome font fix added in styles.css
+
 1st April
 - Adjusted Responsive Menu JS and CSS to only affect primary navigation.
 - Added word 'Menu' with Hamburger Icon, colored #OOO and set to smaller font size
