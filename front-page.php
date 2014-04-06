@@ -12,4 +12,9 @@
  */
 
 //* This file handles pages, but only exists for the sake of child theme forward compatibility.
+
+add_action('genesis_after_header','genesischild_hero_widget',5);
+//add_action('genesis_after_header','genesischild_optin_widget');
+
+
 genesis();
