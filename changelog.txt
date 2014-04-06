@@ -1,3 +1,8 @@
+6th April
+- Added preHeader left & right, hero, optin, before content, after content, footer widget header, post footer left & right widgetised areas.
+- styles.css has commented out color backgrounds to visualise the widget areas under 'Structure'
+- A screen grab is also added in images folder to show new areas - genesis-markedup.png
+
 5th April
 - Added Function for Read More to a neutral linked button
 - CSS styles updated for .more-link
@@ -55,7 +60,7 @@
 
 Added in JS folder
 - placeholder.js
-- responsive.js
+- responsive.js ~ credit to @OzzyR
 
 Added in style.css
-- responsive menu CSS for responsive.js
+- responsive menu CSS for responsive.js ~ credit to @OzzyR
