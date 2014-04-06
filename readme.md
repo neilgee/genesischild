@@ -3,7 +3,7 @@ This is a basic starter template for Genesis Child Theme to be used with the Gen
 This child theme is declaring support for HTML5, viewport, footer widgets.
 
 Javascripts
-- It has a responsive menu for the Primary Nav.
+- It has a responsive menu for the Primary Nav. ~ credit to @OzzyR
 - FontAwesome is enabled.
 - Placeholder.js is enabled.
 
