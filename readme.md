@@ -12,7 +12,7 @@ CSS
 
 Widgetised Areas
 - The theme contains pre-header left & right, hero, optin, before content, after content, footer widget header, post footer left & right widgetised areas.
-
+- The Hero Widget is set just for front-page.php, all other widget areas if populated will appear on all pages.
 
 Download and rename the theme '**genesischild**' - place this theme in your WordPress installation "/wp-content/themes/" and activate in WordPress Dashboard
 
