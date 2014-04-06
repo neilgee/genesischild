@@ -18,4 +18,6 @@ Download and rename the theme '**genesischild**' - place this theme in your Word
 
 ![Genesis Child Theme](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesis-markedup.png)
 
+![Genesis Child Theme Widget Areas](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesischild-widgets.png)
+
 
