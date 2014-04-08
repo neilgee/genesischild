@@ -2,8 +2,8 @@
 // Start the engine the other way around - set up child after parent - add in theme supports, actions and filters
 
 add_action('genesis_setup','genesischild_theme_setup'); 
-function genesischild_theme_setup() { 
-	
+
+function genesischild_theme_setup() { 	
 	add_theme_support('html5');
 	add_theme_support('genesis-responsive-viewport');
 	add_theme_support('genesis-footer-widgets', 3);
@@ -31,8 +31,8 @@ function genesischild_theme_setup() {
 	add_filter('widget_text', 'do_shortcode');	
 	add_filter('widget_text','execute_php_widgets',10);	
 	add_filter( 'excerpt_more', 'genesischild_read_more_link' );
-
-		
+	add_filter( 'comment_form_defaults', 'genesischild_comment_form_defaults' );
+	add_filter( 'comment_form_defaults', 'genesischild_remove_comment_form_allowed_tags' );		
 }
 
 
@@ -40,7 +40,6 @@ function genesischild_theme_setup() {
 
 //Script-Tac-ulous -> All the Scripts and Styles Registered and Enqueued, scripts first - then styles
 function genesischild_scripts_styles(){
-	//thescript
 	wp_register_script ('placeholder', get_stylesheet_directory_uri() . '/js/placeholder.js', array( 'jquery' ),'1',true);
 	wp_register_script ('responsive', get_stylesheet_directory_uri() . '/js/responsive.js', array( 'jquery' ),'1',true);
 	wp_register_style ('googlefonts','http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic','', '2', 'all');
@@ -197,6 +196,21 @@ return $html;
 //Read More Button For Excerpt
 function genesischild_read_more_link() {
 	return '... <a href="' . get_permalink() . '"class="more-link" title="Read More">Read More</a>';
+}
+
+//Change the comments header
+function genesischild_comment_form_defaults( $defaults ) {
+ 
+	$defaults['title_reply'] = __( 'Leave a Comment' );
+	return $defaults;
+}
+
+//Remove comment form HTML tags and attributes
+function genesischild_remove_comment_form_allowed_tags( $defaults ) {
+ 
+	$defaults['comment_notes_after'] = '';
+	return $defaults;
+ 
 }
 
 /*Function for Facebook HTML5 Script needs to go after body - escape all inner double quotes
