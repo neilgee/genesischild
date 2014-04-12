@@ -15,7 +15,6 @@ CSS
 - Regular style.css with all Genesis Framework and placeholders to start new project
 - 2 x IE styles in CSS directory, one targets IE8 and lower, the other IE9 and lower
 
-
 WooCommerce
 - WooCommerce style sheet set to load before main style sheet
 - Some generic CSS styles declared in styles.css
