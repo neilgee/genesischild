@@ -7,8 +7,6 @@
 * @link    http://coolestguidesontheplanet.com/
 ************************************************/
 
-
-
 // Start the engine the other way around - set up child after parent - add in theme supports, actions and filters
 
 add_action( 'genesis_setup', 'genesischild_theme_setup' );
@@ -64,7 +62,7 @@ function genesischild_scripts_styles() {
 	wp_enqueue_style( 'fontawesome' );
 	wp_enqueue_style( 'ie8' );
 	wp_enqueue_style( 'ieall' );
-	//wp_enqueue_style( 'dashicons' );
+	//wp_enqueue_style( 'dashicons' ); //Uncomment if DashIcons required in front end
 }
 
 //Add in new Widget areas
@@ -149,15 +147,15 @@ function genesischild_preheader_widget() {
 //Position the Hero Area
 function genesischild_hero_widget() {
     genesis_widget_area ( 'hero', array(
-        'before' => '<div class="herocontainer">',
-        'after' => '</div>',));
+    'before' => '<div class="herocontainer">',
+    'after' => '</div>',));
 }
 
 //Position the Optin Area
 function genesischild_optin_widget() {
     genesis_widget_area ( 'optin', array(
-        'before' => '<div class="optincontainer">',
-        'after' => '</div>',));
+    'before' => '<div class="optincontainer">',
+    'after' => '</div>',));
 }
 //Position Footer Widget Header
 function genesischild_footerwidgetheader()  {
@@ -169,8 +167,8 @@ function genesischild_footerwidgetheader()  {
 //Position the Footer Area
 function genesischild_footer_widget() {
     genesis_widget_area ( 'footercontent', array(
-        'before' => '<div class="footercontainer">',
-        'after' => '</div>',));
+    'before' => '<div class="footercontainer">',
+    'after' => '</div>',));
 }
 
 //Position the PostFooter Area
@@ -193,13 +191,13 @@ function genesischild_aftercontent_widget() {
 
 //Allow PHP to run in Widgets
 function genesis_execute_php_widgets( $html ) {
-   if ( strpos( $html, "<" . "?php" ) !==false ) {
-   ob_start();
-   eval( "?".">".$html );
-   $html=ob_get_contents();
-   ob_end_clean();
-   }
-return $html;
+	if ( strpos( $html, "<" . "?php" ) !==false ) {
+	ob_start();
+	eval( "?".">".$html );
+	$html=ob_get_contents();
+	ob_end_clean();
+   		}
+	return $html;
 }
 
 //Read More Button For Excerpt
@@ -217,17 +215,14 @@ function genesischild_post_info( $post_info ) {
 
 //Change the comments header
 function genesischild_comment_form_defaults( $defaults ) {
- 
 	$defaults['title_reply'] = __( 'Leave a Comment' );
 	return $defaults;
 }
 
 //Remove comment form HTML tags and attributes
 function genesischild_remove_comment_form_allowed_tags( $defaults ) {
- 
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
- 
 }
 
 /*Function for Facebook HTML5 Script needs to go after body - escape all inner double quotes or use alternate single quotes
