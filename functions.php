@@ -72,121 +72,121 @@ function genesischild_extra_widgets() {
 	'name'        => __( 'PreHeaderLeft', 'genesischild' ),
 	'description' => __( 'This is the preheader left area', 'genesischild' ),
 	'before_widget' => '<div class="first one-half preheaderleft">',
-    'after_widget' => '</div>',
+	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'          => 'preheaderright',
 	'name'        => __( 'PreHeaderRight', 'genesischild' ),
 	'description' => __( 'This is the preheader right area', 'genesischild' ),
 	'before_widget' => '<div class="one-half preheaderright">',
-    'after_widget' => '</div>',
+	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'          => 'hero',
 	'name'        => __( 'Hero Home Page', 'genesischild' ),
 	'description' => __( 'This is the Hero Home Page area', 'genesischild' ),
 	'before_widget' => '<div class="wrap hero">',
-    'after_widget' => '</div>',
+	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'          => 'optin',
 	'name'        => __( 'Optin', 'genesischild' ),
 	'description' => __( 'This is the optin area', 'genesischild' ),
 	'before_widget' => '<div class="wrap optin">',
-    'after_widget' => '</div>',
+	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'          => 'beforecontent',
 	'name'        => __( 'Before Content', 'genesischild' ),
 	'description' => __( 'This is the before content area', 'genesischild' ),
 	'before_widget' => '<div class="beforecontent">',
-    'after_widget' => '</div>',
+	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'          => 'aftercontent',
 	'name'        => __( 'After Content', 'genesischild' ),
 	'description' => __( 'This is the before content area', 'genesischild' ),
 	'before_widget' => '<div class="aftercontent">',
-    'after_widget' => '</div>',
+	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
-    'id' => 'footerwidgetheader',
-    'name' => __( 'Footer Widget Header', 'genesischild' ),
-    'description' => __( 'This is for the Footer Widget Headline', 'genesischild' ),
-    ) );
+	'id' => 'footerwidgetheader',
+	'name' => __( 'Footer Widget Header', 'genesischild' ),
+	'description' => __( 'This is for the Footer Widget Headline', 'genesischild' ),
+	) );
 	genesis_register_sidebar( array(
 	'id'          => 'footercontent',
 	'name'        => __( 'Footer', 'genesischild' ),
 	'description' => __( 'This is the general footer area', 'genesischild' ),
 	'before_widget' => '<div class="footercontent">',
-    'after_widget' => '</div>',
+	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'          => 'postfooterleft',
 	'name'        => __( 'Post Footer Left', 'genesischild' ),
 	'description' => __( 'This is the post footer left area', 'genesischild' ),
 	'before_widget' => '<div class="first one-half postfooterleft">',
-    'after_widget' => '</div>',
+	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'          => 'postfooterright',
 	'name'        => __( 'Post Footer Right', 'genesischild' ),
 	'description' => __( 'This is the post footer right area', 'genesischild' ),
 	'before_widget' => '<div class="one-half postfooterright">',
-    'after_widget' => '</div>',
+	'after_widget' => '</div>',
 	) );
 }
 
 //Position the PreHeader Area
 function genesischild_preheader_widget() {
 	echo '<div class="preheadercontainer"><div class="wrap">';
-    genesis_widget_area ( 'preheaderleft' );
+	genesis_widget_area ( 'preheaderleft' );
 	genesis_widget_area ( 'preheaderright' );
 	echo '</div></div>';
 }
 //Position the Hero Area
 function genesischild_hero_widget() {
-    genesis_widget_area ( 'hero', array(
-    'before' => '<div class="herocontainer">',
-    'after' => '</div>',));
+	genesis_widget_area ( 'hero', array(
+	'before' => '<div class="herocontainer">',
+	'after' => '</div>',));
 }
 
 //Position the Optin Area
 function genesischild_optin_widget() {
-    genesis_widget_area ( 'optin', array(
-    'before' => '<div class="optincontainer">',
-    'after' => '</div>',));
+	genesis_widget_area ( 'optin', array(
+	'before' => '<div class="optincontainer">',
+	'after' => '</div>',));
 }
 //Position Footer Widget Header
 function genesischild_footerwidgetheader()  {
-    echo '<div class="footerwidgetheader-container"><div class="wrap">';
-    genesis_widget_area ( 'footerwidgetheader' );
-    echo '</div></div>'; 
+	echo '<div class="footerwidgetheader-container"><div class="wrap">';
+	genesis_widget_area ( 'footerwidgetheader' );
+	echo '</div></div>'; 
 }
 	
 //Position the Footer Area
 function genesischild_footer_widget() {
-    genesis_widget_area ( 'footercontent', array(
-    'before' => '<div class="footercontainer">',
-    'after' => '</div>',));
+	genesis_widget_area ( 'footercontent', array(
+	'before' => '<div class="footercontainer">',
+	'after' => '</div>',));
 }
 
 //Position the PostFooter Area
 function genesischild_postfooter_widget() {
 	echo '<div class="postfootercontainer"><div class="wrap">';
-    genesis_widget_area ( 'postfooterleft' );
+	genesis_widget_area ( 'postfooterleft' );
 	genesis_widget_area ( 'postfooterright' );
 	echo '</div></div>';
 }
 
 //Position the Before Content Area
 function genesischild_beforecontent_widget() {
-    genesis_widget_area ( 'beforecontent' );
+	genesis_widget_area ( 'beforecontent' );
 }
 
 //Position the After Content Area
 function genesischild_aftercontent_widget() {
-    genesis_widget_area ( 'aftercontent' );
+	genesis_widget_area ( 'aftercontent' );
 }
 
 //Allow PHP to run in Widgets
@@ -196,7 +196,7 @@ function genesis_execute_php_widgets( $html ) {
 	eval( "?".">".$html );
 	$html=ob_get_contents();
 	ob_end_clean();
-   		}
+		}
 	return $html;
 }
 
@@ -207,10 +207,10 @@ function genesischild_read_more_link() {
 
 //Remove Author Name on Post Meta
 function genesischild_post_info( $post_info ) {
-    if ( !is_page() ) {
-    $post_info = 'Posted on [post_date] [post_comments] [post_edit]';
-    return $post_info;
-    }
+	if ( !is_page() ) {
+	$post_info = 'Posted on [post_date] [post_comments] [post_edit]';
+	return $post_info;
+	}
 }
 
 //Change the comments header
