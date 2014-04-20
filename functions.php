@@ -113,6 +113,8 @@ function genesischild_extra_widgets() {
 	'id' => 'footerwidgetheader',
 	'name' => __( 'Footer Widget Header', 'genesischild' ),
 	'description' => __( 'This is for the Footer Widget Headline', 'genesischild' ),
+	'before_widget' => '<div class="footerwidgetheader">',
+	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'          => 'footercontent',
@@ -139,23 +141,23 @@ function genesischild_extra_widgets() {
 
 //Position the PreHeader Area
 function genesischild_preheader_widget() {
-	echo '<div class="preheadercontainer"><div class="wrap">';
+	echo '<section class="preheadercontainer"><div class="wrap">';
 	genesis_widget_area ( 'preheaderleft' );
 	genesis_widget_area ( 'preheaderright' );
-	echo '</div></div>';
+	echo '</div></section>';
 }
 //Position the Hero Area
 function genesischild_hero_widget() {
 	genesis_widget_area ( 'hero', array(
-	'before' => '<div class="herocontainer">',
-	'after' => '</div>',));
+	'before' => '<section class="herocontainer">',
+	'after' => '</section>',));
 }
 
 //Position the Optin Area
 function genesischild_optin_widget() {
 	genesis_widget_area ( 'optin', array(
-	'before' => '<div class="optincontainer">',
-	'after' => '</div>',));
+	'before' => '<aside class="optincontainer">',
+	'after' => '</aside>',));
 }
 //Position Footer Widget Header
 function genesischild_footerwidgetheader()  {
