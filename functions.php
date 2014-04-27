@@ -39,8 +39,10 @@ function genesischild_theme_setup() {
 	add_filter( 'excerpt_more', 'genesischild_read_more_link' );
 	add_filter( 'comment_form_defaults', 'genesischild_comment_form_defaults' );
 	add_filter( 'comment_form_defaults', 'genesischild_remove_comment_form_allowed_tags' );
-	add_filter( 'genesis_post_info', 'genesischild_post_info' );	
+	add_filter( 'genesis_post_info', 'genesischild_post_info' );
+	add_filter( 'theme_page_templates', 'genesis_remove_blog_archive' );	
 }
+
 
 
 //Child Theme Functions Go Here
@@ -189,6 +191,13 @@ function genesischild_beforecontent_widget() {
 //Position the After Content Area
 function genesischild_aftercontent_widget() {
 	genesis_widget_area ( 'aftercontent' );
+}
+
+// Remove Genesis Blog & Archive
+function genesis_remove_blog_archive( $templates ) {
+	unset( $templates['page_blog.php'] );
+	unset( $templates['page_archive.php'] );
+	return $templates;
 }
 
 //Allow PHP to run in Widgets

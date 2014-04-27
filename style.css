@@ -1485,6 +1485,11 @@ Site Footer
 	float:right;
 }
 
+.woocommerce ul.products li.product a img,
+.woocommerce-page ul.products li.product a img {
+	width:auto;
+}
+
 .woocommerce .related ul li.product, 
 .woocommerce .related ul.products li.product, 
 .woocommerce .upsells.products ul li.product, 
