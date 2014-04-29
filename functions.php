@@ -53,8 +53,8 @@ function genesischild_scripts_styles() {
 	wp_register_script ( 'responsive', get_stylesheet_directory_uri() . '/js/responsive.js', array( 'jquery' ), '1', true );
 	wp_register_style ( 'googlefonts' , 'http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic', '', '2', 'all' );
 	wp_register_style ( 'fontawesome' , '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', '' , '4.0.3', 'all' );
-	wp_register_style( 'ie8', get_stylesheet_directory_uri() . '/ie8.css' );//target IE8 and Lower
-	$GLOBALS['wp_styles']->add_data( 'ie8', 'conditional', '/css/lte IE 8' );
+	wp_register_style( 'ie8', get_stylesheet_directory_uri() . '/css/ie8.css' );//target IE8 and Lower
+	$GLOBALS['wp_styles']->add_data( 'ie8', 'conditional', 'lte IE 8' );
 	wp_register_style( 'ieall', get_stylesheet_directory_uri() . '/css/ieall.css' );//target IE9 and lower
 	$GLOBALS['wp_styles']->add_data( 'ieall', 'conditional', 'IE' );
 
