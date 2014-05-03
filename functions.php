@@ -21,10 +21,11 @@ function genesischild_theme_setup() {
 	
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 	remove_action( 'genesis_footer', 'genesis_do_footer' );
-	remove_action( 'genesis_after_header','genesis_do_nav' ) ;
-		
-	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 998 ) ;
-	add_action( 'wp_enqueue_scripts', 'genesischild_scripts_styles', 999 ) ;
+	remove_action( 'genesis_after_header','genesis_do_nav' );
+	
+	add_action( 'wp_enqueue_scripts', 'genesischild_ie_styles', 999 );	//IE conditional styles load last
+	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 998 ); //Main style sheet 2nd last
+	add_action( 'wp_enqueue_scripts', 'genesischild_scripts_styles', 997 ); //All the rest load before
 	add_action( 'widgets_init', 'genesischild_extra_widgets' );	
 	add_action( 'genesis_before_loop','genesischild_beforecontent_widget' );
 	add_action( 'genesis_after_loop','genesischild_aftercontent_widget' );
@@ -34,6 +35,7 @@ function genesischild_theme_setup() {
 	add_action( 'genesis_before_header','genesischild_preheader_widget' );
 	add_action( 'genesis_after_header','genesischild_optin_widget' );
 	add_action( 'genesis_header_right','genesis_do_nav' );
+	add_action( 'genesis_after','genesischild_responsive_menujs' );
 	//add_action( 'genesis_before', 'likebox_facebook_script' ); //Uncomment if using facebook likebox function below
 	
 	add_filter( 'widget_text', 'do_shortcode' );	
@@ -53,21 +55,42 @@ function genesischild_theme_setup() {
 //Script-tac-ulous -> All the Scripts and Styles Registered and Enqueued, scripts first - then styles
 function genesischild_scripts_styles() {
 	wp_register_script ( 'placeholder' , get_stylesheet_directory_uri() . '/js/placeholder.js', array( 'jquery' ), '1', true );
-	wp_register_script ( 'responsive', get_stylesheet_directory_uri() . '/js/responsive.js', array( 'jquery' ), '1', true );
+	wp_register_script ('slicknav', '//cdn.jsdelivr.net/jquery.slicknav/0.1/jquery.slicknav.min.js', array( 'jquery' ),'1',false);
+    wp_register_style ('slicknavcss', '//cdn.jsdelivr.net/jquery.slicknav/0.1/slicknav.css','', '1', 'all');
 	wp_register_style ( 'googlefonts' , 'http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic', '', '2', 'all' );
 	wp_register_style ( 'fontawesome' , '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', '' , '4.0.3', 'all' );
+	
+	wp_enqueue_script( 'placeholder' );//version 3.0.2
+	wp_enqueue_script( 'slicknav' );
+	wp_enqueue_style( 'slicknavcss' );
+	wp_enqueue_style( 'googlefonts' );
+	wp_enqueue_style( 'fontawesome' );
+	//wp_enqueue_style( 'dashicons' ); //Uncomment if DashIcons required in front end
+}
+
+//IE Conditional Styles - gotta load last
+function genesischild_ie_styles() {
 	wp_register_style( 'ie8', get_stylesheet_directory_uri() . '/css/ie8.css' );//target IE8 and Lower
 	$GLOBALS['wp_styles']->add_data( 'ie8', 'conditional', 'lte IE 8' );
 	wp_register_style( 'ieall', get_stylesheet_directory_uri() . '/css/ieall.css' );//target IE9 and lower
 	$GLOBALS['wp_styles']->add_data( 'ieall', 'conditional', 'IE' );
 
-	wp_enqueue_script( 'responsive' );
-	wp_enqueue_script( 'placeholder' );
-	wp_enqueue_style( 'googlefonts' );
-	wp_enqueue_style( 'fontawesome' );
 	wp_enqueue_style( 'ie8' );
 	wp_enqueue_style( 'ieall' );
-	//wp_enqueue_style( 'dashicons' ); //Uncomment if DashIcons required in front end
+}
+
+//Responsive Nav - adjust target currently set to .menu-primary and location currently set appear just after body tag - adjust to suit needs
+//Ref - https://github.com/ComputerWolf/SlickNav
+function genesischild_responsive_menujs() {
+	echo 	"<script>
+			jQuery(function() {
+			jQuery('.menu-primary').slicknav({
+					label:'MENU',
+					duration: 400,
+					prependTo:'body',	
+								});
+			});
+			</script>";
 }
 
 //Add in new Widget areas
