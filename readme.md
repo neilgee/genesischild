@@ -6,6 +6,10 @@ Widgetised Areas
 - The theme contains pre-header left & right, hero, optin, before content, after content, footer widget header, post footer left & right widgetised areas.
 - The Hero Widget is set just for front-page.php, all other widget areas if populated will appear on all pages.
 
+Menus
+- Primary Menu is positioned in Header Right Widget Hook and set to Primary Location
+-Secondary Menu remains in default area and is Secondary Location
+
 Javascripts
 - It has a responsive menu  ~ credit to @OzzyR ~ adjusted just for the Primary Navigation set to toggle at 600px wide.
 - FontAwesome is enabled.
@@ -32,7 +36,7 @@ Miscellaneous
 
 Download and rename the theme '**genesischild**' - place this theme in your WordPress installation "/wp-content/themes/" and activate in WordPress Dashboard
 
-![Genesis Child Theme](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesis-markedup.png)
+![Genesis Child Theme](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesis-markedup.jpg)
 
 ![Genesis Child Theme Widget Areas](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesischild-widgets.png)
 
