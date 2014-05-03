@@ -1,5 +1,7 @@
 3rd May
 - Primary Menu moved to Header Right area
+- Swapped Mobile Navs to SlickNavs
+- IE style sheets load last
 
 6th April
 - Added preHeader left & right, hero, optin, before content, after content, footer widget header, post footer left & right widgetised areas.
