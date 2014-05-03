@@ -21,6 +21,7 @@ function genesischild_theme_setup() {
 	
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 	remove_action( 'genesis_footer', 'genesis_do_footer' );
+	remove_action( 'genesis_after_header','genesis_do_nav' ) ;
 		
 	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 998 ) ;
 	add_action( 'wp_enqueue_scripts', 'genesischild_scripts_styles', 999 ) ;
@@ -32,6 +33,7 @@ function genesischild_theme_setup() {
 	add_action( 'genesis_footer','genesischild_postfooter_widget' );		
 	add_action( 'genesis_before_header','genesischild_preheader_widget' );
 	add_action( 'genesis_after_header','genesischild_optin_widget' );
+	add_action( 'genesis_header_right','genesis_do_nav' );
 	//add_action( 'genesis_before', 'likebox_facebook_script' ); //Uncomment if using facebook likebox function below
 	
 	add_filter( 'widget_text', 'do_shortcode' );	
@@ -40,7 +42,8 @@ function genesischild_theme_setup() {
 	add_filter( 'comment_form_defaults', 'genesischild_comment_form_defaults' );
 	add_filter( 'comment_form_defaults', 'genesischild_remove_comment_form_allowed_tags' );
 	add_filter( 'genesis_post_info', 'genesischild_post_info' );
-	add_filter( 'theme_page_templates', 'genesis_remove_blog_archive' );	
+	add_filter( 'theme_page_templates', 'genesis_remove_blog_archive' );
+	add_filter( 'genesis_do_nav','themeprefix_modify_genesis_do_nav', 10, 3 );			
 }
 
 
@@ -191,6 +194,40 @@ function genesischild_beforecontent_widget() {
 //Position the After Content Area
 function genesischild_aftercontent_widget() {
 	genesis_widget_area ( 'aftercontent' );
+}
+	
+//Move Primary Navigation to Header Right without wrap
+function themeprefix_modify_genesis_do_nav( $nav_output, $nav, $args ) {
+	
+	$class = 'menu genesis-nav-menu menu-primary';
+	if ( genesis_superfish_enabled() )
+		$class .= ' js-superfish';
+			
+	$args = array(
+		'theme_location' => 'primary',
+		'container'      => '',
+		'menu_class'     => $class,
+		'echo'           => 0,
+	);
+ 
+	$nav = wp_nav_menu( $args );
+ 
+	//* Do nothing if there is nothing to show
+	if ( ! $nav )
+		return;
+ 
+	$nav_markup_open = genesis_markup( array(
+		'html5'   => '<nav %s id="primary-nav">',
+		'xhtml'   => '<div id="nav">',
+		'context' => 'nav-primary',
+		'echo'    => false,
+	) );
+ 
+	$nav_markup_close .= genesis_html5() ? '</nav>' : '</div>';
+	$nav_output = $nav_markup_open . $nav . $nav_markup_close;
+	
+	// return the modified result
+	 return sprintf( $nav_output, $nav, $args );
 }
 
 // Remove Genesis Blog & Archive
