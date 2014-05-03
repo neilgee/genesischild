@@ -1683,13 +1683,35 @@ a.more-link:hover {
 
 
 
-/*----------------------------------------------Post Structure-------------------------------------------------------------------*
+/*----------------------------------------------Post Structure-------------------------------------------------------------*
 /
 /
 ------------------------------------------------------------------------------------------------------------------------*/
 
 
 
+
+
+
+/*----------------------------------------------Slick Navs Responsive Mobile Menu------------------------------------------*
+/ Menu set to swap to Mobile version at 600px - Adjust px to suit
+/ .menu-primary class name targetted if target is different adjust to suit
+------------------------------------------------------------------------------------------------------------------------*/
+
+.slicknav_menu {
+	display:none;
+}
+
+@media screen and (max-width:600px) {
+	/* .menu-primary is the original menu */
+	.menu-primary {
+		display:none;
+	}
+	
+	.slicknav_menu {
+		display:block;
+	}
+}
 
 
 
@@ -1869,134 +1891,5 @@ Media Queries
 
 }
 
-
-/* Responsive Navigation
----------------------------------------------------------------------------------------------------- 
-Adjusted just to make Primary Nav responsive to make all menus responsive search and replace .nav-primary for nav*/
-
-/* Standard Navigation
---------------------------------------------- */
-
-.nav-primary {
-	clear: both;
-}
-
-/* Navigation toggles
---------------------------------------------- */
-
-.sub-menu-toggle,
-.menu-toggle {
-	display: none;
-	visibility: hidden;
-}
-
-/* Navigation toggles - Ensure Menu Displays when Scaled Up
---------------------------------------------- */
-
-@media only screen and (min-width: 768px) {
-
-	.nav-primary {
-		display: block !important;
-	}
-}
-
-/* Navigation toggles - Mobile (Change max width as you see fit)
---------------------------------------------- */
-@media only screen and (max-width: 600px) {
-
-	.menu-toggle,
-	.sub-menu-toggle {
-		display: block;
-		font-size: 20px;
-		font-size: 2rem;
-		font-weight: 700;
-		margin: 0 auto;
-		overflow: hidden;
-		padding: 0px 0px 10px;
-		padding: 0rem 0rem 1rem;
-		text-align: center;
-		visibility: visible;
-	}
-
-	button.menu-toggle,
-	button.sub-menu-toggle {
-		background-color: transparent;
-		color: #000;
-	}
-
-	.sub-menu-toggle {
-		padding: 18px;
-		padding: 1.8rem;
-		position: absolute;
-		right: 0;
-		top: 0;
-	}
-
-	.menu-toggle:before {
-		content: "Menu\2261";
-	}
-
-	.menu-toggle.activated:before {
-		content: "Menu\2191";
-	}
-
-	.sub-menu-toggle:before {
-		content: "+";
-	}
-
-	.sub-menu-toggle.activated:before {
-		content: "-";
-	}
-
-	.nav-primary {
-		display: none;
-		position: relative;
-	}
-
-	.genesis-nav-menu .menu-item {
-		background-color: #f5f5f5;
-		display: block;
-		position: relative;
-		text-align: left;
-	}
-
-	.genesis-nav-menu .menu-item:hover {
-		position: relative;
-	}
-
-	.genesis-nav-menu .sub-menu {
-		clear: both;
-		display: none;
-		opacity: 1;
-		position: static;
-		width: 100%;
-	}
-
-	.genesis-nav-menu .sub-menu a {
-		border-left: 0;
-		position: relative;
-		width: auto;
-	}
-
-	.genesis-nav-menu .sub-menu .sub-menu {
-		margin: 0;
-	}
-
-	.genesis-nav-menu .sub-menu .sub-menu a {
-		background-color: #f5f5f5;
-		padding-left: 30px;
-	}
-
-	.genesis-nav-menu .sub-menu .sub-menu .sub-menu a {
-		background-color: #fff;
-		padding-left: 40px;
-	}
-
-	.nav-primary a:hover,
-	.nav-primary .current-menu-item > a {
-		color: #333;
-	}
-
-}
 
 
