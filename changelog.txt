@@ -1,3 +1,6 @@
+17th May
+- Upgraded FontAwesome to 4.1.0
+
 3rd May
 - Primary Menu moved to Header Right area
 - Swapped Mobile Navs to SlickNavs
