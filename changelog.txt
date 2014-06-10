@@ -1,3 +1,6 @@
+10th June
+- Google Font swap from Cabin to Open Sans
+
 17th May
 - Upgraded FontAwesome to 4.1.0
 

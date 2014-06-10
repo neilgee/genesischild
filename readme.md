@@ -31,7 +31,7 @@ This child theme is declaring support for HTML5, viewport metatag and footer wid
 - Comments header changed to 'Leave a Comment'
 - HTML Tags and Attributes is removed from comments
 - Facebook HTML5 function and action are declared in functions.php but commented out
-- The font 'Cabin' is enqueued from Google Fonts in functions.php
+- The font 'Open Sans' is enqueued from Google Fonts in functions.php
 - Author name removed in Post Meta for posts
 
 Download the zip rename the theme '**genesischild**' - place this theme in your WordPress installation **"/wp-content/themes/"** and activate in WordPress Dashboard
