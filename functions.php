@@ -17,6 +17,7 @@ function genesischild_theme_setup() {
 	add_theme_support( 'genesis-responsive-viewport' );
 	add_theme_support( 'genesis-footer-widgets', 3 );
 	add_theme_support( 'custom-background' );
+	add_theme_support( 'genesis-after-entry-widget-area' );
 	//add_theme_support( 'genesis-connect-woocommerce' ); //Uncomment if using woocommerce
 	
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
@@ -131,13 +132,6 @@ function genesischild_extra_widgets() {
 	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'aftercontent',
-	'name'        => __( 'After Content', 'genesischild' ),
-	'description' => __( 'This is the before content area', 'genesischild' ),
-	'before_widget' => '<div class="aftercontent">',
-	'after_widget' => '</div>',
-	) );
-	genesis_register_sidebar( array(
 	'id' => 'footerwidgetheader',
 	'name' => __( 'Footer Widget Header', 'genesischild' ),
 	'description' => __( 'This is for the Footer Widget Headline', 'genesischild' ),
@@ -214,11 +208,6 @@ function genesischild_postfooter_widget() {
 //Position the Before Content Area
 function genesischild_beforecontent_widget() {
 	genesis_widget_area ( 'beforecontent' );
-}
-
-//Position the After Content Area
-function genesischild_aftercontent_widget() {
-	genesis_widget_area ( 'aftercontent' );
 }
 	
 //Move Primary Navigation to Header Right without wrap
