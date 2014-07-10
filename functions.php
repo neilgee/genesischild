@@ -206,7 +206,7 @@ function genesischild_postfooter_widget() {
 
 //Position the Before Content Area
 function genesischild_before_entry_widget() {
-	if( 'is_single' ) {
+	if( is_single() ) {
 	genesis_widget_area ( 'before-entry' );
 	}
 }
