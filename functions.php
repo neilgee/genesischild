@@ -28,7 +28,7 @@ function genesischild_theme_setup() {
 	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 998 ); //Main style sheet 2nd last
 	add_action( 'wp_enqueue_scripts', 'genesischild_scripts_styles', 997 ); //All the rest load before
 	add_action( 'widgets_init', 'genesischild_extra_widgets' );	
-	add_action( 'genesis_before_loop','genesischild_beforecontent_widget' );
+	add_action( 'genesis_before_loop','genesischild_before_entry_widget' );
 	add_action( 'genesis_before_footer','genesischild_footerwidgetheader', 5 );
 	add_action( 'genesis_footer','genesischild_footer_widget' );
 	add_action( 'genesis_footer','genesischild_postfooter_widget' );		
@@ -124,10 +124,10 @@ function genesischild_extra_widgets() {
 	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'beforecontent',
-	'name'        => __( 'Before Content', 'genesischild' ),
+	'id'          => 'before-entry',
+	'name'        => __( 'Before Entry', 'genesischild' ),
 	'description' => __( 'This is the before content area', 'genesischild' ),
-	'before_widget' => '<div class="beforecontent">',
+	'before_widget' => '<div class="before-entry">',
 	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
@@ -205,8 +205,10 @@ function genesischild_postfooter_widget() {
 }
 
 //Position the Before Content Area
-function genesischild_beforecontent_widget() {
-	genesis_widget_area ( 'beforecontent' );
+function genesischild_before_entry_widget() {
+	if( 'is_single' ) {
+	genesis_widget_area ( 'before-entry' );
+	}
 }
 	
 //Move Primary Navigation to Header Right without wrap
