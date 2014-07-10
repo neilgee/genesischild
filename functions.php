@@ -29,7 +29,6 @@ function genesischild_theme_setup() {
 	add_action( 'wp_enqueue_scripts', 'genesischild_scripts_styles', 997 ); //All the rest load before
 	add_action( 'widgets_init', 'genesischild_extra_widgets' );	
 	add_action( 'genesis_before_loop','genesischild_beforecontent_widget' );
-	add_action( 'genesis_after_loop','genesischild_aftercontent_widget' );
 	add_action( 'genesis_before_footer','genesischild_footerwidgetheader', 5 );
 	add_action( 'genesis_footer','genesischild_footer_widget' );
 	add_action( 'genesis_footer','genesischild_postfooter_widget' );		
