@@ -1036,21 +1036,20 @@ img.alignright,
 --------------------------------------------- */
 
 .nav-primary {
-	background-color: #333;
+    background-color:#fff;
 }
-
 .nav-primary .genesis-nav-menu a {
-	color: #fff;
+    color:#000;
 }
 
 .nav-primary .genesis-nav-menu .sub-menu a {
 	color: #333;
 }
 
-.nav-primary .genesis-nav-menu a:hover,
-.nav-primary .genesis-nav-menu .current-menu-item > a,
+.nav-primary .genesis-nav-menu a:hover, 
+.nav-primary .genesis-nav-menu .current-menu-item > a, 
 .nav-primary .genesis-nav-menu .sub-menu .current-menu-item > a:hover {
-	color: #e5554e;
+	color: #666;
 }
 
 /* ## Secondary Navigation
@@ -1527,16 +1526,6 @@ a.more-link:hover {
 /
 /
 ------------------------------------------------------------------------------------------------------------------------*/
-.nav-primary {
-    background-color:#fff;
-}
-.nav-primary .genesis-nav-menu a {
-    color:#000;
-}
-.nav-primary .genesis-nav-menu a:hover, .nav-primary .genesis-nav-menu .current-menu-item > a, .nav-primary .genesis-nav-menu .sub-menu .current-menu-item > a:hover {
-	color: #666;
-}
-
 
 
 
