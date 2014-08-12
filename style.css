@@ -1350,8 +1350,8 @@ li.comment {
 .woocommerce-page #respond input#submit, 
 .woocommerce-page #content input.button {
 	font-size: 12px;
-	font-size: 1.2rem;
 }
+
 .woocommerce ul.products li.product, 
 .woocommerce-page ul.products li.product {
 	padding: 1%;
@@ -1361,6 +1361,7 @@ li.comment {
 	display: block;
 	clear:both;
 }
+
 .woocommerce ul li {
 	list-style-type: none;
 }
