@@ -7,8 +7,7 @@
 * @link    http://coolestguidesontheplanet.com/
 ************************************************/
 
-add_action('genesis_after_header','genesischild_hero_widget',5);
-//add_action('genesis_after_header','genesischild_optin_widget');
+add_action( 'genesis_after_header','genesischild_hero_widget', 5 );
 
 
 genesis();
