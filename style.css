@@ -861,11 +861,11 @@ img.alignright,
 
 .site-header {
 	background-color: #fff;
-	min-height: 160px;
+	min-height: 120px;
 }
 
 .site-header .wrap {
-	padding: 40px 0;
+	padding: 20px 0;
 }
 
 /* ## Title Area
@@ -1497,7 +1497,9 @@ a.more-link:hover {
 /
 /
 ------------------------------------------------------------------------------------------------------------------------*/
-
+.preheaderright {
+	text-align: right;
+}
 
 
 
@@ -1527,7 +1529,9 @@ a.more-link:hover {
 /
 /
 ------------------------------------------------------------------------------------------------------------------------*/
-
+.nav-primary .genesis-nav-menu a:last-child {
+	padding-right: 0;
+}
 
 
 
