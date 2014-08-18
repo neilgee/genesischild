@@ -1457,6 +1457,9 @@ a.more-link:hover {
 .beforecontent {background-color:coral;}
 .aftercontent {background-color:coral;}*/
 
+.optincontainer, .herocontainer, .home-module-container {
+	padding: 2%;
+}
 
 
 
@@ -1568,7 +1571,11 @@ a.more-link:hover {
 /
 /
 ------------------------------------------------------------------------------------------------------------------------*/
-
+.footerwidgetheader .widget-title {
+	text-align: center;
+	font-size: 30px;
+	margin: 20px auto;
+}
 
 
 

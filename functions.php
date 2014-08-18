@@ -124,6 +124,27 @@ function genesischild_extra_widgets() {
 	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
+	'id'          => 'home-left',
+	'name'        => __( 'Home Left', 'genesischild' ),
+	'description' => __( 'This is the home left area', 'genesischild' ),
+	'before_widget' => '<div class="first one-third homeleft">',
+	'after_widget' => '</div>',
+	) );
+	genesis_register_sidebar( array(
+	'id'          => 'home-middle',
+	'name'        => __( 'Home Middle', 'genesischild' ),
+	'description' => __( 'This is the home middle area', 'genesischild' ),
+	'before_widget' => '<div class="one-third homemiddle">',
+	'after_widget' => '</div>',
+	) );
+	genesis_register_sidebar( array(
+	'id'          => 'home-right',
+	'name'        => __( 'Home Right', 'genesischild' ),
+	'description' => __( 'This is the home right area', 'genesischild' ),
+	'before_widget' => '<div class="one-third homeright">',
+	'after_widget' => '</div>',
+	) );
+	genesis_register_sidebar( array(
 	'id'          => 'before-entry',
 	'name'        => __( 'Before Entry', 'genesischild' ),
 	'description' => __( 'This is the before content area', 'genesischild' ),
@@ -180,6 +201,15 @@ function genesischild_optin_widget() {
 	genesis_widget_area ( 'optin', array(
 	'before' => '<aside class="optincontainer">',
 	'after' => '</aside>',));
+}
+
+//Position the Home Area
+function genesischild_homecontent_widget() {
+	echo '<section class="home-module-container"><div class="wrap">';
+	genesis_widget_area ( 'home-left' );
+	genesis_widget_area ( 'home-middle' );
+	genesis_widget_area ( 'home-right' );
+	echo '</div></section>';
 }
 
 //Position Footer Widget Header

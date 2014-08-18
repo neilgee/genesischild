@@ -12,6 +12,7 @@ add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_c
 
 //Add Hero Widget Just to Front Page
 add_action( 'genesis_after_header','genesischild_hero_widget', 5 );
+add_action( 'genesis_after_header','genesischild_homecontent_widget');
 
 
 //Run Custom Genesis with no inner content
