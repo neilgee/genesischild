@@ -1,3 +1,5 @@
+#GenesisChild
+
 This is a basic starter **Genesis Child Theme** to be used with the **Genesis Framework** on **WordPress**.
 
 This Genesis child theme is declaring support for HTML5, it is responsive and has a number of widgets.
