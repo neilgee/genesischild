@@ -1,15 +1,46 @@
 This is a basic starter **Genesis Child Theme** to be used with the **Genesis Framework** on **WordPress**.
 
-This child theme is declaring support for HTML5, viewport metatag and footer widgets.
+This Genesis child theme is declaring support for HTML5, it is responsive and has a number of widgets.
 
 **Widgetised Areas**
-- The theme contains pre-header left & right, hero, optin, before content, after content, footer widget header, post footer left & right widgetised areas.
-- The Hero Widget is set just for front-page.php, all other widget areas if populated will appear on all pages.
+- The theme contains the following widgets
+* Pre-Header Left
+* Pre-Header Right widgetised areas
+* Header Right
+* Hero - Home Page only *front-page.php*
+* Optin
+* Home Left - Home Page only *front-page.php*
+* Home Middle - Home Page only *front-page.php*
+* Home Right - Home Page only *front-page.php*
+* Before Content *posts only*
+* After Content *posts only*
+* Footer Widget Header
+* Footer Widgets 1, 2, 3
+* Footer
+* Post Footer Left
+* Post Footer Right
+
+**Home Page**
+The Home Page has been widgetised and the default Genesis loop has been removed, so any content entered in the visual editor for the home page will not be displayed.
+
+To reverse this behaviour tweak the **front-page.php** file by commenting line 28:
+```php
+//cgp_genesis_no_content();
+```
+
+and uncommenting line 90:
+```php
+//genesis();
+```
+
+**Example**
+For an online visual:
+https://secure.autopilotyourbusiness.com/genesischild/
 
 **Menus**
 - Primary Menu is positioned in Header Right Widget Hook and set to Primary Location
 - Secondary Menu remains in default area and is Secondary Location
-- SlickNav responsive menu targetted for the Primary Navigation set to toggle at 600px wide - Commented in functions.php and style.css for adjustments
+- SlickNav responsive menu targetted for the Primary Navigation set to toggle at 600px wide - Commented in **functions.php** and **style.css** for adjustments
 
 **Javascripts**
 - FontAwesome is enabled.
