@@ -31,7 +31,7 @@ function genesischild_theme_setup() {
 	add_action( 'genesis_before_loop','genesischild_before_entry_widget' );
 	add_action( 'genesis_before_footer','genesischild_footerwidgetheader', 5 );
 	add_action( 'genesis_footer','genesischild_footer_widget' );
-	add_action( 'genesis_footer','genesischild_postfooter_widget' );		
+	add_action( 'genesis_after_footer','genesischild_postfooter_widget' );		
 	add_action( 'genesis_before_header','genesischild_preheader_widget' );
 	add_action( 'genesis_after_header','genesischild_optin_widget', 9 );
 	add_action( 'genesis_header_right','genesis_do_nav' );

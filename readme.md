@@ -32,7 +32,7 @@ To reverse this behaviour tweak the **front-page.php** file by commenting line 2
 
 and uncommenting line 90:
 ```php
-//genesis();
+genesis();
 ```
 
 **Example**
@@ -70,8 +70,8 @@ Areas are highlighted to show boundaries and full width wraps these colors are c
 
 Download the zip rename the theme '**genesischild**' - place this theme in your WordPress installation **"/wp-content/themes/"** and activate in WordPress Dashboard
 
-![Genesis Child Theme](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesis-markedup1.png)
+![Genesis Child Theme](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesis-markedup2.png)
 
-![Genesis Child Theme Widget Areas](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesischild-widgets.png)
+![Genesis Child Theme Widget Areas](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesischild-widgets1.png)
 
 
