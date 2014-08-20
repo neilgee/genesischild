@@ -38,6 +38,7 @@ and uncommenting line 90:
 **Example**
 For an online visual:
 https://secure.autopilotyourbusiness.com/genesischild/
+Areas are highlighted to show boundaries and full width wraps these colors are commented out in the CSS.
 
 **Menus**
 - Primary Menu is positioned in Header Right Widget Hook and set to Primary Location
