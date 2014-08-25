@@ -45,9 +45,13 @@ Areas are highlighted to show boundaries and full width wraps these colors are c
 - Secondary Menu remains in default area and is Secondary Location
 - SlickNav responsive menu targetted for the Primary Navigation set to toggle at 600px wide - Commented in **functions.php** and **style.css** for adjustments
 
+**Background Image**
+- Background Images is supported, a background image can be uploaded in the WP Dashboard via Appearance > Background, this will scale to fit any viewport via BackstrechJS.
+
 **Javascripts**
 - FontAwesome is enabled.
 - placeholder.js is enabled.
+- backstretch.min.js is enabled (via CDN) if a custom background is used.
 
 **CSS**
 - Regular style.css with all Genesis Framework and placeholders to start new project
