@@ -2,9 +2,9 @@
 
 This is a basic starter **Genesis Child Theme** to be used with the **Genesis Framework** on **WordPress**.
 
-This Genesis child theme is declaring support for HTML5, it is responsive and has a number of widgets.
+This Genesis child theme is declaring support for HTML5, it is responsive and has a number of widgets areas.
 
-**Widgetised Areas**
+###Widgetised Areas
 - The theme contains the following widgets
 * Pre-Header Left
 * Pre-Header Right widgetised areas
@@ -22,7 +22,7 @@ This Genesis child theme is declaring support for HTML5, it is responsive and ha
 * Post Footer Left
 * Post Footer Right
 
-**Home Page**
+###Home Page
 The Home Page has been widgetised and the default Genesis loop has been removed, so any content entered in the visual editor for the home page will not be displayed.
 
 To reverse this behaviour tweak the **front-page.php** file by commenting line 28:
@@ -35,34 +35,37 @@ and uncommenting line 90:
 genesis();
 ```
 
-**Example**
+###Example
 For an online visual:
 https://secure.autopilotyourbusiness.com/genesischild/
 Areas are highlighted to show boundaries and full width wraps these colors are commented out in the CSS.
 
-**Menus**
+###Menus
 - Primary Menu is positioned in Header Right Widget Hook and set to Primary Location
 - Secondary Menu remains in default area and is Secondary Location
 - SlickNav responsive menu targetted for the Primary Navigation set to toggle at 600px wide - Commented in **functions.php** and **style.css** for adjustments
 
-**Background Image**
+###Custom Header
+- Custom Header is supported via Appearance > Header, suggested size is 400x100px
+
+###Background Image
 - Background Images is supported, a background image can be uploaded in the WP Dashboard via Appearance > Background, this will scale to fit any viewport via BackstrechJS.
 
-**Javascripts**
+###Javascripts
 - FontAwesome is enabled.
 - placeholder.js is enabled.
 - backstretch.min.js is enabled (via CDN) if a custom background is used.
 
-**CSS**
+###CSS
 - Regular style.css with all Genesis Framework and placeholders to start new project
 - 2 x IE styles in CSS directory, one targets IE8 and lower, the other IE9 and lower
 
-**WooCommerce**
+###WooCommerce
 - WooCommerce style sheet set to load before main style sheet
 - Some generic CSS styles declared in styles.css
 - WooCommerce theme support declared as an action in functions.php but commented out
 
-**Miscellaneous**
+###Miscellaneous
 - PHP is enabled to execute in widget areas
 - Shortcode enabled in widget areas
 - 'Read More' link is enabled on post excerpts
