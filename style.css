@@ -874,7 +874,7 @@ img.alignright,
 .title-area {
 	float: left;
 	padding: 10px 0;
-	width: 360px;
+	width: 400px;
 }
 
 .header-full-width .title-area {
@@ -893,9 +893,8 @@ img.alignright,
 }
 
 .header-image .site-title > a {
-	background: url(images/logo.png) no-repeat left;
 	float: left;
-	min-height: 60px;
+	min-height: 100px;
 	width: 100%;
 }
 

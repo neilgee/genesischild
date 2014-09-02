@@ -17,6 +17,15 @@ function genesischild_theme_setup() {
 	add_theme_support( 'genesis-responsive-viewport' );
 	add_theme_support( 'genesis-footer-widgets', 3 );
 	add_theme_support( 'custom-background' );
+	//* Add support for custom header
+	add_theme_support( 'custom-header', array(
+		'flex-width'      => true,
+		'width'           => 400,
+		'flex-height'     => true,
+		'height'          => 150,
+		'header-selector' => '.header-image .site-title > a',
+		'header-text'     => false,
+	) );
 	add_theme_support( 'genesis-after-entry-widget-area' );
 	//add_theme_support( 'genesis-connect-woocommerce' ); //Uncomment if using woocommerce
 	
@@ -46,22 +55,25 @@ function genesischild_theme_setup() {
 	add_filter( 'comment_form_defaults', 'genesischild_remove_comment_form_allowed_tags' );
 	add_filter( 'genesis_post_info', 'genesischild_post_info' );
 	add_filter( 'theme_page_templates', 'genesis_remove_blog_archive' );
-	add_filter( 'genesis_do_nav','themeprefix_modify_genesis_do_nav', 10, 3 );			
+	add_filter( 'genesis_do_nav','themeprefix_modify_genesis_do_nav', 10, 3 );	
+	//add_action( 'widgets_init', 'remove_some_widgets' );
+
 }
 
+//Remove Unwanted Widgts
+function remove_some_widgets(){
+	//Example below, to action these uncomment the add_action above
+	unregister_sidebar( 'header-right' );	
+}
 
 
 //Child Theme Functions Go Here
 
-//Script-tac-ulous -> All the Scripts and Styles Registered and Enqueued, scripts first - then styles
+//Script-tac-ulous -> All the Scripts and Styles Enqueued, scripts first - then styles
 function genesischild_scripts_styles() {
-	wp_register_script ( 'placeholder' , get_stylesheet_directory_uri() . '/js/placeholder.js', array( 'jquery' ), '1', true );
-	wp_register_style ( 'googlefonts' , '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800', '', '2', 'all' );
-	wp_register_style ( 'fontawesome' , '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css', '' , '4.1.0', 'all' );
-	
-	wp_enqueue_script( 'placeholder' );//version 3.0.2
-	wp_enqueue_style( 'googlefonts' );
-	wp_enqueue_style( 'fontawesome' );
+	wp_enqueue_script ( 'placeholder' , get_stylesheet_directory_uri() . '/js/placeholder.js', array( 'jquery' ), '1', true );
+	wp_enqueue_style ( 'googlefonts' , '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800', '', '2', 'all' );
+	wp_enqueue_style ( 'fontawesome' , '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css', '' , '4.1.0', 'all' );
 	//wp_enqueue_style( 'dashicons' ); //Uncomment if DashIcons required in front end
 }
 
@@ -80,13 +92,9 @@ function genesischild_ie_styles() {
 //Ref - https://github.com/ComputerWolf/SlickNav
 function genesischild_responsive_scripts() {
 
-		wp_register_style ( 'slicknavcss', '//cdn.jsdelivr.net/jquery.slicknav/0.1/slicknav.css','', '1', 'all' );
-		wp_register_script ( 'slicknav', '//cdn.jsdelivr.net/jquery.slicknav/0.1/jquery.slicknav.min.js', array( 'jquery' ), '1',true );
-		wp_register_script ( 'slicknav-initialise', get_stylesheet_directory_uri() . '/js/slicknav-initialise.js', array( 'jquery', 'slicknav' ), '1', true );
-		
-		wp_enqueue_style( 'slicknavcss' );
-		wp_enqueue_script( 'slicknav' );
-		wp_enqueue_script( 'slicknav-initialise' );
+		wp_enqueue_style ( 'slicknavcss', '//cdn.jsdelivr.net/jquery.slicknav/0.1/slicknav.css','', '1', 'all' );
+		wp_enqueue_script ( 'slicknav', '//cdn.jsdelivr.net/jquery.slicknav/0.1/jquery.slicknav.min.js', array( 'jquery' ), '1',true );
+		wp_enqueue_script ( 'slicknav-initialise', get_stylesheet_directory_uri() . '/js/slicknav-initialise.js', array( 'jquery', 'slicknav' ), '1', true );
 }
 
 //Backstretch for Custom Background Image
