@@ -1645,20 +1645,6 @@ a.more-link:hover {
 	display:none;
 }
 
-@media screen and (max-width:600px) {
-	/* .menu-primary is the original menu */
-	.menu-primary {
-		display:none;
-	}
-	
-	.slicknav_menu {
-		display:block;
-	}
-}
-
-
-
-
 
 
 /* # Media Queries
@@ -1815,4 +1801,15 @@ a.more-link:hover {
 		padding: 40px;
 	}
 
+}
+
+@media screen and (max-width:600px) {
+	/* .menu-primary is the original menu */
+	.menu-primary {
+		display:none;
+	}
+	
+	.slicknav_menu {
+		display:block;
+	}
 }
