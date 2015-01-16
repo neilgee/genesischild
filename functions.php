@@ -144,21 +144,21 @@ function genesischild_extra_widgets() {
 	'id'          => 'home-left',
 	'name'        => __( 'Home Left', 'genesischild' ),
 	'description' => __( 'This is the home left area', 'genesischild' ),
-	'before_widget' => '<div class="first one-third homeleft">',
+	'before_widget' => '<div class="widget">',
 	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'          => 'home-middle',
 	'name'        => __( 'Home Middle', 'genesischild' ),
 	'description' => __( 'This is the home middle area', 'genesischild' ),
-	'before_widget' => '<div class="one-third homemiddle">',
+	'before_widget' => '<div class="widget">',
 	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'          => 'home-right',
 	'name'        => __( 'Home Right', 'genesischild' ),
 	'description' => __( 'This is the home right area', 'genesischild' ),
-	'before_widget' => '<div class="one-third homeright">',
+	'before_widget' => '<div class="widget">',
 	'after_widget' => '</div>',
 	) );
 	genesis_register_sidebar( array(
@@ -223,9 +223,15 @@ function genesischild_optin_widget() {
 //Position the Home Area
 function genesischild_homecontent_widget() {
 	echo '<section class="home-module-container"><div class="wrap">';
-	genesis_widget_area ( 'home-left' );
-	genesis_widget_area ( 'home-middle' );
-	genesis_widget_area ( 'home-right' );
+	genesis_widget_area ( 'home-left', array(
+	'before' => '<div class="first one-third homeleft">',
+	'after' => '</div>',));
+	genesis_widget_area ( 'home-middle', array(
+	'before' => '<div class="one-third homemiddle">',
+	'after' => '</div>',));
+	genesis_widget_area ( 'home-right', array(
+	'before' => '<div class="one-third homeright">',
+	'after' => '</div>',));
 	echo '</div></section>';
 }
 
