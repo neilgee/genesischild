@@ -15,7 +15,7 @@ add_action( 'genesis_after_header','genesischild_hero_widget', 5 );
 add_action( 'genesis_after_header','genesischild_homecontent_widget');
 
 
-//Run Custom Genesis with no inner content
+// Run Custom Genesis with no inner content
 /**
  * Remove Inner Home Page Content on a Genesis Theme
  *
@@ -32,7 +32,7 @@ function cgp_genesis_no_content() {
 	cgp_genesis_footer();
 }
 
-//Customised Genesis Header
+// Customised Genesis Header
 function cgp_genesis_header() {
 	do_action( 'genesis_doctype' );
 	do_action( 'genesis_title' );
@@ -67,7 +67,7 @@ function cgp_genesis_header() {
 	//genesis_structural_wrap( 'site-inner' );
 }
 
-//Customised Genesis Footer
+// Customised Genesis Footer
 function cgp_genesis_footer() {
 	//genesis_structural_wrap( 'site-inner', 'close' );
 	//echo '</div>'; //* end .site-inner or #inner
@@ -87,4 +87,4 @@ function cgp_genesis_footer() {
 	}
 
 
-//genesis();
+// genesis();
