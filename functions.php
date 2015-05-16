@@ -8,11 +8,10 @@
 ************************************************/
 
 // Start the engine the other way around - set up child after parent - add in theme supports, actions and filters
-
 add_action( 'genesis_setup', 'genesischild_theme_setup' );
 
 function genesischild_theme_setup() { 
-		
+	//Load in theme supports	
 	add_theme_support( 'html5' );
 	add_theme_support( 'genesis-responsive-viewport' );
 	add_theme_support( 'genesis-footer-widgets', 3 );
@@ -26,16 +25,20 @@ function genesischild_theme_setup() {
 		'header-text'     => false,
 	) );
 	add_theme_support( 'genesis-after-entry-widget-area' );
+	add_theme_support( 'genesis-structural-wraps', array( 'header', 'menu-secondary', 'footer-widgets', 'footer' ) );
+
+	//If using WooCommerce uncomment the theme support below
 	//add_theme_support( 'genesis-connect-woocommerce' ); //Uncomment if using woocommerce
 	
 	
-	
+	//Load and order scripts in the head
 	remove_action( 'genesis_meta', 'genesis_load_stylesheet' );//Remove order of main style sheet
 	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 998 ); //Order main style sheet 2nd last
 	add_action( 'wp_enqueue_scripts', 'genesischild_ie_styles', 999 );	//IE conditional styles load last
 	add_action( 'wp_enqueue_scripts', 'genesischild_scripts_styles', 997 ); //All the rest load before
 	add_action( 'wp_enqueue_scripts', 'backstretch_background_scripts' );
-	add_action( 'wp_enqueue_scripts', 'genesischild_responsive_scripts' );
+
+	//Register extra widget areas
 	add_action( 'widgets_init', 'genesischild_extra_widgets' );	
 	add_action( 'genesis_before_loop','genesischild_before_entry_widget' );
 	add_action( 'genesis_before_footer','genesischild_footerwidgetheader', 5 );
@@ -44,20 +47,33 @@ function genesischild_theme_setup() {
 	add_action( 'genesis_after_footer','genesischild_postfooter_widget' );		
 	add_action( 'genesis_before_header','genesischild_preheader_widget' );
 	add_action( 'genesis_after_header','genesischild_optin_widget', 9 );
+
+
+	//Re-arrange header nav
 	remove_action( 'genesis_after_header','genesis_do_nav' );
 	add_action( 'genesis_header_right','genesis_do_nav' );
-	//add_action( 'genesis_before', 'likebox_facebook_script' ); //Uncomment if using facebook likebox function below
-	//add_action( 'widgets_init', 'wpb_remove_some_widgets' );//Uncomment and unregister widget areas in function below
-	
+
+	//Allow shortcode in widgets
 	add_filter( 'widget_text', 'do_shortcode' );	
-	add_filter( 'widget_text','genesis_execute_php_widgets' );	
+
+	//Allow PHP in widgets
+	add_filter( 'widget_text','genesis_execute_php_widgets' );
+
+	//Change the excerpt reqd more	
 	add_filter( 'excerpt_more', 'genesischild_read_more_link' );
+
+	//Remove comment HTML tags
 	add_filter( 'comment_form_defaults', 'genesischild_comment_form_defaults' );
 	add_filter( 'comment_form_defaults', 'genesischild_remove_comment_form_allowed_tags' );
+
+	//Post info change
 	add_filter( 'genesis_post_info', 'genesischild_post_info' );
+
+	//Remove Genesis blog page
 	add_filter( 'theme_page_templates', 'genesis_remove_blog_archive' );
-	add_filter( 'genesis_do_nav','themeprefix_modify_genesis_do_nav', 10, 3 );	
-	
+
+	//Uncomment and unregister widget areas in function below
+	//add_action( 'widgets_init', 'wpb_remove_some_widgets' );
 
 }
 
@@ -89,14 +105,7 @@ function genesischild_ie_styles() {
 	wp_enqueue_style( 'ieall' );
 }
 
-//Responsive Nav - adjust target currently set to .menu-primary and location currently set appear just after body tag - adjust to suit needs
-//Ref - https://github.com/ComputerWolf/SlickNav
-function genesischild_responsive_scripts() {
 
-		wp_enqueue_style ( 'slicknavcss', '//cdn.jsdelivr.net/jquery.slicknav/1.0.1/slicknav.css','', '1', 'all' );
-		wp_enqueue_script ( 'slicknav', '//cdn.jsdelivr.net/jquery.slicknav/1.0.1/jquery.slicknav.min.js', array( 'jquery' ), '1',true );
-		wp_enqueue_script ( 'slicknav-initialise', get_stylesheet_directory_uri() . '/js/slicknav-initialise.js', array( 'jquery', 'slicknav' ), '1', true );
-}
 
 //Backstretch for Custom Background Image
  function backstretch_background_scripts() {
@@ -260,43 +269,10 @@ function genesischild_postfooter_widget() {
 //Position the Before Content Area
 function genesischild_before_entry_widget() {
 	if( is_single() ) {
-	genesis_widget_area ( 'before-entry' );
+		genesis_widget_area ( 'before-entry' );
 	}
 }
 	
-//Move Primary Navigation to Header Right without wrap
-function themeprefix_modify_genesis_do_nav( $nav_output, $nav, $args ) {
-	
-	$class = 'menu genesis-nav-menu menu-primary';
-	if ( genesis_superfish_enabled() )
-		$class .= ' js-superfish';
-			
-	$args = array(
-		'theme_location' => 'primary',
-		'container'      => '',
-		'menu_class'     => $class,
-		'echo'           => 0,
-	);
- 
-	$nav = wp_nav_menu( $args );
- 
-	//* Do nothing if there is nothing to show
-	if ( ! $nav )
-		return;
- 
-	$nav_markup_open = genesis_markup( array(
-		'html5'   => '<nav %s id="primary-nav">',
-		'xhtml'   => '<div id="nav">',
-		'context' => 'nav-primary',
-		'echo'    => false,
-	) );
- 
-	$nav_markup_close .= genesis_html5() ? '</nav>' : '</div>';
-	$nav_output = $nav_markup_open . $nav . $nav_markup_close;
-	
-	// return the modified result
-	 return sprintf( $nav_output, $nav, $args );
-}
 
 // Remove Genesis Blog & Archive
 function genesis_remove_blog_archive( $templates ) {
@@ -340,8 +316,3 @@ function genesischild_remove_comment_form_allowed_tags( $defaults ) {
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
 }
-
-/*Function for Facebook HTML5 Script needs to go after body - escape all inner double quotes or use alternate single quotes
-function likebox_facebook_script () {
-echo "";
-}*/

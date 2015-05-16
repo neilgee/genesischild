@@ -1390,7 +1390,6 @@ li.comment {
 .woocommerce-page div.product div.images img,
 .woocommerce-page #content div.product div.images img {
 	width: auto;
-	float:right;
 }
 
 .woocommerce ul.products li.product a img,
@@ -1408,6 +1407,22 @@ li.comment {
 .woocommerce-page .upsells.products ul.products li.product {
 	padding: 4%;
 }
+
+.woocommerce-cart table.cart input {
+	padding: 8px;
+}
+
+.woocommerce .quantity .qty {
+	padding: 8px;
+	font-size: 16px;
+}
+
+.woocommerce form .form-row input.input-text, 
+.woocommerce form .form-row textarea {
+	padding: 10px;
+	font-size: 16px;
+}
+
 /* Read More */
 
 
