@@ -23,16 +23,17 @@ This Genesis child theme is declaring support for HTML5, it is responsive and ha
 * Post Footer Right
 
 ###Home Page
-The Home Page has been widgetised and the default Genesis loop has been removed, so any content entered in the visual editor for the home page will not be displayed.
+The Home Page has been widgetised and the default Genesis loop can be removed.
 
-To reverse this behaviour tweak the **front-page.php** file by commenting line 28:
+
+To remove the Genesis home page loop tweak the **front-page.php** file by uncommenting line 28:
 ```php
-//cgp_genesis_no_content();
+cgp_genesis_no_content();
 ```
 
-and uncommenting line 90:
+and commenting line 90:
 ```php
-genesis();
+//genesis();
 ```
 
 ###Example

@@ -4,7 +4,7 @@
 * @package genesischild
 * @author  NeilGee
 * @license GPL-2.0+
-* @link    http://coolestguidesontheplanet.com/
+* @link    http://wpbeaches.com/
 ************************************************/
 
 // Force full-width-content layout setting
@@ -21,11 +21,11 @@ add_action( 'genesis_after_header','genesischild_homecontent_widget');
  *
  * @package   Genesis Custom Front Page - No Inner Content
  * @author    Neil Gee
- * @link      http://coolestguidesontheplanet.com/
+ * @link      http://wpbeaches.com/
  * @copyright (c)2014, Neil Gee
  */
  
-cgp_genesis_no_content();
+//cgp_genesis_no_content();
 
 function cgp_genesis_no_content() {
 	cgp_genesis_header();
@@ -87,4 +87,4 @@ function cgp_genesis_footer() {
 	}
 
 
-// genesis();
+genesis();
