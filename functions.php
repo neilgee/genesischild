@@ -7,7 +7,7 @@
 * @link    http://wpbeaches.com/
 ************************************************/
 
-//Menu Plugin - https://wordpress.org/plugins/slicknav-mobile-menu/
+//Menu Plugin - This is what I am using for my mobile menu - https://wordpress.org/plugins/slicknav-mobile-menu/
 
 // Start the engine the other way around - set up child after parent - add in theme supports, actions and filters
 add_action( 'genesis_setup', 'genesischild_theme_setup' );

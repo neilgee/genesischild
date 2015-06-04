@@ -1655,18 +1655,6 @@ a.more-link:hover {
 
 
 
-
-/*----------------------------------------------Slick Navs Responsive Mobile Menu------------------------------------------*
-/ Menu set to swap to Mobile version at 600px - Adjust px to suit
-/ .menu-primary class name targetted if target is different adjust to suit
-------------------------------------------------------------------------------------------------------------------------*/
-
-.slicknav_menu {
-	display:none;
-}
-
-
-
 /* # Media Queries
 ---------------------------------------------------------------------------------------------------- */
 
@@ -1821,15 +1809,4 @@ a.more-link:hover {
 		padding: 40px;
 	}
 
-}
-
-@media screen and (max-width:600px) {
-	/* .menu-primary is the original menu */
-	.menu-primary {
-		display:none;
-	}
-	
-	.slicknav_menu {
-		display:block;
-	}
 }
