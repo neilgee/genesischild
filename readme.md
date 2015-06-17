@@ -2,6 +2,8 @@
 
 This is a basic starter **Genesis Child Theme** to be used with the **Genesis Framework** on **WordPress**.
 
+There is a Mobile First version of this starter theme - https://github.com/neilgee/genesischild-mobile-first
+
 This Genesis child theme is declaring support for HTML5, it is responsive and has a number of widgets areas.
 
 ###Widgetised Areas
@@ -44,7 +46,7 @@ Areas are highlighted to show boundaries and full width wraps these colors are c
 ###Menus
 - Primary Menu is positioned in Header Right Widget Hook and set to Primary Location
 - Secondary Menu remains in default area and is Secondary Location
-- SlickNav responsive menu targetted for the Primary Navigation set to toggle at 600px wide - Commented in **functions.php** and **style.css** for adjustments
+
 
 ###Custom Header
 - Custom Header is supported via Appearance > Header, suggested size is 400x100px
@@ -72,7 +74,6 @@ Areas are highlighted to show boundaries and full width wraps these colors are c
 - 'Read More' link is enabled on post excerpts
 - Comments header changed to 'Leave a Comment'
 - HTML Tags and Attributes is removed from comments
-- Facebook HTML5 function and action are declared in functions.php but commented out
 - The font 'Open Sans' is enqueued from Google Fonts in functions.php
 - Author name removed in Post Meta for posts
 
