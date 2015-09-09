@@ -74,10 +74,15 @@ function genesischild_theme_setup() {
 	//Remove Genesis blog page
 	add_filter( 'theme_page_templates', 'genesis_remove_blog_archive' );
 
+
 	//Uncomment and unregister widget areas in function below
 	//add_action( 'widgets_init', 'wpb_remove_some_widgets' );
 
+	load_theme_textdomain('genesischild', get_stylesheet_directory_uri() . '/languages');
+
 }
+
+
 
 //Remove Unwanted Widgts
 function wpb_remove_some_widgets(){
@@ -283,6 +288,7 @@ function genesis_remove_blog_archive( $templates ) {
 	return $templates;
 }
 
+
 //Allow PHP to run in Widgets
 function genesis_execute_php_widgets( $html ) {
 	if ( strpos( $html, "<" . "?php" ) !==false ) {
@@ -309,7 +315,7 @@ function genesischild_post_info( $post_info ) {
 
 //Change the comments header
 function genesischild_comment_form_defaults( $defaults ) {
-	$defaults['title_reply'] = __( 'Leave a Comment' );
+	$defaults['title_reply'] = __( 'Leave a Comment', 'genesischild' );
 	return $defaults;
 }
 

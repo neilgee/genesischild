@@ -1,0 +1,114 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2015-09-09 19:02+1000\n"
+"PO-Revision-Date: 2015-09-09 19:06+1000\n"
+"Last-Translator: Neil Gee <ngowran@mac.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: functions.php:133
+msgid "PreHeaderLeft"
+msgstr ""
+
+#: functions.php:134
+msgid "This is the preheader left area"
+msgstr ""
+
+#: functions.php:140
+msgid "PreHeaderRight"
+msgstr ""
+
+#: functions.php:141
+msgid "This is the preheader right area"
+msgstr ""
+
+#: functions.php:147
+msgid "Hero Home Page"
+msgstr ""
+
+#: functions.php:148
+msgid "This is the Hero Home Page area"
+msgstr ""
+
+#: functions.php:154
+msgid "Optin"
+msgstr ""
+
+#: functions.php:155
+msgid "This is the optin area"
+msgstr ""
+
+#: functions.php:161
+msgid "Home Left"
+msgstr ""
+
+#: functions.php:162
+msgid "This is the home left area"
+msgstr ""
+
+#: functions.php:168
+msgid "Home Middle"
+msgstr ""
+
+#: functions.php:169
+msgid "This is the home middle area"
+msgstr ""
+
+#: functions.php:175
+msgid "Home Right"
+msgstr ""
+
+#: functions.php:176
+msgid "This is the home right area"
+msgstr ""
+
+#: functions.php:182
+msgid "Before Entry"
+msgstr ""
+
+#: functions.php:183
+msgid "This is the before content area"
+msgstr ""
+
+#: functions.php:189
+msgid "Footer Widget Header"
+msgstr ""
+
+#: functions.php:190
+msgid "This is for the Footer Widget Headline"
+msgstr ""
+
+#: functions.php:196
+msgid "Footer"
+msgstr ""
+
+#: functions.php:197
+msgid "This is the general footer area"
+msgstr ""
+
+#: functions.php:203
+msgid "Post Footer Left"
+msgstr ""
+
+#: functions.php:204
+msgid "This is the post footer left area"
+msgstr ""
+
+#: functions.php:210
+msgid "Post Footer Right"
+msgstr ""
+
+#: functions.php:211
+msgid "This is the post footer right area"
+msgstr ""
+
+#: functions.php:318
+msgid "Leave a Comment"
+msgstr "发表评论"
