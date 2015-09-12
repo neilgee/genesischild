@@ -18,12 +18,12 @@ function genesischild_theme_setup() {
 	add_theme_support( 'genesis-responsive-viewport' );
 	add_theme_support( 'genesis-footer-widgets', 3 );
 	add_theme_support( 'custom-background' );
+	remove_action( 'wp_head', 'genesis_custom_header_style');
 	add_theme_support( 'custom-header', array(
 		'flex-width'      => true,
 		'width'           => 400,
 		'flex-height'     => true,
 		'height'          => 150,
-		'header-selector' => '.header-image .site-title > a',
 		'header-text'     => false,
 	) );
 	add_theme_support( 'genesis-after-entry-widget-area' );
@@ -38,7 +38,7 @@ function genesischild_theme_setup() {
 	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 998 ); //Order main style sheet 2nd last
 	add_action( 'wp_enqueue_scripts', 'genesischild_ie_styles', 999 );	//IE conditional styles load last
 	add_action( 'wp_enqueue_scripts', 'genesischild_scripts_styles', 997 ); //All the rest load before
-	add_action( 'wp_enqueue_scripts', 'backstretch_background_scripts' );
+	add_action( 'wp_enqueue_scripts', 'genesischild_backstretch_background_scripts' );
 
 	//Register extra widget areas
 	add_action( 'widgets_init', 'genesischild_extra_widgets' );	
@@ -49,6 +49,7 @@ function genesischild_theme_setup() {
 	add_action( 'genesis_after_footer','genesischild_postfooter_widget' );		
 	add_action( 'genesis_before_header','genesischild_preheader_widget' );
 	add_action( 'genesis_after_header','genesischild_optin_widget', 9 );
+	add_action( 'genesis_site_title','genesischild_swap_header', 5 );
 
 
 	//Re-arrange header nav
@@ -59,7 +60,7 @@ function genesischild_theme_setup() {
 	add_filter( 'widget_text', 'do_shortcode' );	
 
 	//Allow PHP in widgets
-	add_filter( 'widget_text','genesis_execute_php_widgets' );
+	add_filter( 'widget_text','genesischild_execute_php_widgets' );
 
 	//Change the excerpt reqd more	
 	add_filter( 'excerpt_more', 'genesischild_read_more_link' );
@@ -74,18 +75,20 @@ function genesischild_theme_setup() {
 	//Remove Genesis blog page
 	add_filter( 'theme_page_templates', 'genesis_remove_blog_archive' );
 
+	//Allow svg images
+	add_filter('upload_mimes', 'genesischild_add_svg_images');
+
 
 	//Uncomment and unregister widget areas in function below
-	//add_action( 'widgets_init', 'wpb_remove_some_widgets' );
+	//add_action( 'widgets_init', 'genesischild_remove_some_widgets' );
 
 	load_theme_textdomain('genesischild', get_stylesheet_directory_uri() . '/languages');
-
 }
 
 
 
 //Remove Unwanted Widgts
-function wpb_remove_some_widgets(){
+function genesischild_remove_some_widgets(){
 	//Example below, to action these uncomment the add_action above
 	unregister_sidebar( 'header-right' );	
 }
@@ -115,7 +118,7 @@ function genesischild_ie_styles() {
 
 
 //Backstretch for Custom Background Image
- function backstretch_background_scripts() {
+ function genesischild_backstretch_background_scripts() {
 	//* Load scripts only if custom background is being used
 	if ( ! get_background_image() )
 		return;
@@ -282,7 +285,7 @@ function genesischild_before_entry_widget() {
 	
 
 // Remove Genesis Blog & Archive
-function genesis_remove_blog_archive( $templates ) {
+function genesischild_remove_blog_archive( $templates ) {
 	unset( $templates['page_blog.php'] );
 	unset( $templates['page_archive.php'] );
 	return $templates;
@@ -290,7 +293,7 @@ function genesis_remove_blog_archive( $templates ) {
 
 
 //Allow PHP to run in Widgets
-function genesis_execute_php_widgets( $html ) {
+function genesischild_execute_php_widgets( $html ) {
 	if ( strpos( $html, "<" . "?php" ) !==false ) {
 	ob_start();
 	eval( "?".">".$html );
@@ -324,3 +327,20 @@ function genesischild_remove_comment_form_allowed_tags( $defaults ) {
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
 }
+//Set header logo as HTML image, upload in Customiser
+function genesischild_swap_header() {
+?>
+	<?php if ( get_header_image() ) : ?>
+	<a title="what put me here" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+		<img  src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php esc_attr( get_bloginfo( 'name' ) ); ?>">
+	</a>
+	<?php endif; // End header image check. ?>
+<?php
+}
+
+
+//Allow SVG Images Via Media Uploader 
+function genesischild_add_svg_images($mimetypes) { 
+	$mimetypes['svg'] = 'image/svg+xml'; 
+	return $mimetypes; 
+} 
