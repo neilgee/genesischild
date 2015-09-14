@@ -891,12 +891,6 @@ img.alignright,
 	color: #333;
 }
 
-.header-image .site-title > a {
-	float: left;
-	min-height: 150px;
-	width: 100%;
-}
-
 .site-description {
 	font-size: 16px;
 	font-weight: 300;
