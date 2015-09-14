@@ -902,8 +902,8 @@ img.alignright,
 	margin-bottom: 0;
 }
 
-.header-image .site-description,
-.header-image .site-title {
+.header-image .site-description/*,
+.header-image .site-title*/ {
 	display: block;
 	text-indent: -9999px;
 }

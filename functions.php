@@ -49,7 +49,9 @@ function genesischild_theme_setup() {
 	add_action( 'genesis_after_footer','genesischild_postfooter_widget' );		
 	add_action( 'genesis_before_header','genesischild_preheader_widget' );
 	add_action( 'genesis_after_header','genesischild_optin_widget', 9 );
-	add_action( 'genesis_site_title','genesischild_swap_header', 5 );
+	
+	//Add Custom Header HTML image
+	add_filter( 'genesis_seo_title','genesischild_swap_header', 10, 3 );
 
 
 	//Re-arrange header nav
@@ -327,15 +329,24 @@ function genesischild_remove_comment_form_allowed_tags( $defaults ) {
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
 }
-//Set header logo as HTML image, upload in Customiser
-function genesischild_swap_header() {
-?>
-	<?php if ( get_header_image() ) : ?>
-	<a title="what put me here" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-		<img  src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php esc_attr( get_bloginfo( 'name' ) ); ?>">
-	</a>
-	<?php endif; // End header image check. ?>
-<?php
+
+//Add an image tag in the site title element for the main logo
+function genesischild_swap_header($title, $inside, $wrap) {
+//* Set what goes inside the wrapping tags
+	if ( get_header_image() ) :
+$logo = '<img  src="' . get_header_image() . '" width="' . esc_attr( get_custom_header()->width ) . '" height="' . esc_attr( get_custom_header()->height ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
+	else:
+$logo =  get_bloginfo('name');
+	endif; 
+ $inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $logo );
+ //* Determine which wrapping tags to use - changed is_home to is_front_page to fix Genesis bug
+ $wrap = is_front_page() && 'title' === genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : 'p';
+ //* A little fallback, in case an SEO plugin is active - changed is_home to is_front_page to fix Genesis bug
+ $wrap = is_front_page() && ! genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : $wrap;
+ //* And finally, $wrap in h1 if HTML5 & semantic headings enabled
+ $wrap = genesis_html5() && genesis_get_seo_option( 'semantic_headings' ) ? 'h1' : $wrap;
+ return sprintf( '<%1$s %2$s>%3$s</%1$s>', $wrap, genesis_attr( 'site-title' ), $inside );
+
 }
 
 
