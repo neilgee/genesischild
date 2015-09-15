@@ -100,9 +100,11 @@ function genesischild_remove_some_widgets(){
 
 //Script-tac-ulous -> All the Scripts and Styles Enqueued, scripts first - then styles
 function genesischild_scripts_styles() {
+	wp_enqueue_script( 'svgeezy', get_stylesheet_directory_uri() . '/js/svgeezy.min.js', array(), '1.0.0', true );
+ 	wp_enqueue_script( 'svgeezy-init', get_stylesheet_directory_uri() . '/js/svgeezy-init.js', array('svgeezy'), '1.0.0', true );
 	wp_enqueue_script ( 'placeholder' , get_stylesheet_directory_uri() . '/js/placeholder.js', array( 'jquery' ), '1', true );
 	wp_enqueue_style ( 'googlefonts' , '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800', '', '2', 'all' );
-	wp_enqueue_style ( 'fontawesome' , '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', '' , '4.3.0', 'all' );
+	wp_enqueue_style ( 'fontawesome' , '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', '' , '4.3.0', 'all' );
 	//wp_enqueue_style( 'dashicons' ); //Uncomment if DashIcons required in front end
 }
 
