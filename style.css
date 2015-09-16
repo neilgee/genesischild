@@ -344,7 +344,11 @@ input:focus,
 textarea:focus {
 	border: 1px solid #999;
 	outline: none;
+	outline-color: #5B9DD9;
+    outline-style: auto;
+    outline-width: 5px;
 }
+
 
 input[type="checkbox"],
 input[type="image"],
@@ -955,7 +959,7 @@ img.alignright,
 	-o-transition:      opacity .4s ease-in-out;
 	transition:         opacity .4s ease-in-out;
 	width: 200px;
-	z-index: 99;
+	z-index: 99999;
 }
 
 .genesis-nav-menu .sub-menu a {
