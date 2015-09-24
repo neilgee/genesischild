@@ -75,7 +75,7 @@ function genesischild_theme_setup() {
 	add_filter( 'genesis_post_info', 'genesischild_post_info' );
 
 	//Remove Genesis blog page
-	add_filter( 'theme_page_templates', 'genesis_remove_blog_archive' );
+	add_filter( 'theme_page_templates', 'genesischild_remove_blog_archive' );
 
 	//Allow svg images
 	add_filter('upload_mimes', 'genesischild_add_svg_images');
