@@ -21,13 +21,14 @@ function genesischild_theme_setup() {
 	remove_action( 'wp_head', 'genesis_custom_header_style');
 	add_theme_support( 'custom-header', array(
 		'flex-width'      => true,
-		'width'           => 400,
 		'flex-height'     => true,
+		'width'           => 400,
 		'height'          => 150,
 		'header-text'     => false,
 	) );
 	add_theme_support( 'genesis-after-entry-widget-area' );
-	add_theme_support( 'genesis-structural-wraps', array( 'header', 'menu-secondary', 'footer-widgets', 'footer' ) );
+	add_theme_support( 'genesis-structural-wraps', array( 'site-inner', 'header', 'menu-secondary', 'footer-widgets', 'footer' ) );
+
 
 	//If using WooCommerce uncomment the theme support below
 	//add_theme_support( 'genesis-connect-woocommerce' ); //Uncomment if using woocommerce
@@ -48,7 +49,6 @@ function genesischild_theme_setup() {
 	add_action( 'genesis_footer','genesischild_footer_widget' );
 	add_action( 'genesis_after_footer','genesischild_postfooter_widget' );		
 	add_action( 'genesis_before_header','genesischild_preheader_widget' );
-	add_action( 'genesis_after_header','genesischild_optin_widget', 9 );
 	
 	//Add Custom Header HTML image
 	add_filter( 'genesis_seo_title','genesischild_swap_header', 10, 3 );
@@ -136,88 +136,88 @@ function genesischild_ie_styles() {
 //Register new Widget areas
 function genesischild_extra_widgets() {	
 	genesis_register_sidebar( array(
-	'id'          => 'preheaderleft',
-	'name'        => __( 'PreHeaderLeft', 'genesischild' ),
-	'description' => __( 'This is the preheader left area', 'genesischild' ),
+	'id'            => 'preheaderleft',
+	'name'          => __( 'PreHeaderLeft', 'genesischild' ),
+	'description'   => __( 'This is the preheader left area', 'genesischild' ),
 	'before_widget' => '<div class="first one-half preheaderleft">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'preheaderright',
-	'name'        => __( 'PreHeaderRight', 'genesischild' ),
-	'description' => __( 'This is the preheader right area', 'genesischild' ),
+	'id'            => 'preheaderright',
+	'name'          => __( 'PreHeaderRight', 'genesischild' ),
+	'description'   => __( 'This is the preheader right area', 'genesischild' ),
 	'before_widget' => '<div class="one-half preheaderright">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'hero',
-	'name'        => __( 'Hero Home Page', 'genesischild' ),
-	'description' => __( 'This is the Hero Home Page area', 'genesischild' ),
+	'id'            => 'hero',
+	'name'          => __( 'Hero Home Page', 'genesischild' ),
+	'description'   => __( 'This is the Hero Home Page area', 'genesischild' ),
 	'before_widget' => '<div class="wrap hero">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'optin',
-	'name'        => __( 'Optin', 'genesischild' ),
-	'description' => __( 'This is the optin area', 'genesischild' ),
+	'id'            => 'optin',
+	'name'          => __( 'Optin', 'genesischild' ),
+	'description'   => __( 'This is the optin area', 'genesischild' ),
 	'before_widget' => '<div class="wrap optin">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'home-left',
-	'name'        => __( 'Home Left', 'genesischild' ),
-	'description' => __( 'This is the home left area', 'genesischild' ),
+	'id'            => 'home-left',
+	'name'          => __( 'Home Left', 'genesischild' ),
+	'description'   => __( 'This is the home left area', 'genesischild' ),
 	'before_widget' => '<div class="widget">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'home-middle',
-	'name'        => __( 'Home Middle', 'genesischild' ),
-	'description' => __( 'This is the home middle area', 'genesischild' ),
+	'id'            => 'home-middle',
+	'name'          => __( 'Home Middle', 'genesischild' ),
+	'description'   => __( 'This is the home middle area', 'genesischild' ),
 	'before_widget' => '<div class="widget">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'home-right',
-	'name'        => __( 'Home Right', 'genesischild' ),
-	'description' => __( 'This is the home right area', 'genesischild' ),
+	'id'            => 'home-right',
+	'name'          => __( 'Home Right', 'genesischild' ),
+	'description'   => __( 'This is the home right area', 'genesischild' ),
 	'before_widget' => '<div class="widget">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'before-entry',
-	'name'        => __( 'Before Entry', 'genesischild' ),
-	'description' => __( 'This is the before content area', 'genesischild' ),
+	'id'            => 'before-entry',
+	'name'          => __( 'Before Entry', 'genesischild' ),
+	'description'   => __( 'This is the before content area', 'genesischild' ),
 	'before_widget' => '<div class="before-entry">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id' => 'footerwidgetheader',
-	'name' => __( 'Footer Widget Header', 'genesischild' ),
-	'description' => __( 'This is for the Footer Widget Headline', 'genesischild' ),
+	'id'            => 'footerwidgetheader',
+	'name'          => __( 'Footer Widget Header', 'genesischild' ),
+	'description'   => __( 'This is for the Footer Widget Headline', 'genesischild' ),
 	'before_widget' => '<div class="footerwidgetheader">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'footercontent',
-	'name'        => __( 'Footer', 'genesischild' ),
-	'description' => __( 'This is the general footer area', 'genesischild' ),
+	'id'            => 'footercontent',
+	'name'          => __( 'Footer', 'genesischild' ),
+	'description'   => __( 'This is the general footer area', 'genesischild' ),
 	'before_widget' => '<div class="footercontent">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'postfooterleft',
-	'name'        => __( 'Post Footer Left', 'genesischild' ),
-	'description' => __( 'This is the post footer left area', 'genesischild' ),
+	'id'            => 'postfooterleft',
+	'name'          => __( 'Post Footer Left', 'genesischild' ),
+	'description'   => __( 'This is the post footer left area', 'genesischild' ),
 	'before_widget' => '<div class="first one-half postfooterleft">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
-	'id'          => 'postfooterright',
-	'name'        => __( 'Post Footer Right', 'genesischild' ),
-	'description' => __( 'This is the post footer right area', 'genesischild' ),
+	'id'            => 'postfooterright',
+	'name'          => __( 'Post Footer Right', 'genesischild' ),
+	'description'   => __( 'This is the post footer right area', 'genesischild' ),
 	'before_widget' => '<div class="one-half postfooterright">',
-	'after_widget' => '</div>',
+	'after_widget'  => '</div>',
 	) );
 }
 
@@ -233,14 +233,14 @@ function genesischild_preheader_widget() {
 function genesischild_hero_widget() {
 	genesis_widget_area ( 'hero', array(
 	'before' => '<section class="herocontainer">',
-	'after' => '</section>',));
+	'after'  => '</section>',));
 }
 
 //Position the Optin Area
 function genesischild_optin_widget() {
 	genesis_widget_area ( 'optin', array(
 	'before' => '<aside class="optincontainer">',
-	'after' => '</aside>',));
+	'after'  => '</aside>',));
 }
 
 //Position the Home Area
@@ -248,13 +248,13 @@ function genesischild_homecontent_widget() {
 	echo '<section class="home-module-container"><div class="wrap">';
 	genesis_widget_area ( 'home-left', array(
 	'before' => '<div class="first one-third homeleft">',
-	'after' => '</div>',));
+	'after'  => '</div>',));
 	genesis_widget_area ( 'home-middle', array(
 	'before' => '<div class="one-third homemiddle">',
-	'after' => '</div>',));
+	'after'  => '</div>',));
 	genesis_widget_area ( 'home-right', array(
 	'before' => '<div class="one-third homeright">',
-	'after' => '</div>',));
+	'after'  => '</div>',));
 	echo '</div></section>';
 }
 
@@ -269,7 +269,7 @@ function genesischild_footerwidgetheader()  {
 function genesischild_footer_widget() {
 	genesis_widget_area ( 'footercontent', array(
 	'before' => '<div class="footercontainer">',
-	'after' => '</div>',));
+	'after'  => '</div>',));
 }
 
 //Position the PostFooter Area
