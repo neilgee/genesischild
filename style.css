@@ -3,7 +3,7 @@ Theme Name: genesischild
 Description: GenesisChild is a vanilla base starter theme created for Genesis Framework
 Author: Neil Gee
 Author URI: http://www.wpbeaches.com/
-Version: 2.1.2
+Version: 3
 Tags: Contains regular Widget areas as well as preheaderwrap, home page Hero area, optin wrap and pre-footer widget content wrap
 Template: genesis
 */
@@ -459,7 +459,6 @@ th {
 /* ## Site Containers
 --------------------------------------------- */
 
-.site-inner,
 .wrap {
 	margin: 0 auto;
 	max-width: 1200px;
@@ -467,8 +466,16 @@ th {
 
 .site-inner {
 	clear: both;
-	padding-top: 40px;
+	padding-top: 10px;
 }
+
+
+.optincontainer, 
+.herocontainer, 
+.home-module-container {
+	padding: 2%;
+}
+
 
 /* ## Column Widths and Positions
 --------------------------------------------- */
@@ -862,6 +869,11 @@ img.alignright,
 /* # Site Header
 ---------------------------------------------------------------------------------------------------- */
 
+.preheaderright {
+	text-align: right;
+	float: right;
+}
+
 .site-header {
 	background-color: #fff;
 	min-height: 120px;
@@ -1013,6 +1025,10 @@ img.alignright,
 	padding: 10px 0 0;
 }
 
+.genesis-nav-menu li:last-of-type a {
+	padding-right: 0;
+}
+
 /* ## Site Header Navigation
 --------------------------------------------- */
 
@@ -1063,7 +1079,7 @@ img.alignright,
 --------------------------------------------- */
 
 .entry {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	padding: 50px 60px;
 }
 
@@ -1251,6 +1267,13 @@ li.comment {
 /* # Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
 
+.footerwidgetheader .widget-title {
+	text-align: center;
+	font-size: 30px;
+	margin: 20px auto;
+}
+
+
 .footer-widgets {
 	background-color: #333;
 	clear: both;
@@ -1288,11 +1311,12 @@ li.comment {
 .footer-widgets-1,
 .footer-widgets-2,
 .footer-widgets-3 {
-	width: 340px;
+	width: 31%;	
 }
 
-.footer-widgets-1 {
-	margin-right: 60px;
+.footer-widgets-1,
+.footer-widgets-2 {
+	margin-right: 3.5%;
 }
 
 .footer-widgets-1,
@@ -1444,6 +1468,44 @@ a.more-link:hover {
 }
 
 
+/*
+GenesisChild  - Beaver Builder Full Width
+---------------------------------------------------------------------------------------------------- */
+
+.fl-builder .site-inner {
+	padding: 0;
+	border-top: none;
+}
+
+.fl-builder .site-inner .wrap {
+	max-width: none;
+}
+
+.fl-builder .entry {
+	padding: 0;
+	margin-bottom: 0;
+	border-top: none;
+}
+
+.fl-builder .breadcrumb,
+.fl-builder .entry-header {
+	display: none;
+}
+
+
+@media only screen and (max-width: 1200px) {
+	
+	.fl-builder  .wrap {
+		padding: 0;
+	}
+
+}
+
+
+/*---------------------------------------------------------------------------------------------------- */
+
+
+
 /*----------------------------------------------Client Fun Starts Here---------------------------------------------------*
 /
 /
@@ -1474,12 +1536,7 @@ a.more-link:hover {
 .homemiddle{background-color: cadetblue; }
 .homeright {background-color: indianred; }*/
 
-.site-inner {padding-top:10px;}
-.entry {margin-bottom:10px;}
 
-.optincontainer, .herocontainer, .home-module-container {
-	padding: 2%;
-}
 
 
 
@@ -1520,10 +1577,6 @@ a.more-link:hover {
 /
 /
 ------------------------------------------------------------------------------------------------------------------------*/
-.preheaderright {
-	text-align: right;
-	float: right;
-}
 
 
 
@@ -1553,9 +1606,7 @@ a.more-link:hover {
 /
 /
 ------------------------------------------------------------------------------------------------------------------------*/
-.nav-primary .genesis-nav-menu a:last-child {
-	padding-right: 0;
-}
+
 
 
 
@@ -1592,11 +1643,6 @@ a.more-link:hover {
 /
 /
 ------------------------------------------------------------------------------------------------------------------------*/
-.footerwidgetheader .widget-title {
-	text-align: center;
-	font-size: 30px;
-	margin: 20px auto;
-}
 
 
 
@@ -1658,11 +1704,17 @@ a.more-link:hover {
 
 @media only screen and (max-width: 1200px) {
 
-	.site-inner,
 	.wrap {
 		max-width: 960px;
+		padding-left: 1%;
+		padding-right: 1%;
+	}
+	
+	.site-header .wrap {
+	    padding: 20px 1%;
 	}
 
+	
 	.content-sidebar-sidebar .content-sidebar-wrap,
 	.sidebar-content-sidebar .content-sidebar-wrap,
 	.sidebar-sidebar-content .content-sidebar-wrap {
@@ -1671,7 +1723,7 @@ a.more-link:hover {
 
 	.content,
 	.site-header .widget-area {
-		width: 620px;
+		width:75%;
 	}
 
 	.sidebar-content-sidebar .content,
@@ -1679,27 +1731,59 @@ a.more-link:hover {
 	.content-sidebar-sidebar .content {
 		width: 400px;
 	}
+	
+	
+	.title-area  {
+		width: 25%;
+	}
 
-	.footer-widgets-1,
-	.footer-widgets-2,
-	.footer-widgets-3,
-	.sidebar-primary,
-	.title-area {
+	
+	.sidebar-primary{
 		width: 300px;
 	}
-
-	.footer-widgets-1 {
-		margin-right: 30px;
-	}
-
+	
 }
 
-@media only screen and (max-width: 960px) {
-
-	.site-inner,
-	.wrap {
-		max-width: 800px;
+@media only screen and (max-width: 767px) {
+	
+	body {
+		background-color: #fff;
+		font-size: 16px;
 	}
+
+	.wrap {
+		padding-left: 5%;
+		padding-right: 5%;
+		max-width: 767px;
+	}
+	
+	.preheadercontainer,
+	.postfootercontainer {
+		text-align: center;
+	}
+	
+	.preheaderright {
+		float: none;
+		text-align: center;
+	}
+	
+	
+	.site-header .wrap {
+		padding: 20px 5%;
+	}
+	
+	.site-header .widget {
+		text-align: center;
+	}
+	
+	.home-module-container {
+		text-align: center;
+	}
+	
+	.home-module-container .one-third {
+		margin-bottom: 30px;
+	}
+	
 
 	.content,
 	.content-sidebar-sidebar .content,
@@ -1717,9 +1801,20 @@ a.more-link:hover {
 	.title-area {
 		width: 100%;
 	}
-
-	.site-header .wrap {
-		padding: 20px 5%;
+	
+	.five-sixths,
+	.four-sixths,
+	.one-fourth,
+	.one-half,
+	.one-sixth,
+	.one-third,
+	.three-fourths,
+	.three-sixths,
+	.two-fourths,
+	.two-sixths,
+	.two-thirds {
+		margin: 0;
+		width: 100%;
 	}
 
 	.header-image .title-area {
@@ -1757,22 +1852,11 @@ a.more-link:hover {
 	.footer-widgets-1 {
 		margin-right: 0;
 	}
-
-}
-
-@media only screen and (max-width: 800px) {
-
-	body {
-		background-color: #fff;
-		font-size: 16px;
+	
+	.sidebar .widget.enews-widget {
+		padding: 40px;
 	}
-
-	.site-inner,
-	.wrap {
-		padding-left: 5%;
-		padding-right: 5%;
-	}
-
+	
 	.archive-description,
 	.author-box,
 	.comment-respond,
@@ -1786,25 +1870,6 @@ a.more-link:hover {
 
 	.archive-pagination li a {
 		margin-bottom: 4px;
-	}
-
-	.five-sixths,
-	.four-sixths,
-	.one-fourth,
-	.one-half,
-	.one-sixth,
-	.one-third,
-	.three-fourths,
-	.three-sixths,
-	.two-fourths,
-	.two-sixths,
-	.two-thirds {
-		margin: 0;
-		width: 100%;
-	}
-
-	.sidebar .widget.enews-widget {
-		padding: 40px;
 	}
 
 }
