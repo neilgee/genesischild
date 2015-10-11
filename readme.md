@@ -9,10 +9,10 @@ This Genesis child theme is declaring support for HTML5, it is responsive and ha
 ###Widgetised Areas
 - The theme contains the following widgets
 * Pre-Header Left
-* Pre-Header Right widgetised areas
+* Pre-Header Right 
 * Header Right
 * Hero - Home Page only *front-page.php*
-* Optin
+* Optin - Home Page only *front-page.php*
 * Home Left - Home Page only *front-page.php*
 * Home Middle - Home Page only *front-page.php*
 * Home Right - Home Page only *front-page.php*
@@ -28,12 +28,12 @@ This Genesis child theme is declaring support for HTML5, it is responsive and ha
 The Home Page has been widgetised and the default Genesis loop can be removed.
 
 
-To remove the Genesis home page loop tweak the **front-page.php** file by uncommenting line 28:
+To remove the Genesis home page loop tweak the **front-page.php** file by uncommenting line 90:
 ```php
-cgp_genesis_no_content();
+wpb_genesis_no_content();
 ```
 
-and commenting line 90:
+and commenting line 91:
 ```php
 //genesis();
 ```
@@ -63,6 +63,7 @@ Areas are highlighted to show boundaries and full width wraps these colors are c
 ###CSS
 - Regular style.css with all Genesis Framework and placeholders to start new project
 - 2 x IE styles in CSS directory, one targets IE8 and lower, the other IE9 and lower
+- Media Queries set at 767px and 1200px
 
 ###WooCommerce
 - WooCommerce style sheet set to load before main style sheet
