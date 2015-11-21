@@ -169,22 +169,16 @@ function genesischild_extra_widgets() {
 	'id'            => 'home-left',
 	'name'          => __( 'Home Left', 'genesischild' ),
 	'description'   => __( 'This is the home left area', 'genesischild' ),
-	'before_widget' => '<div class="widget">',
-	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'            => 'home-middle',
 	'name'          => __( 'Home Middle', 'genesischild' ),
 	'description'   => __( 'This is the home middle area', 'genesischild' ),
-	'before_widget' => '<div class="widget">',
-	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'            => 'home-right',
 	'name'          => __( 'Home Right', 'genesischild' ),
 	'description'   => __( 'This is the home right area', 'genesischild' ),
-	'before_widget' => '<div class="widget">',
-	'after_widget'  => '</div>',
 	) );
 	genesis_register_sidebar( array(
 	'id'            => 'before-entry',

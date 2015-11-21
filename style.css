@@ -909,8 +909,8 @@ img.alignright,
 }
 
 .featured-content .entry-title {
-	font-size: 20px;
-	font-size: 2rem;
+	font-size: 30px;
+	font-size: 3rem;
 }
 
 
@@ -1594,9 +1594,9 @@ li.comment {
 }
 
 .woocommerce .quantity .qty {
-	padding: 8px;
-	font-size: 16px;
-	font-size: 1.6rem;
+	padding: 4px;
+	font-size: 14px;
+	font-size: 1.4rem;
 }
 
 .woocommerce form .form-row input.input-text, 
