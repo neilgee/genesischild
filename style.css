@@ -1885,7 +1885,7 @@ GenesisChild  - Beaver Builder Full Width
 
 	.content,
 	.site-header .widget-area {
-		width:75%;
+		width:66.66%;
 	}
 
 	.sidebar-content-sidebar .content,
@@ -1901,7 +1901,7 @@ GenesisChild  - Beaver Builder Full Width
 
 	
 	.sidebar-primary{
-		width: 300px;
+		width: 30%;
 	}
 	
 }
