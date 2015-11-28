@@ -1,6 +1,7 @@
 <?php
 
 /************************************************
+* Front Page Template
 * @package genesischild
 * @author  NeilGee
 * @license GPL-2.0+
