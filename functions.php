@@ -39,8 +39,9 @@ function genesischild_theme_setup() {
 	add_theme_support( 'genesis-structural-wraps', array( 'site-inner', 'header', 'menu-secondary', 'footer-widgets', 'footer' ) );
 
 
-	// Declare WooCommerce support for your theme
-	//add_theme_support( 'woocommerce' );
+	//Declare WooCommerce support for your theme - install the plugin and below and uncomment the line below that
+	//https://wordpress.org/plugins/genesis-connect-woocommerce/
+	//add_theme_support( 'genesis-connect-woocommerce' );
 	
 	
 	//Load and order scripts in the head
@@ -48,7 +49,7 @@ function genesischild_theme_setup() {
 	add_action( 'wp_enqueue_scripts', 'genesis_enqueue_main_stylesheet', 998 ); //Order main style sheet 2nd last
 	add_action( 'wp_enqueue_scripts', 'genesischild_ie_styles', 999 );	//IE conditional styles load last
 	add_action( 'wp_enqueue_scripts', 'genesischild_scripts_styles', 997 ); //All the rest load before
-	add_action( 'wp_enqueue_scripts', 'genesischild_backstretch_background_scripts' );
+	//add_action( 'wp_enqueue_scripts', 'genesischild_backstretch_background_scripts' );
 
 	//Register extra widget areas
 	add_action( 'widgets_init', 'genesischild_extra_widgets' );	
@@ -108,7 +109,7 @@ function genesischild_theme_setup() {
 	load_theme_textdomain('genesischild', get_stylesheet_directory_uri() . '/languages');
 }
 
-
+//Child Theme Functions Go Here
 
 
 //Remove Unwanted Widgts
@@ -118,15 +119,13 @@ function genesischild_remove_some_widgets(){
 }
 
 
-//Child Theme Functions Go Here
-
 //Script-tac-ulous -> All the Scripts and Styles Enqueued, scripts first - then styles
 function genesischild_scripts_styles() {
 	wp_enqueue_script( 'svgeezy', get_stylesheet_directory_uri() . '/js/svgeezy.min.js', array(), '1.0.0', true );
  	wp_enqueue_script( 'svgeezy-init', get_stylesheet_directory_uri() . '/js/svgeezy-init.js', array('svgeezy'), '1.0.0', true );
 	wp_enqueue_script ( 'placeholder' , get_stylesheet_directory_uri() . '/js/placeholder.js', array( 'jquery' ), '1', true );
 	wp_enqueue_style ( 'googlefonts' , '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800', '', '2', 'all' );
-	wp_enqueue_style ( 'fontawesome' , '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', '' , '4.3.0', 'all' );
+	wp_enqueue_style ( 'fontawesome' , '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', '' , '4.5.0', 'all' );
 	//wp_enqueue_style( 'dashicons' ); //Uncomment if DashIcons required in front end
 }
 

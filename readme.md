@@ -2,7 +2,7 @@
 
 This is a basic starter **Genesis Child Theme** to be used with the **Genesis Framework** on **WordPress**.
 
-There is a Mobile First version of this starter theme - https://github.com/neilgee/genesischild-mobile-first
+There is also a Mobile First version of this starter theme - https://github.com/neilgee/genesischild-mobile-first
 
 This Genesis child theme is declaring support for HTML5, it is responsive and has a number of widgets areas.
 
@@ -57,7 +57,7 @@ Areas are highlighted to show boundaries and full width wraps these colors are c
 ###Javascripts
 - FontAwesome is enabled.
 - placeholder.js is enabled.
-- backstretch.min.js is enabled (via CDN) if a custom background is used.
+- backstretch.min.js is enabled (via CDN) if a custom background is used. (disabled)
 - SVGeezy is enabled for fallback SVG support
 
 ###CSS
@@ -69,7 +69,7 @@ Areas are highlighted to show boundaries and full width wraps these colors are c
 - WooCommerce style sheet set to load before main style sheet
 - Some generic CSS styles declared in styles.css
 - WooCommerce theme support declared as an action in functions.php but commented out
-- No WooCommerce Connect plugin required
+- Using Genesis Connect for WooCommerce
 
 ###Miscellaneous
 - PHP is enabled to execute in widget areas
@@ -80,6 +80,7 @@ Areas are highlighted to show boundaries and full width wraps these colors are c
 - The font 'Open Sans' is enqueued from Google Fonts in functions.php
 - Author name removed in Post Meta for posts
 - SVG support for uploads and fallbacks can use PNG format fallback filed in same directory
+- Beaver Builder full width CSS styles added - leaves header and footer elements intact but full width for inner page.
 
 Download the zip rename the theme '**genesischild**' - place this theme in your WordPress installation **"/wp-content/themes/"** and activate in WordPress Dashboard
 
