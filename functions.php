@@ -79,13 +79,16 @@ function genesischild_theme_setup() {
 
 	//Remove comment HTML tags
 	add_filter( 'comment_form_defaults', 'genesischild_comment_form_defaults' );
-	add_filter( 'comment_form_defaults', 'genesischild_remove_comment_form_allowed_tags' );
 
 	//Post info change
 	add_filter( 'genesis_post_info', 'genesischild_post_info' );
 
 	//Remove Genesis blog page
 	add_filter( 'theme_page_templates', 'genesischild_remove_blog_archive' );
+
+	//Remove blog header from blog posts page
+	remove_action( 'genesis_before_loop', 'genesis_do_posts_page_heading' );
+
 
 	//Allow svg images
 	add_filter('upload_mimes', 'genesischild_add_svg_images');
@@ -338,11 +341,6 @@ function genesischild_post_info( $post_info ) {
 //Change the comments header
 function genesischild_comment_form_defaults( $defaults ) {
 	$defaults['title_reply'] = __( 'Leave a Comment', 'genesischild' );
-	return $defaults;
-}
-
-//Remove comment form HTML tags and attributes
-function genesischild_remove_comment_form_allowed_tags( $defaults ) {
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
 }
