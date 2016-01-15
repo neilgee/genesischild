@@ -538,7 +538,9 @@ th {
 
 .optincontainer, 
 .herocontainer, 
-.home-module-container {
+.home-top-container,
+.home-middle-container,
+.home-bottom-container{
 	padding: 2%;
 }
 

@@ -13,9 +13,9 @@ This Genesis child theme is declaring support for HTML5, it is responsive and ha
 * Header Right
 * Hero - Home Page only *front-page.php*
 * Optin - Home Page only *front-page.php*
-* Home Left - Home Page only *front-page.php*
+* Home Top - Home Page only *front-page.php*
 * Home Middle - Home Page only *front-page.php*
-* Home Right - Home Page only *front-page.php*
+* Home Bottom - Home Page only *front-page.php*
 * Before Content *posts only*
 * After Content *posts only*
 * Footer Widget Header
@@ -42,6 +42,7 @@ and commenting line 91:
 For an online visual:
 http://themes.wpbeaches.com/genesischild/
 Areas are highlighted to show boundaries and full width wraps these colors are commented out in the CSS.
+Only difference is the main home page 3 modules are now stacked in the theme, Home Top, Home Middle and Home Bottom.
 
 ###Menus
 - Primary Menu is positioned in Header Right Widget Hook and set to Primary Location
