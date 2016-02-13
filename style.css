@@ -3,7 +3,7 @@ Theme Name: genesischild
 Description: GenesisChild is a vanilla base starter theme created for Genesis Framework
 Author: Neil Gee
 Author URI: http://www.wpbeaches.com/
-Version: 2.2.6
+Version: 2.3
 Tags: Contains regular Widget areas as well as preheaderwrap, home page Hero area, optin wrap and pre-footer widget content wrap
 Template: genesis
 */
@@ -21,7 +21,7 @@ Template: genesis
 	- Gallery
 	- Forms
 	- Tables
-	- Screen Reader Text	
+	- Screen Reader Text
 - Structure and Layout
 	- Site Containers
 	- Column Widths and Positions
@@ -58,7 +58,7 @@ Template: genesis
 	- Retina Display
 	- Max-width: 1200px
 	- Max-width: 767px
-- Print Styles	
+- Print Styles
 */
 
 
@@ -80,10 +80,10 @@ input[type="search"] {
 	box-sizing:         border-box;
 }
 
-*,		
-*:before,		
-*:after {		
-	box-sizing: inherit;		
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
 }
 
 /* ## Float Clearing
@@ -170,7 +170,7 @@ textarea:focus,
 
 a {
 	color: #c3251d;
-	text-decoration: none;	
+	text-decoration: none;
 }
 
 a:hover,
@@ -195,12 +195,12 @@ li {
 }
 
 
-hr {		
-	border: 0;		
-	border-collapse: collapse;		
-	border-top: 1px solid #ddd;		
-	clear: both;		
-	margin: 1em 0;		
+hr {
+	border: 0;
+	border-collapse: collapse;
+	border-top: 1px solid #ddd;
+	clear: both;
+	margin: 1em 0;
 }
 
 b,
@@ -343,7 +343,7 @@ img {
 }
 
 .gallery img:hover,
-.gallery img:focus { 
+.gallery img:focus {
 	border: 1px solid #999;
 }
 
@@ -536,8 +536,8 @@ th {
 }
 
 
-.optincontainer, 
-.herocontainer, 
+.optincontainer,
+.herocontainer,
 .home-top-container,
 .home-middle-container,
 .home-bottom-container{
@@ -838,10 +838,10 @@ img.alignright,
 .sticky {
 }
 
-.entry-content .wp-audio-shortcode,		
-.entry-content .wp-playlist,		
-.entry-content .wp-video {		
-	margin: 0 0 28px;	
+.entry-content .wp-audio-shortcode,
+.entry-content .wp-playlist,
+.entry-content .wp-video {
+	margin: 0 0 28px;
 }
 
 /* # Widgets
@@ -1286,7 +1286,7 @@ p.entry-meta {
 .archive-pagination li a:focus,
 .archive-pagination .active a {
 	background-color: #c3251d;
-	text-decoration: underline;	
+	text-decoration: underline;
 }
 
 /* ## Comments
@@ -1434,7 +1434,7 @@ li.comment {
 .footer-widgets-1,
 .footer-widgets-2,
 .footer-widgets-3 {
-	width: 31%;	
+	width: 31%;
 }
 
 .footer-widgets-1,
@@ -1470,7 +1470,7 @@ li.comment {
 
 
 /*Facebook Like Box Responsiveness*/
- 
+
 .fb_iframe_widget {
 	display: block !important;
 }
@@ -1486,20 +1486,20 @@ li.comment {
 
 /*Woo Commerce */
 
-.woocommerce a.button, 
-.woocommerce button.button, 
-.woocommerce input.button, 
-.woocommerce #respond input#submit, 
-.woocommerce #content input.button, 
-.woocommerce-page a.button, 
-.woocommerce-page button.button, 
-.woocommerce-page input.button, 
-.woocommerce-page #respond input#submit, 
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit,
+.woocommerce #content input.button,
+.woocommerce-page a.button,
+.woocommerce-page button.button,
+.woocommerce-page input.button,
+.woocommerce-page #respond input#submit,
 .woocommerce-page #content input.button {
 	font-size: 12px;
 }
 
-.woocommerce ul.products li.product, 
+.woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
 	padding: 1%;
 }
@@ -1513,19 +1513,19 @@ li.comment {
 	list-style-type: none;
 }
 
-.woocommerce .input-checkbox, 
+.woocommerce .input-checkbox,
 .woocommerce .input-radio {
 	box-shadow: none;
 	width: auto;
 }
 
-.woocommerce .related ul li.product img, 
-.woocommerce .related ul.products li.product img, 
-.woocommerce .upsells.products ul li.product img, 
-.woocommerce .upsells.products ul.products li.product img, 
-.woocommerce-page .related ul li.product img, 
-.woocommerce-page .related ul.products li.product img, 
-.woocommerce-page .upsells.products ul li.product img, 
+.woocommerce .related ul li.product img,
+.woocommerce .related ul.products li.product img,
+.woocommerce .upsells.products ul li.product img,
+.woocommerce .upsells.products ul.products li.product img,
+.woocommerce-page .related ul li.product img,
+.woocommerce-page .related ul.products li.product img,
+.woocommerce-page .upsells.products ul li.product img,
 .woocommerce-page .upsells.products ul.products li.product img {
 	width: auto;
 }
@@ -1542,13 +1542,13 @@ li.comment {
 	width:auto;
 }
 
-.woocommerce .related ul li.product, 
-.woocommerce .related ul.products li.product, 
-.woocommerce .upsells.products ul li.product, 
-.woocommerce .upsells.products ul.products li.product, 
-.woocommerce-page .related ul li.product, 
-.woocommerce-page .related ul.products li.product, 
-.woocommerce-page .upsells.products ul li.product, 
+.woocommerce .related ul li.product,
+.woocommerce .related ul.products li.product,
+.woocommerce .upsells.products ul li.product,
+.woocommerce .upsells.products ul.products li.product,
+.woocommerce-page .related ul li.product,
+.woocommerce-page .related ul.products li.product,
+.woocommerce-page .upsells.products ul li.product,
 .woocommerce-page .upsells.products ul.products li.product {
 	padding: 4%;
 }
@@ -1562,7 +1562,7 @@ li.comment {
 	font-size: 14px;
 }
 
-.woocommerce form .form-row input.input-text, 
+.woocommerce form .form-row input.input-text,
 .woocommerce form .form-row textarea {
 	padding: 10px;
 	font-size: 16px;
@@ -1575,19 +1575,22 @@ a.more-link {
 	display:inline-block;
 	font-size:14px;
 	margin-top:10px;
-	padding:5px 20px;
-	border-radius:4px;
-	color:#fff;
-	background-color:#9c9c9c;
-	border:1px solid #7e7e7e;
+	padding:10px 20px;
+	border-radius:2px;
+	color:#000;
+	background-color:transparent;
+	border:1px solid #000;
 	transition-property: opacity;
 	transition-delay: 0.3s;
 	transition-duration: .5s;
-	
+	text-transform: uppercase;
+	font-weight: 600;
+
 }
 a.more-link:hover {
-	opacity:.6;
+	opacity:.8;
 	color:#fff;
+	background-color:#000;
 }
 
 
@@ -1617,7 +1620,7 @@ GenesisChild  - Beaver Builder Full Width
 
 
 @media only screen and (max-width: 1200px) {
-	
+
 	.fl-builder  .wrap {
 		padding: 0;
 	}
@@ -1832,12 +1835,12 @@ GenesisChild  - Beaver Builder Full Width
 		padding-left: 1%;
 		padding-right: 1%;
 	}
-	
+
 	.site-header .wrap {
 	    padding: 20px 1%;
 	}
 
-	
+
 	.content-sidebar-sidebar .content-sidebar-wrap,
 	.sidebar-content-sidebar .content-sidebar-wrap,
 	.sidebar-sidebar-content .content-sidebar-wrap {
@@ -1854,21 +1857,21 @@ GenesisChild  - Beaver Builder Full Width
 	.content-sidebar-sidebar .content {
 		width: 400px;
 	}
-	
-	
+
+
 	.title-area  {
 		width: 25%;
 	}
 
-	
+
 	.sidebar-primary{
 		width: 30%;
 	}
-	
+
 }
 
 @media only screen and (max-width: 767px) {
-	
+
 	body {
 		background-color: #fff;
 		font-size: 16px;
@@ -1879,34 +1882,34 @@ GenesisChild  - Beaver Builder Full Width
 		padding-right: 5%;
 		max-width: 767px;
 	}
-	
+
 	.preheadercontainer,
 	.postfootercontainer {
 		text-align: center;
 	}
-	
+
 	.preheaderright {
 		float: none;
 		text-align: center;
 	}
-	
-	
+
+
 	.site-header .wrap {
 		padding: 20px 5%;
 	}
-	
+
 	.site-header .widget {
 		text-align: center;
 	}
-	
+
 	.home-module-container {
 		text-align: center;
 	}
-	
+
 	.home-module-container .one-third {
 		margin-bottom: 30px;
 	}
-	
+
 
 	.content,
 	.content-sidebar-sidebar .content,
@@ -1924,7 +1927,7 @@ GenesisChild  - Beaver Builder Full Width
 	.title-area {
 		width: 100%;
 	}
-	
+
 	.five-sixths,
 	.four-sixths,
 	.one-fourth,
@@ -1975,11 +1978,11 @@ GenesisChild  - Beaver Builder Full Width
 	.footer-widgets-1 {
 		margin-right: 0;
 	}
-	
+
 	.sidebar .widget.enews-widget {
 		padding: 40px;
 	}
-	
+
 	.archive-description,
 	.author-box,
 	.comment-respond,
