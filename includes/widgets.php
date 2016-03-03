@@ -69,6 +69,7 @@ function genesischild_extra_widgets() {
 
 //Position the PreHeader Area
 function genesischild_preheader_widget() {
+	if( is_active_sidebar( 'preheaderleft' ) || is_active_sidebar( 'preheaderright' ) ) {
 	echo '<section class="preheadercontainer"><div class="wrap">';
 	genesis_widget_area ( 'preheaderleft' , array(
 	'before' => '<aside class="preheaderleft first one-half">',
@@ -77,6 +78,7 @@ function genesischild_preheader_widget() {
 	'before' => '<aside class="preheaderright  one-half">',
 	'after'  => '</aside>',));
 	echo '</div></section>';
+	}
 }
 add_action( 'genesis_before_header','genesischild_preheader_widget' );
 
@@ -120,9 +122,11 @@ function genesischild_homecontent_widget() {
 
 //Position Footer Widget Header
 function genesischild_footerwidgetheader()  {
+	if( is_active_sidebar( 'footerwidgetheader' )) {
 	echo '<div class="footerwidgetheader-container"><div class="wrap">';
 	genesis_widget_area ( 'footerwidgetheader' );
 	echo '</div></div>';
+	}
 }
 add_action( 'genesis_before_footer','genesischild_footerwidgetheader', 5 );
 
@@ -139,6 +143,7 @@ add_action( 'genesis_footer','genesischild_footer_widget' );
 
 //Position the PostFooter Area
 function genesischild_postfooter_widget() {
+	if( is_active_sidebar( 'postfooterleft' ) || is_active_sidebar( 'postfooterright' )) {
 	echo '<div class="postfootercontainer"><div class="wrap">';
 	genesis_widget_area ( 'postfooterleft' , array(
 	'before' => '<aside class="first one-half postfooterleft">',
@@ -147,6 +152,7 @@ function genesischild_postfooter_widget() {
 	'before' => '<aside class="one-half postfooterright">',
 	'after'  => '</aside>',));
 	echo '</div></div>';
+	}
 }
 add_action( 'genesis_after_footer','genesischild_postfooter_widget' );
 
