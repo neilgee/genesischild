@@ -17,10 +17,10 @@ add_action( 'genesis_setup', 'genesischild_theme_setup', 15 );
  * @since 1.0.0
  */
 function genesischild_theme_setup() {
-	// Child theme constant settings 
+	// Child theme constant settings
 	 define( 'CHILD_THEME_NAME', 'genesischild' );
 	 define( 'CHILD_THEME_URL', 'http://wpbeaches.com' );
-	 define( 'CHILD_THEME_VERSION', '1.0.0' );
+	 define( 'CHILD_THEME_VERSION', '2.4.0' );
 
 	// Load in required files.
 	// Setup Theme Defaults.
