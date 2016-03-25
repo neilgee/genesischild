@@ -17,7 +17,7 @@ add_action( 'genesis_setup', 'genesischild_theme_setup', 15 );
  * @since 1.0.0
  */
 function genesischild_theme_setup() {
-	// Child theme constant settings
+	// Child theme constant settings.
 	 define( 'CHILD_THEME_NAME', 'genesischild' );
 	 define( 'CHILD_THEME_URL', 'http://wpbeaches.com' );
 	 define( 'CHILD_THEME_VERSION', '2.4.0' );
@@ -29,15 +29,14 @@ function genesischild_theme_setup() {
 	require_once( get_stylesheet_directory() . '/includes/scripts-styles.php' );
 	// Widget areas registered and positioned.
 	require_once( get_stylesheet_directory() . '/includes/widgets.php' );
-	// Add in our Custom Post Type Featured Post Widget
+	// Add in our Custom Post Type Featured Post Widget.
 	require_once( get_stylesheet_directory() . '/includes/class-featured-custom-post-type-widget.php' );
-	// Add in our Customizer options
+	// Add in our Customizer options.
 	require_once( get_stylesheet_directory() . '/includes/customize.php' );
-	// Add in our CSS for our customizer options
+	// Add in our CSS for our customizer options.
 	require_once( get_stylesheet_directory() . '/includes/output.php' );
 	// Get the plugins.
 	//require_once  get_stylesheet_directory() . '/plugins.php';
-
 
 	// Allow the theme to be translated.
 	load_theme_textdomain( 'genesischild', get_stylesheet_directory_uri() . '/languages' );
@@ -71,7 +70,6 @@ function genesischild_theme_setup() {
 	//
 	// add_image_size( 'blog-feature', 380, 380, true );
 
-
 	// Unregister Genesis page layouts
 	//
 	// genesis_unregister_layout( 'content-sidebar' );
@@ -81,17 +79,14 @@ function genesischild_theme_setup() {
 	// genesis_unregister_layout( 'sidebar-content-sidebar' );
 	// genesis_unregister_layout( 'full-width-content' );
 
-
 	// Declare WooCommerce support for your theme - install the plugin and below and uncomment the line below that.
 	// https://wordpress.org/plugins/genesis-connect-woocommerce/
 	//
 	// add_theme_support( 'genesis-connect-woocommerce' );
 
-
 	// Re-arrange header nav.
 	remove_action( 'genesis_after_header','genesis_do_nav' );
 	add_action( 'genesis_header_right','genesis_do_nav' );
-
 
 	/**
 	 * Change Read More Button For Excerpt.
@@ -100,7 +95,6 @@ function genesischild_theme_setup() {
 		return '  <a href="' . get_permalink() . '" class="more-link" title="Read More">Read More</a>';
 	}
 	add_filter( 'excerpt_more', 'genesischild_read_more_link' );
-
 
 	/**
 	 * Customize the content limit more markup.
@@ -113,7 +107,6 @@ function genesischild_theme_setup() {
 	}
 	add_filter( 'get_the_content_limit', 'genesischild_content_limit_read_more_markup', 10, 3 );
 
-
 	/**
 	 * Change the comments reply text
 	 */
@@ -123,7 +116,6 @@ function genesischild_theme_setup() {
 		return $defaults;
 	}
 	add_filter( 'comment_form_defaults', 'genesischild_comment_form_defaults' );
-
 
 	/**
 	 * Remove Author Name on Post Meta
@@ -136,8 +128,6 @@ function genesischild_theme_setup() {
 	}
 	add_filter( 'genesis_post_info', 'genesischild_post_info' );
 
-
-
 	/**
 	 * Remove Genesis Blog & Archive
 	 */
@@ -148,11 +138,8 @@ function genesischild_theme_setup() {
 	}
 	add_filter( 'theme_page_templates', 'genesischild_remove_blog_archive' );
 
-
-
 	// Remove blog header from blog posts page.
 	remove_action( 'genesis_before_loop', 'genesis_do_posts_page_heading' );
-
 
 	/**
 	 * Allow SVG Images Via Media Uploader
@@ -163,10 +150,8 @@ function genesischild_theme_setup() {
 	}
 	add_filter( 'upload_mimes', 'genesischild_add_svg_images' );
 
-
 	// Remove Genesis header style so we can use the customiser and header function genesischild_swap_header to add our header logo.
 	remove_action( 'wp_head', 'genesis_custom_header_style' );
-
 
 	/**
 	 * Add an image tag inline in the site title element for the main logo
@@ -198,7 +183,6 @@ function genesischild_theme_setup() {
 	}
 	add_filter( 'genesis_seo_title','genesischild_swap_header', 10, 3 );
 
-
 	/**
 	 * Add class for screen readers to site description.
 	 * This will keep the site description mark up but will not have any visual presence on the page
@@ -208,32 +192,31 @@ function genesischild_theme_setup() {
 	 * @author @_AlphaBlossom
 	 * @author @_neilgee
 	 */
-	 function genesischild_add_site_description_class( $attributes ) {
-		 if ( get_header_image() ) :
+	function genesischild_add_site_description_class( $attributes ) {
+		if ( get_header_image() ) :
 			 $attributes['class'] .= ' screen-reader-text';
 			 return $attributes;
-		 endif;
+		endif;
 			 return $attributes;
-	 }
-	 add_filter( 'genesis_attr_site-description', 'genesischild_add_site_description_class' );
+	}
+	add_filter( 'genesis_attr_site-description', 'genesischild_add_site_description_class' );
 
 	// Allow shortcode to run in widgets.
 	add_filter( 'widget_text', 'do_shortcode' );
 
-
 	/**
-     * Allow PHP code to run in Widgets.
-     */
-    function genesischild_execute_php_widgets( $html ) {
-        if ( strpos( $html, '<' . '?php' ) !== false ) {
-            ob_start();
-            eval( '?' . '>' . $html );
-            $html = ob_get_contents();
-            ob_end_clean();
-        }
-        return $html;
-    }
-    add_filter( 'widget_text','genesischild_execute_php_widgets' );
+	 * Allow PHP code to run in Widgets.
+	 */
+	function genesischild_execute_php_widgets( $html ) {
+		 if ( strpos( $html, '<' . '?php' ) !== false ) {
+						ob_start();
+						eval( '?' . '>' . $html );
+						$html = ob_get_contents();
+						ob_end_clean();
+			}
+			return $html;
+	}
+	add_filter( 'widget_text','genesischild_execute_php_widgets' );
 
 } // <~Closing brace for genesis_setup function
 
