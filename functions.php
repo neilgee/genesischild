@@ -17,13 +17,27 @@ add_action( 'genesis_setup', 'genesischild_theme_setup', 15 );
  * @since 1.0.0
  */
 function genesischild_theme_setup() {
+	// Child theme constant settings 
+	 define( 'CHILD_THEME_NAME', 'genesischild' );
+	 define( 'CHILD_THEME_URL', 'http://wpbeaches.com' );
+	 define( 'CHILD_THEME_VERSION', '1.0.0' );
+
 	// Load in required files.
 	// Setup Theme Defaults.
 	include_once( get_stylesheet_directory() . '/includes/theme-defaults.php' );
-	// Widget areas registered and positioned.
-	require_once  get_stylesheet_directory() . '/includes/widgets.php';
 	// All scripts and styles to be registered and enqueued.
-	require_once  get_stylesheet_directory() . '/includes/scripts-styles.php';
+	require_once( get_stylesheet_directory() . '/includes/scripts-styles.php' );
+	// Widget areas registered and positioned.
+	require_once( get_stylesheet_directory() . '/includes/widgets.php' );
+	// Add in our Custom Post Type Featured Post Widget
+	require_once( get_stylesheet_directory() . '/includes/class-featured-custom-post-type-widget.php' );
+	// Add in our Customizer options
+	require_once( get_stylesheet_directory() . '/includes/customize.php' );
+	// Add in our CSS for our customizer options
+	require_once( get_stylesheet_directory() . '/includes/output.php' );
+	// Get the plugins.
+	//require_once  get_stylesheet_directory() . '/plugins.php';
+
 
 	// Allow the theme to be translated.
 	load_theme_textdomain( 'genesischild', get_stylesheet_directory_uri() . '/languages' );
