@@ -208,13 +208,13 @@ function genesischild_theme_setup() {
 	 * Allow PHP code to run in Widgets.
 	 */
 	function genesischild_execute_php_widgets( $html ) {
-		 if ( strpos( $html, '<' . '?php' ) !== false ) {
-						ob_start();
-						eval( '?' . '>' . $html );
-						$html = ob_get_contents();
-						ob_end_clean();
-			}
-			return $html;
+		if ( strpos( $html, '<' . '?php' ) !== false ) {
+				ob_start();
+				eval( '?' . '>' . $html );
+				$html = ob_get_contents();
+				ob_end_clean();
+		}
+		return $html;
 	}
 	add_filter( 'widget_text','genesischild_execute_php_widgets' );
 
