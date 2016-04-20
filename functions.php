@@ -52,12 +52,19 @@ function genesischild_theme_setup() {
 	// Allow for a custom background.
 	add_theme_support( 'custom-background' );
 	// Add support for custom header change the dimensions to suit.
-	add_theme_support( 'custom-header', array(
-		'flex-width'      => true,
-		'flex-height'     => true,
-		'width'           => 400,
-		'height'          => 150,
-		'header-text'     => false,
+	// add_theme_support( 'custom-header', array(
+	// 	'flex-width'  => true,
+	// 	'flex-height' => true,
+	// 	'width'       => 400,
+	// 	'height'      => 150,
+	// 	'header-text' => false,
+	// ) );
+	// Add support for custom logo change the dimensions to suit. Need WordPress 4.5 for this.
+	add_theme_support( 'custom-logo', array(
+		'height'      => 150, // set to your dimensions
+		'width'       => 400,
+		'flex-height' => true,
+		'flex-width'  => true,
 	) );
 	// Add Accessibility support.
 	add_theme_support( 'genesis-accessibility', array( 'headings', 'drop-down-menu', 'search-form', 'skip-links' ) );
@@ -68,7 +75,7 @@ function genesischild_theme_setup() {
 
 	// Image sizes - add in required image sizes here
 	//
-	// add_image_size( 'blog-feature', 380, 380, true );
+	add_image_size( 'blog-feature', 300, 200, true );
 
 	// Unregister Genesis page layouts
 	//
@@ -151,12 +158,12 @@ function genesischild_theme_setup() {
 	add_filter( 'upload_mimes', 'genesischild_add_svg_images' );
 
 	// Remove Genesis header style so we can use the customiser and header function genesischild_swap_header to add our header logo.
-	remove_action( 'wp_head', 'genesis_custom_header_style' );
+	// remove_action( 'wp_head', 'genesis_custom_header_style' );
 
 	/**
-	 * Add an image tag inline in the site title element for the main logo
+	 * Add an image inline in the site title element for the main logo
 	 *
-	 * The header logo is then added via the Customiser
+	 * The custom logo is then added via the Customiser
 	 *
 	 * @param string $title All the mark up title.
 	 * @param string $inside Mark up inside the title.
@@ -164,42 +171,45 @@ function genesischild_theme_setup() {
 	 * @author @_AlphaBlossom
 	 * @author @_neilgee
 	 */
-	function genesischild_swap_header( $title, $inside, $wrap ) {
-		// Set what goes inside the wrapping tags.
-		if ( get_header_image() ) :
-			$logo = '<img  src="' . get_header_image() . '" width="' . esc_attr( get_custom_header()->width ) . '" height="' . esc_attr( get_custom_header()->height ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
+	function genesischild_custom_logo( $title, $inside, $wrap ) {
+		// Check to see if the Custom Logo function exists and set what goes inside the wrapping tags.
+		if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) :
+			$logo = the_custom_logo();
 		else :
-			$logo = get_bloginfo( 'name' );
+		 	$logo = get_bloginfo( 'name' );
 		endif;
-			 $inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $logo );
-			 // Determine which wrapping tags to use - changed is_home to is_front_page to fix Genesis bug.
-			 $wrap = is_front_page() && 'title' === genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : 'p';
-			 // A little fallback, in case an SEO plugin is active - changed is_home to is_front_page to fix Genesis bug.
-			 $wrap = is_front_page() && ! genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : $wrap;
-			 // And finally, $wrap in h1 if HTML5 & semantic headings enabled.
-			 $wrap = genesis_html5() && genesis_get_seo_option( 'semantic_headings' ) ? 'h1' : $wrap;
-			 $title = sprintf( '<%1$s %2$s>%3$s</%1$s>', $wrap, genesis_attr( 'site-title' ), $inside );
-			 return $title;
+	 	 // Use this wrap if no custom logo - wrap around the site name
+		 $inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $logo );
+		 // Determine which wrapping tags to use - changed is_home to is_front_page to fix Genesis bug.
+		 $wrap = is_front_page() && 'title' === genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : 'p';
+		 // A little fallback, in case an SEO plugin is active - changed is_home to is_front_page to fix Genesis bug.
+		 $wrap = is_front_page() && ! genesis_get_seo_option( 'home_h1_on' ) ? 'h1' : $wrap;
+		 // And finally, $wrap in h1 if HTML5 & semantic headings enabled.
+		 $wrap = genesis_html5() && genesis_get_seo_option( 'semantic_headings' ) ? 'h1' : $wrap;
+		 $title = sprintf( '<%1$s %2$s>%3$s</%1$s>', $wrap, genesis_attr( 'site-title' ), $inside );
+		 return $title;
 	}
-	add_filter( 'genesis_seo_title','genesischild_swap_header', 10, 3 );
-
+	add_filter( 'genesis_seo_title','genesischild_custom_logo', 10, 3 );
 	/**
 	 * Add class for screen readers to site description.
 	 * This will keep the site description mark up but will not have any visual presence on the page
 	 * This runs if their is a header image set in the Customiser.
 	 *
-	 * @param string $attributes Add screen reader class.
-	 * @author @_AlphaBlossom
+	 * @param string $attributes Add screen reader class if custom logo is set.
+	 *
 	 * @author @_neilgee
 	 */
-	function genesischild_add_site_description_class( $attributes ) {
-		if ( get_header_image() ) :
-			 $attributes['class'] .= ' screen-reader-text';
-			 return $attributes;
-		endif;
-			 return $attributes;
-	}
-	add_filter( 'genesis_attr_site-description', 'genesischild_add_site_description_class' );
+	 function genesischild_add_site_description_class( $attributes ) {
+		if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+			$attributes['class'] .= ' screen-reader-text';
+			return $attributes;
+		}
+		else {
+			return $attributes;
+		}
+	 }
+	 add_filter( 'genesis_attr_site-description', 'genesischild_add_site_description_class' );
+
 
 	// Allow shortcode to run in widgets.
 	add_filter( 'widget_text', 'do_shortcode' );
@@ -208,15 +218,29 @@ function genesischild_theme_setup() {
 	 * Allow PHP code to run in Widgets.
 	 */
 	function genesischild_execute_php_widgets( $html ) {
-		if ( strpos( $html, '<' . '?php' ) !== false ) {
-				ob_start();
-				eval( '?' . '>' . $html );
-				$html = ob_get_contents();
-				ob_end_clean();
-		}
-		return $html;
+		 if ( strpos( $html, '<' . '?php' ) !== false ) {
+						ob_start();
+						eval( '?' . '>' . $html );
+						$html = ob_get_contents();
+						ob_end_clean();
+			}
+			return $html;
 	}
 	add_filter( 'widget_text','genesischild_execute_php_widgets' );
+
+	/**
+	 * Change the footer text in Genesis with a back up if blank
+	 */
+	function genesischild_footer_text() {
+		if( get_theme_mod( 'footer_text_block') != "" ) {
+			echo get_theme_mod( 'footer_text_block');
+		}
+		else{
+			echo 'Copyright &copy; 2016 · Genesis Sample Theme on Genesis Framework · Neil Gee · WP Beaches'; // Add you default footer text here
+		}
+	}
+	add_filter('genesis_footer_creds_text', 'genesischild_footer_text');
+
 
 } // <~Closing brace for genesis_setup function
 
