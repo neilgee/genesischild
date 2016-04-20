@@ -228,18 +228,6 @@ function genesischild_theme_setup() {
 	}
 	add_filter( 'widget_text','genesischild_execute_php_widgets' );
 
-	/**
-	 * Change the footer text in Genesis with a back up if blank
-	 */
-	function genesischild_footer_text() {
-		if( get_theme_mod( 'footer_text_block') != "" ) {
-			echo get_theme_mod( 'footer_text_block');
-		}
-		else{
-			echo 'Copyright &copy; 2016 · Genesis Sample Theme on Genesis Framework · Neil Gee · WP Beaches'; // Add you default footer text here
-		}
-	}
-	add_filter('genesis_footer_creds_text', 'genesischild_footer_text');
 
 
 } // <~Closing brace for genesis_setup function
