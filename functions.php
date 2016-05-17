@@ -52,7 +52,7 @@ function genesischild_theme_setup() {
 	// Allow for a custom background.
 	add_theme_support( 'custom-background' );
 	// Add support for custom header change the dimensions to suit.
-	// add_theme_support( 'custom-header', array(
+	 //add_theme_support( 'custom-header');
 	// 	'flex-width'  => true,
 	// 	'flex-height' => true,
 	// 	'width'       => 400,
@@ -160,6 +160,16 @@ function genesischild_theme_setup() {
 	// Remove Genesis header style so we can use the customiser and header function genesischild_swap_header to add our header logo.
 	// remove_action( 'wp_head', 'genesis_custom_header_style' );
 
+
+	/* Removing custom title/logo metabox from Genesis theme options page.
+	 * See http://www.billerickson.net/code/remove-metaboxes-from-genesis-theme-settings/
+	 * Updated to use $_genesis_admin_settings instead of legacy variable in Bill's example.
+	 */
+	function genesischild_remove_metaboxes( $_genesis_admin_settings ) {
+		remove_meta_box( 'genesis-theme-settings-header', $_genesis_admin_settings, 'main' );
+	}
+	add_action( 'genesis_theme_settings_metaboxes', 'genesischild_remove_metaboxes' );
+
 	/**
 	 * Add an image inline in the site title element for the main logo
 	 *
@@ -227,8 +237,6 @@ function genesischild_theme_setup() {
 			return $html;
 	}
 	add_filter( 'widget_text','genesischild_execute_php_widgets' );
-
-
 
 } // <~Closing brace for genesis_setup function
 
