@@ -30,11 +30,13 @@ function genesischild_theme_setup() {
 	// Widget areas registered and positioned.
 	require_once( get_stylesheet_directory() . '/includes/widgets.php' );
 	// Add in our Custom Post Type Featured Post Widget.
-	require_once( get_stylesheet_directory() . '/includes/class-featured-custom-post-type-widget.php' );
+	include_once( get_stylesheet_directory() . '/includes/class-featured-custom-post-type-widget.php' );
 	// Add in our Customizer options.
 	require_once( get_stylesheet_directory() . '/includes/customize.php' );
 	// Add in our CSS for our customizer options.
 	require_once( get_stylesheet_directory() . '/includes/output.php' );
+	// Genesis Default Responsive Menu
+	// include_once( get_stylesheet_directory() . '/includes/responsive-menu.php' );
 	// Get the plugins.
 	//require_once  get_stylesheet_directory() . '/plugins.php';
 
@@ -67,7 +69,7 @@ function genesischild_theme_setup() {
 		'flex-width'  => true,
 	) );
 	// Add Accessibility support.
-	add_theme_support( 'genesis-accessibility', array( 'headings', 'drop-down-menu', 'search-form', 'skip-links' ) );
+	add_theme_support( 'genesis-accessibility', array( '404-page', 'headings', 'drop-down-menu', 'search-form', 'skip-links' ) );
 	// Add widget area after posts.
 	add_theme_support( 'genesis-after-entry-widget-area' );
 	// Add structural wraps.
@@ -123,6 +125,24 @@ function genesischild_theme_setup() {
 		return $defaults;
 	}
 	add_filter( 'comment_form_defaults', 'genesischild_comment_form_defaults' );
+
+	/**
+	 * Modify size of the Gravatar in the author box
+	 */
+	function genesischild_sample_author_box_gravatar( $size ) {
+		return 90;
+	}
+	add_filter( 'genesis_author_box_gravatar_size', 'genesischild_sample_author_box_gravatar' );
+
+	/**
+	 * Modify size of the Gravatar in the entry comments
+	 */
+	function genesischild_sample_comments_gravatar( $args ) {
+		$args['avatar_size'] = 60;
+		return $args;
+	}
+	add_filter( 'genesis_comment_list_args', 'genesischild_sample_comments_gravatar' );
+
 
 	/**
 	 * Remove Author Name on Post Meta

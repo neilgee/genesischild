@@ -1193,6 +1193,7 @@ img.alignright,
 .nav-primary {
     background-color:#fff;
 }
+/*
 .nav-primary .genesis-nav-menu a {
     color:#000;
 }
@@ -1201,8 +1202,7 @@ img.alignright,
 .nav-primary .genesis-nav-menu a:focus,
 .nav-primary .genesis-nav-menu .current-menu-item > a {
 	color: #ccc;
-	text-decoration: underline;
-}
+}*/
 
 
 .nav-primary .genesis-nav-menu .sub-menu a {
@@ -1213,7 +1213,6 @@ img.alignright,
 .nav-primary .genesis-nav-menu .sub-menu a:focus,
 .nav-primary .genesis-nav-menu .sub-menu .current-menu-item > a {
 	color: #c3251d;
-	text-decoration: underline;
 }
 
 /* ## Secondary Navigation
@@ -1713,6 +1712,12 @@ GenesisChild  - Beaver Builder Full Width
 		width: 30%;
 	}
 
+	.genesis-nav-menu a,
+	.genesis-nav-menu > .first > a,
+	.genesis-nav-menu > .last > a {
+		padding: 20px 16px;
+	}
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -1804,12 +1809,6 @@ GenesisChild  - Beaver Builder Full Width
 	.site-header .search-form,
 	.site-title {
 		text-align: center;
-	}
-
-	.genesis-nav-menu a,
-	.genesis-nav-menu > .first > a,
-	.genesis-nav-menu > .last > a {
-		padding: 20px 16px;
 	}
 
 	.site-header .search-form {
