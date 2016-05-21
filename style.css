@@ -3,7 +3,7 @@ Theme Name: genesischild
 Description: GenesisChild is a vanilla base starter theme created for Genesis Framework
 Author: Neil Gee
 Author URI: http://www.wpbeaches.com/
-Version: 2.4
+Version: 2.5
 Tags: Contains regular Widget areas as well as preheaderwrap, home page Hero area, optin wrap and pre-footer widget content wrap
 Template: genesis
 */
@@ -291,10 +291,10 @@ img {
 	height: auto;
 }
 
-.featured-content img,
-.gallery img {
-	width: auto;
+figure {
+	margin: 0;
 }
+
 /* Fix IE not scaling SVGs */
 .ie9 img[src*=".svg"] {
   width: 100%;
@@ -526,7 +526,14 @@ td {
 
 th {
 	font-weight: 400;
+	padding: 0 6px;
 }
+
+td:first-child,
+th:first-child {
+	padding-left: 0;
+}
+
 
 /* ## Screen Reader Text
 --------------------------------------------- */
@@ -575,6 +582,11 @@ th {
 .site-inner {
 	clear: both;
 	padding-top: 10px;
+	word-wrap: break-word;
+}
+
+.landing-page .site-inner {
+	max-width: 800px;
 }
 
 
@@ -709,6 +721,7 @@ th {
 
 .avatar {
 	float: left;
+	border-radius: 50%;
 }
 
 .alignleft .avatar,
