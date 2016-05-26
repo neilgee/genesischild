@@ -63,20 +63,6 @@ function genesischild_css() {
 
 	}
 
-	//* Change Color Brightness
-	function genesis_sample_change_brightness( $color ) {
-
-		$hexcolor = str_replace( '#', '', $color );
-
-		$red   = hexdec( substr( $hexcolor, 0, 2 ) );
-		$green = hexdec( substr( $hexcolor, 2, 2 ) );
-		$blue  = hexdec( substr( $hexcolor, 4, 2 ) );
-
-		$luminosity = ( ( $red * 0.2126 ) + ( $green * 0.7152 ) + ( $blue * 0.0722 ) );
-
-		return ( $luminosity > 128 ) ? genesis_sample_color_brightness( '#333333', 20 ) : genesis_sample_color_brightness( '#ffffff', -50 );
-
-	}
 	/* Start off with •nuffink*/
 	$css = '';
 
@@ -90,7 +76,7 @@ function genesischild_css() {
 
 	$css .= ( $gc_link_color !== '#c3251d' ) ? sprintf( '
 		a {
-			color: %1$s;
+			color: %s;
 		}
 		', $gc_link_color ) : '';
 
@@ -104,13 +90,13 @@ function genesischild_css() {
 		.archive-pagination li a:hover,
 		.archive-pagination li a:focus,
 		.archive-pagination .active a {
-			color: %1$s;
+			color: %s;
 		}
 		', $gc_link_hover_color ) : '';
 
 	$css .= ( $gc_menu_color !== '#333333' ) ? sprintf( '
 		.genesis-nav-menu a {
-			color: %1$s;
+			color: %s;
 		}
 		', $gc_menu_color ) : '';
 
@@ -122,7 +108,7 @@ function genesischild_css() {
 		.genesis-nav-menu .sub-menu .current-menu-item > a:focus,
 		.js nav button:focus,
 		.js .menu-toggle:focus  {
-			color: %1$s;
+			color: %s;
 		}
 		', $gc_menu_hover_color ) : '';
 
@@ -134,10 +120,10 @@ function genesischild_css() {
 		.button,
 		.widget .button,
 		.enews-widget input[type="submit"]  {
-			background-color: %1$s;
-			color: %2$s;
+			background-color: %s;
+			color: %s;
 		}
-		', $gc_button_color, genesis_sample_color_contrast( $gc_button_color ), genesis_sample_change_brightness( $gc_button_color ) ) : '';
+		', $gc_button_color, genesis_sample_color_contrast( $gc_button_color ) ) : '';
 
 
 	$css .= ( $gc_button_hover_color !== '#c3251d' ) ? sprintf( '
@@ -155,10 +141,10 @@ function genesischild_css() {
 		.widget .button:focus,
 		.enews-widget input[type="submit"]:hover,
 		.enews-widget input[type="submit"]:focus  {
-			background-color: %1$s;
-			color: %2$s;
+			background-color: %s;
+			color: %s;
 		}
-		', $gc_button_hover_color, genesis_sample_color_contrast( $gc_button_hover_color ), genesis_sample_change_brightness( $gc_button_hover_color ) ) : '';
+		', $gc_button_hover_color, genesis_sample_color_contrast( $gc_button_hover_color ) ) : '';
 
 	if ( $css ) {
 		wp_add_inline_style( $handle, $css );

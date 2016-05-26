@@ -37,7 +37,7 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 
 	// Add setting.
 	$wp_customize->add_setting( 'hero_bg', array(
-		//'default'     => get_stylesheet_directory_uri() . '/images/hero-bg.jpg',
+			//'default'     => get_stylesheet_directory_uri() . '/images/hero-bg.jpg',
 	) );
 
 	// Add control.
@@ -52,7 +52,7 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add Link Color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_link_color', array(
-    'default' => '#c3251d',
+			'default' => '#c3251d',
   ) );
 
 	// Add control
@@ -67,7 +67,7 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add link hover - focus color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_link_hover_color', array(
-		'default' => '#c3251d',
+			'default' => '#c3251d',
 	) );
 
 	// Add control
@@ -82,7 +82,7 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add Link Color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_menu_color', array(
-    'default' => '#333333',
+			'default' => '#333333',
   ) );
 
 	// Add control
@@ -97,7 +97,7 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add link hover - focus  color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_menu_hover_color', array(
-		'default' => '#c3251d',
+			'default' => '#c3251d',
 	) );
 
 	// Add control
@@ -112,7 +112,7 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add buttons background color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_button_color', array(
-    'default' => '#333333',
+			'default' => '#333333',
   ) );
 
 	// Add control
@@ -127,7 +127,7 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add buttons hover - focus background color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_button_hover_color', array(
-    'default' => '#c3251d',
+			'default' => '#c3251d',
   ) );
 
 	// Add control
@@ -139,6 +139,6 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 			)
   ) );
 
-// Remove default Genesis logo/title
+	// Remove default Genesis logo/title
 	$wp_customize->remove_control('blog_title');
 }
