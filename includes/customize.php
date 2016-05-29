@@ -4,6 +4,40 @@
  *
  * @package genesischild
  */
+ /**
+  * Set Up Default Colors - so if not changed in Customizer no CSS mark up is output
+  */
+ function  gc_link_color_default() {
+ 	return '#c3251d';
+ }
+
+ function  gc_link_hover_color_default() {
+ 	return '#c3251d';
+ }
+
+ function  gc_menu_color_default() {
+	 return '#333333';
+ }
+
+ function  gc_menu_hover_color_default() {
+ 	return '#c3251d';
+ }
+
+ function  gc_button_color_default() {
+	return '#333333';
+ }
+
+ function  gc_button_hover_color_default() {
+	 return '#c3251d';
+ }
+
+ function  gc_footer_link_color_default() {
+ 	return '#999999';
+ }
+
+ function  gc_footer_link_hover_color_default() {
+ 	return '#ffffff';
+ }
 
 add_action( 'customize_register', 'genesischild_register_theme_customizer', 20 );
 /**
@@ -52,7 +86,8 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add Link Color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_link_color', array(
-			'default' => '#c3251d',
+			'default'           => gc_link_color_default(),
+			'sanitize_callback' => 'sanitize_hex_color',
   ) );
 
 	// Add control
@@ -67,7 +102,8 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add link hover - focus color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_link_hover_color', array(
-			'default' => '#c3251d',
+			'default'           => gc_link_hover_color_default(),
+			'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	// Add control
@@ -82,7 +118,8 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add Link Color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_menu_color', array(
-			'default' => '#333333',
+			'default'           => gc_menu_color_default(),
+			'sanitize_callback' => 'sanitize_hex_color',
   ) );
 
 	// Add control
@@ -97,7 +134,8 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add link hover - focus  color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_menu_hover_color', array(
-			'default' => '#c3251d',
+		'default'           => gc_menu_hover_color_default(),
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	// Add control
@@ -112,7 +150,8 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add buttons background color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_button_color', array(
-			'default' => '#333333',
+			'default' => gc_button_color_default(),
+			'sanitize_callback' => 'sanitize_hex_color',
   ) );
 
 	// Add control
@@ -127,7 +166,8 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 	// Add buttons hover - focus background color
 	// Add setting.
 	$wp_customize->add_setting( 'gc_button_hover_color', array(
-			'default' => '#c3251d',
+		'default' => gc_button_hover_color_default(),
+		'sanitize_callback' => 'sanitize_hex_color',
   ) );
 
 	// Add control
@@ -138,6 +178,38 @@ function genesischild_register_theme_customizer( $wp_customize ) {
 			'settings'   => 'gc_button_hover_color' //pick the setting it applies to
 			)
   ) );
+
+	// Add Footer Link Color
+	// Add setting.
+	$wp_customize->add_setting( 'gc_footer_link_color', array(
+			'default'           => gc_footer_link_color_default(),
+			'sanitize_callback' => 'sanitize_hex_color',
+  ) );
+
+	// Add control
+  $wp_customize->add_control( new WP_Customize_Color_Control(
+    $wp_customize, 'gc_footer_link_color', array(
+			'label'      => __( 'Footer Link Color', 'genesischild' ), //set the label to appear in the Customizer
+			'section'    => 'colors', //select the section for it to appear under
+			'settings'   => 'gc_footer_link_color' //pick the setting it applies to
+			)
+  ) );
+
+	// Add Footer link hover - focus color
+	// Add setting.
+	$wp_customize->add_setting( 'gc_footer_link_hover_color', array(
+			'default'           => gc_footer_link_hover_color_default(),
+			'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	// Add control
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+	 $wp_customize, 'gc_footer_link_hover_color', array(
+			'label'      => __( 'Footer Link Hover Color', 'genesischild' ), //set the label to appear in the Customizer
+			'section'    => 'colors', //select the section for it to appear under
+			'settings'   => 'gc_footer_link_hover_color' //pick the setting it applies to
+			)
+	) );
 
 	// Remove default Genesis logo/title
 	$wp_customize->remove_control('blog_title');

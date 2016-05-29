@@ -23,13 +23,15 @@ function genesischild_css() {
 	$handle  = defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME ? sanitize_title_with_dashes( CHILD_THEME_NAME ) : 'child-theme';
 
 	/* Our Customiser settings, stored as variables */
-	$hero_bg_image = get_theme_mod( 'hero_bg' );
-	$gc_link_color = get_theme_mod( 'gc_link_color' );
-	$gc_link_hover_color = get_theme_mod( 'gc_link_hover_color' );
-	$gc_menu_color = get_theme_mod( 'gc_menu_color' );
-	$gc_menu_hover_color = get_theme_mod( 'gc_menu_hover_color' );
-	$gc_button_color = get_theme_mod( 'gc_button_color' );
-	$gc_button_hover_color = get_theme_mod( 'gc_button_hover_color' );
+	$hero_bg_image = get_theme_mod( 'hero_bg');
+	$gc_link_color = get_theme_mod( 'gc_link_color', gc_link_color_default() );
+	$gc_link_hover_color = get_theme_mod( 'gc_link_hover_color', gc_link_hover_color_default() );
+	$gc_menu_color = get_theme_mod( 'gc_menu_color', gc_menu_color_default() );
+	$gc_menu_hover_color = get_theme_mod( 'gc_menu_hover_color', gc_menu_hover_color_default() );
+	$gc_button_color = get_theme_mod( 'gc_button_color', gc_button_color_default() );
+	$gc_button_hover_color = get_theme_mod( 'gc_button_hover_color', gc_button_hover_color_default() );
+	$gc_footer_link_color = get_theme_mod( 'gc_footer_link_color', gc_footer_link_color_default() );
+	$gc_footer_link_hover_color = get_theme_mod( 'gc_footer_link_hover_color', gc_footer_link_hover_color_default() );
 
 	//* Calculate Color Contrast
 	function genesis_sample_color_contrast( $color ) {
@@ -67,26 +69,24 @@ function genesischild_css() {
 	$css = '';
 
 
-	$css = ( $hero_bg_image !== '') ? sprintf('
+	$css .= ( !empty($hero_bg_image) ) ? sprintf('
 	.herocontainer {
 		background: url(%s) no-repeat center;
 		background-size: cover;
 	}
 	', $hero_bg_image ) : '';
 
-	$css .= ( $gc_link_color !== '#c3251d' ) ? sprintf( '
+	$css .= ( gc_link_color_default() !== $gc_link_color ) ? sprintf( '
 		a {
 			color: %s;
 		}
 		', $gc_link_color ) : '';
 
-	$css .= ( $gc_link_hover_color !== '#c3251d' ) ? sprintf( '
+	$css .= ( gc_link_hover_color_default() !== $gc_link_hover_color  ) ? sprintf( '
 	 	a:hover,
 	 	a:focus,
 		.entry-title a:hover,
 		.entry-title a:focus,
-		.site-footer a:hover,
-		.site-footer a:focus,
 		.archive-pagination li a:hover,
 		.archive-pagination li a:focus,
 		.archive-pagination .active a {
@@ -94,13 +94,13 @@ function genesischild_css() {
 		}
 		', $gc_link_hover_color ) : '';
 
-	$css .= ( $gc_menu_color !== '#333333' ) ? sprintf( '
+	$css .= ( gc_menu_color_default() !== $gc_menu_color  ) ? sprintf( '
 		.genesis-nav-menu a {
 			color: %s;
 		}
 		', $gc_menu_color ) : '';
 
-	$css .= ( $gc_menu_hover_color !== '#c3251d' ) ? sprintf( '
+	$css .= ( gc_menu_hover_color_default() !== $gc_menu_hover_color ) ? sprintf( '
 		.genesis-nav-menu a:hover,
 		.genesis-nav-menu a:focus,
 		.genesis-nav-menu .current-menu-item > a,
@@ -112,7 +112,7 @@ function genesischild_css() {
 		}
 		', $gc_menu_hover_color ) : '';
 
-	$css .= ( $gc_button_color !== '#333333' ) ? sprintf( '
+	$css .= ( gc_button_color_default() !== $gc_button_color ) ? sprintf( '
 		button,
 		input[type="button"],
 		input[type="reset"],
@@ -126,7 +126,7 @@ function genesischild_css() {
 		', $gc_button_color, genesis_sample_color_contrast( $gc_button_color ) ) : '';
 
 
-	$css .= ( $gc_button_hover_color !== '#c3251d' ) ? sprintf( '
+	$css .= ( gc_button_hover_color_default() !== $gc_button_hover_color ) ? sprintf( '
 		button:hover,
 		button:focus,
 		input[type="button"]:hover,
@@ -145,6 +145,20 @@ function genesischild_css() {
 			color: %s;
 		}
 		', $gc_button_hover_color, genesis_sample_color_contrast( $gc_button_hover_color ) ) : '';
+
+
+	$css .= ( gc_footer_link_color_default() !== $gc_footer_link_color ) ? sprintf( '
+		.footer-widgets a {
+			color: %s;
+		}
+		', $gc_footer_link_color ) : '';
+
+	$css .= ( gc_footer_link_hover_color_default() !== $gc_footer_link_hover_color  ) ? sprintf( '
+		.footer-widgets a:hover,
+		.footer-widgets a:focus {
+			color: %s;
+		}
+		', $gc_footer_link_hover_color ) : '';
 
 	if ( $css ) {
 		wp_add_inline_style( $handle, $css );
