@@ -1,1 +1,0 @@
-svgeezy.init(false, 'png');

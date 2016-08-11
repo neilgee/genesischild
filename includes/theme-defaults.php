@@ -5,14 +5,14 @@
  * @package genesischild
  */
 
-add_filter( 'genesis_theme_settings_defaults', 'genesischild_theme_defaults' );
+add_filter( 'genesis_theme_settings_defaults', 'gc_theme_defaults' );
 /**
  * Genesischild Theme Setting Defaults.
  *
  * @package genesischild
  * @param mixed $defaults Set the theme defaults.
  */
-function genesischild_theme_defaults( $defaults ) {
+function gc_theme_defaults( $defaults ) {
 
 	$defaults['blog_cat_num']              = 5;
 	$defaults['content_archive']           = 'excerpts';
@@ -26,13 +26,13 @@ function genesischild_theme_defaults( $defaults ) {
 }
 
 
-add_action( 'after_switch_theme', 'genesischild_theme_setting_defaults' );
+add_action( 'after_switch_theme', 'gc_theme_setting_defaults' );
 /**
  * Genesischild Theme Setup After swicthing themes.
  *
  * @package genesischild
  */
-function genesischild_theme_setting_defaults() {
+function gc_theme_setting_defaults() {
 
 	if ( function_exists( 'genesis_update_settings' ) ) {
 
@@ -50,14 +50,14 @@ function genesischild_theme_setting_defaults() {
 
 }
 
-add_filter( 'simple_social_default_styles', 'genesischild_social_default_styles' );
+add_filter( 'simple_social_default_styles', 'gc_social_default_styles' );
 /**
  * Simple Social Icon Defaults.
  *
  * @package genesischild
  * @param array $defaults Set the icon defaults.
  */
-function genesischild_social_default_styles( $defaults ) {
+function gc_social_default_styles( $defaults ) {
 
 	$args = array(
 		'alignment'              => 'aligncenter',

@@ -13,9 +13,9 @@
 add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
 
 // Add Hero Widget Just to Front Page.
-add_action( 'genesis_after_header','genesischild_optin_widget' );
-add_action( 'genesis_after_header','genesischild_hero_widget' );
-add_action( 'genesis_after_header','genesischild_homecontent_widget' );
+add_action( 'genesis_after_header','gc_optin_widget' );
+add_action( 'genesis_after_header','gc_hero_widget' );
+add_action( 'genesis_after_header','gc_homecontent_widget' );
 
 
 // Run Custom Genesis with no inner content.
@@ -27,13 +27,13 @@ add_action( 'genesis_after_header','genesischild_homecontent_widget' );
  * @link      http://wpbeaches.com/
  * @copyright (c)2014, Neil Gee
  **/
-function wpb_genesis_no_content() {
-	wpb_genesis_header();
-	wpb_genesis_footer();
+function gc_genesis_no_content() {
+	gc_genesis_header();
+	gc_genesis_footer();
 }
 
-/** Customised Genesis Header **/
-function wpb_genesis_header() {
+// Customised Genesis Header
+function gc_genesis_header() {
 	do_action( 'genesis_doctype' );
 	do_action( 'genesis_title' );
 	do_action( 'genesis_meta' );
@@ -67,8 +67,8 @@ function wpb_genesis_header() {
 	// genesis_structural_wrap( 'site-inner' );
 }
 
-/** Customised Genesis Footer **/
-function wpb_genesis_footer() {
+// Customised Genesis Footer
+function gc_genesis_footer() {
 	// genesis_structural_wrap( 'site-inner', 'close' );
 	// echo '</div>'; // end .site-inner or #inner
 	do_action( 'genesis_before_footer' );
@@ -84,7 +84,7 @@ function wpb_genesis_footer() {
 	</html>
 <?php
 }
-
-// wpb_genesis_no_content();
+// Uncomment the gc_genesis_no_content() and comment genesis() to remove the site inner div on tehe front page
+// gc_genesis_no_content();
 
 genesis();

@@ -39,11 +39,11 @@
  	return '#ffffff';
  }
 
-add_action( 'customize_register', 'genesischild_register_theme_customizer', 20 );
+add_action( 'customize_register', 'gc_register_theme_customizer', 20 );
 /**
  * Register for the Customizer
  */
-function genesischild_register_theme_customizer( $wp_customize ) {
+function gc_register_theme_customizer( $wp_customize ) {
 	// Change label for logo text color
 	 $wp_customize->get_control('header_textcolor')->label = __('Site Title Color', 'genesischild');
 

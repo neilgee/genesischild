@@ -8,7 +8,7 @@
  * @link    http://wpbeaches.com/
  */
 
-add_action( 'genesis_setup', 'genesischild_theme_setup', 15 );
+add_action( 'genesis_setup', 'gc_theme_setup', 15 );
 /**
  * Genesischild theme set up
  *
@@ -16,7 +16,7 @@ add_action( 'genesis_setup', 'genesischild_theme_setup', 15 );
  *
  * @since 1.0.0
  */
-function genesischild_theme_setup() {
+function gc_theme_setup() {
 	// Child theme constant settings.
 	 define( 'CHILD_THEME_NAME', 'genesischild' );
 	 define( 'CHILD_THEME_URL', 'http://wpbeaches.com' );
@@ -37,6 +37,8 @@ function genesischild_theme_setup() {
 	require_once( get_stylesheet_directory() . '/includes/output.php' );
 	// Genesis Default Responsive Menu
 	// include_once( get_stylesheet_directory() . '/includes/responsive-menu.php' );
+	// WooCommerce functions
+	//include_once( get_stylesheet_directory() . '/includes/woocommerce.php' );
 	// Get the plugins.
 	//require_once  get_stylesheet_directory() . '/plugins.php';
 
@@ -88,11 +90,6 @@ function genesischild_theme_setup() {
 	// genesis_unregister_layout( 'sidebar-content-sidebar' );
 	// genesis_unregister_layout( 'full-width-content' );
 
-	// Declare WooCommerce support for your theme - install the plugin and below and uncomment the line below that.
-	// https://wordpress.org/plugins/genesis-connect-woocommerce/
-	//
-	// add_theme_support( 'genesis-connect-woocommerce' );
-
 	// Re-arrange header nav.
 	remove_action( 'genesis_after_header','genesis_do_nav' );
 	add_action( 'genesis_header_right','genesis_do_nav' );
@@ -100,70 +97,70 @@ function genesischild_theme_setup() {
 	/**
 	 * Change Read More Button For Excerpt.
 	 **/
-	function genesischild_read_more_link() {
-		return '  <a href="' . get_permalink() . '" class="more-link" title="Read More">Read More</a>';
+	function gc_read_more_link() {
+		return ' ...  <a href="' . get_permalink() . '" class="more-link" title="Read More">Read More</a>';
 	}
-	add_filter( 'excerpt_more', 'genesischild_read_more_link' );
+	add_filter( 'excerpt_more', 'gc_read_more_link' );
 
 	/**
 	 * Customize the content limit more markup.
 	 **/
-	function genesischild_content_limit_read_more_markup( $output, $content, $link ) {
+	function gc_content_limit_read_more_markup( $output, $content, $link ) {
 
 		$output = sprintf( '<p>%s &#x02026;</p><p class="more-link-wrap">%s</p>', $content, str_replace( '&#x02026;', '', $link ) );
 
 		return $output;
 	}
-	add_filter( 'get_the_content_limit', 'genesischild_content_limit_read_more_markup', 10, 3 );
+	add_filter( 'get_the_content_limit', 'gc_content_limit_read_more_markup', 10, 3 );
 
 	/**
 	 * Change the comments reply text
 	 */
-	function genesischild_comment_form_defaults( $defaults ) {
+	function gc_comment_form_defaults( $defaults ) {
 		$defaults['title_reply'] = __( 'Leave a Comment', 'genesischild' );
 		$defaults['comment_notes_after'] = '';
 		return $defaults;
 	}
-	add_filter( 'comment_form_defaults', 'genesischild_comment_form_defaults' );
+	add_filter( 'comment_form_defaults', 'gc_comment_form_defaults' );
 
 	/**
 	 * Modify size of the Gravatar in the author box
 	 */
-	function genesischild_sample_author_box_gravatar( $size ) {
+	function gc_sample_author_box_gravatar( $size ) {
 		return 90;
 	}
-	add_filter( 'genesis_author_box_gravatar_size', 'genesischild_sample_author_box_gravatar' );
+	add_filter( 'genesis_author_box_gravatar_size', 'gc_sample_author_box_gravatar' );
 
 	/**
 	 * Modify size of the Gravatar in the entry comments
 	 */
-	function genesischild_sample_comments_gravatar( $args ) {
+	function gc_sample_comments_gravatar( $args ) {
 		$args['avatar_size'] = 60;
 		return $args;
 	}
-	add_filter( 'genesis_comment_list_args', 'genesischild_sample_comments_gravatar' );
+	add_filter( 'genesis_comment_list_args', 'gc_sample_comments_gravatar' );
 
 
 	/**
 	 * Remove Author Name on Post Meta
 	 */
-	function genesischild_post_info( $post_info ) {
+	function gc_post_info( $post_info ) {
 		if ( ! is_page() ) {
 			$post_info = 'Posted on [post_date] [post_comments] [post_edit]';
 			return $post_info;
 		}
 	}
-	add_filter( 'genesis_post_info', 'genesischild_post_info' );
+	add_filter( 'genesis_post_info', 'gc_post_info' );
 
 	/**
 	 * Remove Genesis Blog & Archive
 	 */
-	function genesischild_remove_blog_archive( $templates ) {
+	function gc_remove_blog_archive( $templates ) {
 		unset( $templates['page_blog.php'] );
 		unset( $templates['page_archive.php'] );
 		return $templates;
 	}
-	add_filter( 'theme_page_templates', 'genesischild_remove_blog_archive' );
+	add_filter( 'theme_page_templates', 'gc_remove_blog_archive' );
 
 	// Remove blog header from blog posts page.
 	remove_action( 'genesis_before_loop', 'genesis_do_posts_page_heading' );
@@ -171,13 +168,13 @@ function genesischild_theme_setup() {
 	/**
 	 * Allow SVG Images Via Media Uploader
 	 */
-	function genesischild_add_svg_images( $mimetypes ) {
+	function gc_add_svg_images( $mimetypes ) {
 		$mimetypes['svg'] = 'image/svg+xml';
 		return $mimetypes;
 	}
-	add_filter( 'upload_mimes', 'genesischild_add_svg_images' );
+	add_filter( 'upload_mimes', 'gc_add_svg_images' );
 
-	// Remove Genesis header style so we can use the customiser and header function genesischild_swap_header to add our header logo.
+	// Remove Genesis header style so we can use the customiser and header function gc_swap_header to add our header logo.
 	// remove_action( 'wp_head', 'genesis_custom_header_style' );
 
 
@@ -185,10 +182,10 @@ function genesischild_theme_setup() {
 	 * See http://www.billerickson.net/code/remove-metaboxes-from-genesis-theme-settings/
 	 * Updated to use $_genesis_admin_settings instead of legacy variable in Bill's example.
 	 */
-	function genesischild_remove_metaboxes( $_genesis_admin_settings ) {
+	function gc_remove_metaboxes( $_genesis_admin_settings ) {
 		remove_meta_box( 'genesis-theme-settings-header', $_genesis_admin_settings, 'main' );
 	}
-	add_action( 'genesis_theme_settings_metaboxes', 'genesischild_remove_metaboxes' );
+	add_action( 'genesis_theme_settings_metaboxes', 'gc_remove_metaboxes' );
 
 	/**
 	 * Add an image inline in the site title element for the main logo
@@ -201,7 +198,7 @@ function genesischild_theme_setup() {
 	 * @author @_AlphaBlossom
 	 * @author @_neilgee
 	 */
-	function genesischild_custom_logo( $title, $inside, $wrap ) {
+	function gc_custom_logo( $title, $inside, $wrap ) {
 		// Check to see if the Custom Logo function exists and set what goes inside the wrapping tags.
 		if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) :
 			$logo = the_custom_logo();
@@ -219,7 +216,8 @@ function genesischild_theme_setup() {
 		 $title = sprintf( '<%1$s %2$s>%3$s</%1$s>', $wrap, genesis_attr( 'site-title' ), $inside );
 		 return $title;
 	}
-	add_filter( 'genesis_seo_title','genesischild_custom_logo', 10, 3 );
+	add_filter( 'genesis_seo_title','gc_custom_logo', 10, 3 );
+
 	/**
 	 * Add class for screen readers to site description.
 	 * This will keep the site description mark up but will not have any visual presence on the page
@@ -229,7 +227,7 @@ function genesischild_theme_setup() {
 	 *
 	 * @author @_neilgee
 	 */
-	 function genesischild_add_site_description_class( $attributes ) {
+	 function gc_add_site_description_class( $attributes ) {
 		if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
 			$attributes['class'] .= ' screen-reader-text';
 			return $attributes;
@@ -238,7 +236,7 @@ function genesischild_theme_setup() {
 			return $attributes;
 		}
 	 }
-	 add_filter( 'genesis_attr_site-description', 'genesischild_add_site_description_class' );
+	 add_filter( 'genesis_attr_site-description', 'gc_add_site_description_class' );
 
 
 	// Allow shortcode to run in widgets.
@@ -247,7 +245,7 @@ function genesischild_theme_setup() {
 	/**
 	 * Allow PHP code to run in Widgets.
 	 */
-	function genesischild_execute_php_widgets( $html ) {
+	function gc_execute_php_widgets( $html ) {
 		 if ( strpos( $html, '<' . '?php' ) !== false ) {
 						ob_start();
 						eval( '?' . '>' . $html );
@@ -256,7 +254,7 @@ function genesischild_theme_setup() {
 			}
 			return $html;
 	}
-	add_filter( 'widget_text','genesischild_execute_php_widgets' );
+	add_filter( 'widget_text','gc_execute_php_widgets' );
 
 } // <~Closing brace for genesis_setup function
 

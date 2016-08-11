@@ -30,7 +30,7 @@ The Home Page has been widgetised and the default Genesis loop can be removed.
 
 To remove the Genesis home page loop tweak the **front-page.php** file by uncommenting line 88:
 ```php
-wpb_genesis_no_content();
+gc_genesis_no_content();
 ```
 
 and commenting line 90:
@@ -69,7 +69,6 @@ All scripts are in */includes/scripts-styles.php*
 - FontAwesome is enabled.
 - placeholder.js is enabled.
 - backstretch.min.js is disabled.
-- SVGeezy is disabled
 - FItVids is disabled
 
 ###CSS
@@ -96,6 +95,20 @@ All CSS files are in */includes/scripts-styles.php*
 - Beaver Builder full width CSS styles added - leaves header and footer elements intact but full width for inner page.
 - Genesis Theme defaults now in */includes*
 - Generic landing page added
+
+###Modular Approach
+At the top of functions.php there a number of include files that you can comment/uncomment for adding functionality.
+- customize.php contains all the Customizer options.
+- output.php renders the Customizer options CSS
+- responsive-menu.php adds the Genesis Responsive Menu
+- scripts-styles.php contains all JS and CSS files for inclusion
+- theme-defaults.php contains all the theme defaults
+- widgets.php contains all the widgets that need to be registered
+- woocommerce.php contains all the woocommerce functionality, commented out snippets included
+- class-featured-custom-post-type-widget.php widget for the Genesis Featured Custom posts
+- plugins.php is only used by me which contains a list of installable plugins via TPGMA
+
+
 
 
 

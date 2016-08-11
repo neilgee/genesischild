@@ -10,7 +10,7 @@
  * @link    http://wpbeaches.com
  */
 
-add_action( 'wp_enqueue_scripts', 'genesischild_css', 999 );
+add_action( 'wp_enqueue_scripts', 'gc_css', 999 );
 /**
  * Checks the settings for the images and background colors for each image
  * If any of these value are set the appropriate CSS is output
@@ -18,23 +18,23 @@ add_action( 'wp_enqueue_scripts', 'genesischild_css', 999 );
  *
  * @since 1.0
  */
-function genesischild_css() {
+function gc_css() {
 
 	$handle  = defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME ? sanitize_title_with_dashes( CHILD_THEME_NAME ) : 'child-theme';
 
 	/* Our Customiser settings, stored as variables */
-	$hero_bg_image = get_theme_mod( 'hero_bg');
-	$gc_link_color = get_theme_mod( 'gc_link_color', gc_link_color_default() );
-	$gc_link_hover_color = get_theme_mod( 'gc_link_hover_color', gc_link_hover_color_default() );
-	$gc_menu_color = get_theme_mod( 'gc_menu_color', gc_menu_color_default() );
-	$gc_menu_hover_color = get_theme_mod( 'gc_menu_hover_color', gc_menu_hover_color_default() );
-	$gc_button_color = get_theme_mod( 'gc_button_color', gc_button_color_default() );
-	$gc_button_hover_color = get_theme_mod( 'gc_button_hover_color', gc_button_hover_color_default() );
-	$gc_footer_link_color = get_theme_mod( 'gc_footer_link_color', gc_footer_link_color_default() );
+	$hero_bg_image              = get_theme_mod( 'hero_bg');
+	$gc_link_color              = get_theme_mod( 'gc_link_color', gc_link_color_default() );
+	$gc_link_hover_color        = get_theme_mod( 'gc_link_hover_color', gc_link_hover_color_default() );
+	$gc_menu_color              = get_theme_mod( 'gc_menu_color', gc_menu_color_default() );
+	$gc_menu_hover_color        = get_theme_mod( 'gc_menu_hover_color', gc_menu_hover_color_default() );
+	$gc_button_color            = get_theme_mod( 'gc_button_color', gc_button_color_default() );
+	$gc_button_hover_color      = get_theme_mod( 'gc_button_hover_color', gc_button_hover_color_default() );
+	$gc_footer_link_color       = get_theme_mod( 'gc_footer_link_color', gc_footer_link_color_default() );
 	$gc_footer_link_hover_color = get_theme_mod( 'gc_footer_link_hover_color', gc_footer_link_hover_color_default() );
 
 	//* Calculate Color Contrast
-	function genesis_sample_color_contrast( $color ) {
+	function gc_color_contrast( $color ) {
 
 		$hexcolor = str_replace( '#', '', $color );
 
@@ -49,7 +49,7 @@ function genesischild_css() {
 	}
 
 	//* Calculate Color Brightness
-	function genesis_sample_color_brightness( $color, $change ) {
+	function gc_color_brightness( $color, $change ) {
 
 		$hexcolor = str_replace( '#', '', $color );
 
@@ -119,32 +119,44 @@ function genesischild_css() {
 		input[type="submit"],
 		.button,
 		.widget .button,
-		.enews-widget input[type="submit"]  {
+		.enews-widget input[type="submit"],
+  	.archive-pagination li a,
+		a.more-link {
 			background-color: %s;
 			color: %s;
 		}
-		', $gc_button_color, genesis_sample_color_contrast( $gc_button_color ) ) : '';
+		', $gc_button_color, gc_color_contrast( $gc_button_color ) ) : '';
 
 
 	$css .= ( gc_button_hover_color_default() !== $gc_button_hover_color ) ? sprintf( '
 		button:hover,
 		button:focus,
+		.button:hover,
+		.button:focus,
 		input[type="button"]:hover,
 		input[type="button"]:focus,
 		input[type="reset"]:hover,
 		input[type="reset"]:focus,
 		input[type="reset"]:hover,
 		input[type="reset"]:focus,
-		.button:hover,
-		.button:focus,
+		input:hover[type="reset"],
+		input:hover[type="submit"],
+		input:focus[type="button"],
+		input:focus[type="reset"],
+		input:focus[type="submit"],
 		.widget .button:hover,
 		.widget .button:focus,
 		.enews-widget input[type="submit"]:hover,
-		.enews-widget input[type="submit"]:focus  {
+		.enews-widget input[type="submit"]:focus,
+		.archive-pagination li a:hover,
+		.archive-pagination li a:focus,
+		.archive-pagination .active a,
+		a.more-link:hover  {
 			background-color: %s;
 			color: %s;
 		}
-		', $gc_button_hover_color, genesis_sample_color_contrast( $gc_button_hover_color ) ) : '';
+		', $gc_button_hover_color, gc_color_contrast( $gc_button_hover_color ) ) : '';
+
 
 
 	$css .= ( gc_footer_link_color_default() !== $gc_footer_link_color ) ? sprintf( '
@@ -159,6 +171,49 @@ function genesischild_css() {
 			color: %s;
 		}
 		', $gc_footer_link_hover_color ) : '';
+
+		// WooCommerce
+		if ( class_exists( 'WooCommerce' ) ) {
+
+			$css .= ( gc_button_hover_color_default() !== $gc_button_hover_color ) ? sprintf( '
+				.woocommerce #respond input#submit.alt:hover,
+				.woocommerce a.button.alt:hover,
+				.woocommerce button.button.alt:hover,
+				.woocommerce input.button.alt:hover  {
+					background-color: %s;
+					color: %s;
+				}
+				', $gc_button_hover_color, gc_color_contrast( $gc_button_hover_color ) ) : '';
+
+
+
+			$css .= ( gc_button_color_default() !== $gc_button_color ) ? sprintf( '
+			.woocommerce #respond input#submit.alt,
+			.woocommerce a.button.alt,
+			.woocommerce button.button.alt,
+			.woocommerce input.button.alt,
+			.woocommerce span.onsale {
+					background-color: %s;
+					color: %s;
+				}
+				', $gc_button_color, gc_color_contrast( $gc_button_color ) ) : '';
+
+			$css .= ( gc_menu_color_default() !== $gc_menu_color  ) ? sprintf( '
+			.woocommerce-info {
+					border-top-color: %s;
+				}
+				', $gc_menu_color ) : '';
+
+
+			$css .= ( gc_menu_color_default() !== $gc_menu_color  ) ? sprintf( '
+			.woocommerce-info:before {
+				    color:%s;
+				}
+				', $gc_menu_color ) : '';
+
+
+
+		}
 
 	if ( $css ) {
 		wp_add_inline_style( $handle, $css );

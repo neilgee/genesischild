@@ -14,7 +14,7 @@
  /**
   * Responsive Menu Scripts and Styles Enqueued
   */
- function genesischild_responsive_menu() {
+ function gc_responsive_menu() {
  	wp_enqueue_script( 'genesischild-responsive-menu', get_stylesheet_directory_uri() . '/js/responsive-menu.js', array( 'jquery' ), '1.0.0', true );
  	$output = array(
  		'mainMenu' => __( 'Menu', 'genesischild' ),
@@ -25,4 +25,4 @@
 
 
  }
- add_action( 'wp_enqueue_scripts', 'genesischild_responsive_menu');
+ add_action( 'wp_enqueue_scripts', 'gc_responsive_menu');

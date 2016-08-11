@@ -5,11 +5,11 @@
  * @package genesischild
  */
 
-add_action( 'widgets_init', 'genesischild_extra_widgets' );
+add_action( 'widgets_init', 'gc_extra_widgets' );
 /**
  * Register new Widget areas and position them.
  */
-function genesischild_extra_widgets() {
+function gc_extra_widgets() {
 	genesis_register_sidebar( array(
 		'id'            => 'preheaderleft',
 		'name'          => __( 'PreHeaderLeft', 'genesischild' ),
@@ -75,7 +75,7 @@ function genesischild_extra_widgets() {
 /**
  * Position the PreHeader Area.
  */
-function genesischild_preheader_widget() {
+function gc_preheader_widget() {
 	if ( is_active_sidebar( 'preheaderleft' ) || is_active_sidebar( 'preheaderright' ) ) {
 		echo '<section class="preheadercontainer"><div class="wrap">';
 		genesis_widget_area( 'preheaderleft' , array(
@@ -89,14 +89,14 @@ function genesischild_preheader_widget() {
 		echo '</div></section>';
 	}
 }
-add_action( 'genesis_before_header','genesischild_preheader_widget' );
+add_action( 'genesis_before_header','gc_preheader_widget' );
 
 
 /**
  * Position the Hero Area.
  * Hooked in front-page.php
  */
-function genesischild_hero_widget() {
+function gc_hero_widget() {
 	genesis_widget_area( 'hero', array(
 		'before' => '<section class="herocontainer"><div class="wrap hero">',
 		'after'  => '</div></section>',
@@ -107,7 +107,7 @@ function genesischild_hero_widget() {
  * Position the Optin Area.
  * Hooked in front-page.php
  */
-function genesischild_optin_widget() {
+function gc_optin_widget() {
 	genesis_widget_area( 'optin', array(
 		'before' => '<aside class="optincontainer"><div class="wrap optin">',
 		'after'  => '</div></aside>',
@@ -118,17 +118,17 @@ function genesischild_optin_widget() {
  * Position the Home Area.
  * Hooked in front-page.php
  */
-function genesischild_homecontent_widget() {
+function gc_homecontent_widget() {
 	genesis_widget_area( 'home-top', array(
-		'before' => '<div class="home-top-container"><div class="wrap home-top">',
+		'before' => '<div class="home-top-container"><div class="wrap home-top home-content">',
 		'after'  => '</div></div>',
 	) );
 	genesis_widget_area( 'home-middle', array(
-		'before' => '<div class="home-middle-container"><div class="wrap home-middle">',
+		'before' => '<div class="home-middle-container"><div class="wrap home-middle home-content">',
 		'after'  => '</div></div>',
 	) );
 	genesis_widget_area( 'home-bottom', array(
-		'before' => '<div class="home-bottom-container"><div class="wrap home-bottom">',
+		'before' => '<div class="home-bottom-container"><div class="wrap home-bottom home-content">',
 		'after'  => '</div></div>',
 	) );
 }
@@ -136,31 +136,31 @@ function genesischild_homecontent_widget() {
 /**
  * Position Footer Widget Header.
  */
-function genesischild_footerwidgetheader() {
+function gc_footerwidgetheader() {
 	if ( is_active_sidebar( 'footerwidgetheader' ) ) {
 		echo '<div class="footerwidgetheader-container"><div class="wrap">';
 		genesis_widget_area( 'footerwidgetheader' );
 		echo '</div></div>';
 	}
 }
-add_action( 'genesis_before_footer','genesischild_footerwidgetheader', 5 );
+add_action( 'genesis_before_footer','gc_footerwidgetheader', 5 );
 
 /**
  * Position the Footer Area.
  */
-function genesischild_footer_widget() {
+function gc_footer_widget() {
 	genesis_widget_area( 'footercontent', array(
 		'before' => '<div class="footercontent">',
 		'after'  => '</div>',
 	));
 }
 remove_action( 'genesis_footer', 'genesis_do_footer' );
-add_action( 'genesis_footer','genesischild_footer_widget' );
+add_action( 'genesis_footer','gc_footer_widget' );
 
 /**
  * Position the PostFooter Area.
  */
-function genesischild_postfooter_widget() {
+function gc_postfooter_widget() {
 	if ( is_active_sidebar( 'postfooterleft' ) || is_active_sidebar( 'postfooterright' ) ) {
 		echo '<div class="postfootercontainer"><div class="wrap">';
 		genesis_widget_area( 'postfooterleft' , array(
@@ -174,12 +174,12 @@ function genesischild_postfooter_widget() {
 		echo '</div></div>';
 	}
 }
-add_action( 'genesis_after_footer','genesischild_postfooter_widget' );
+add_action( 'genesis_after_footer','gc_postfooter_widget' );
 
 /**
  * Position the Before Content Area.
  */
-function genesischild_before_entry_widget() {
+function gc_before_entry_widget() {
 	if ( is_single() ) {
 		genesis_widget_area( 'before-entry', array(
 			'before' => '<div class="before-entry widget-area">',
@@ -187,15 +187,15 @@ function genesischild_before_entry_widget() {
 		) );
 	}
 }
-add_action( 'genesis_before_loop','genesischild_before_entry_widget' );
+add_action( 'genesis_before_loop','gc_before_entry_widget' );
 
 
 /**
  * Remove Unwanted Widgts.
  */
-function genesischild_remove_some_widgets() {
+function gc_remove_some_widgets() {
 	// Example below, to action these uncomment the add_action above.
 	unregister_sidebar( 'sidebar-alt' );
 }
 // Uncomment action below.
-// add_action( 'widgets_init', 'genesischild_remove_some_widgets' );
+// add_action( 'widgets_init', 'gc_remove_some_widgets' );

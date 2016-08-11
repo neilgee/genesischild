@@ -1,8 +1,8 @@
 <?php
 /**
- * Genesischild page template.
+ * genesischild page template.
  *
- * @package genesischild
+ * @package genesischild-mobile-first
  * @author  NeilGee
  * @license GPL-2.0+
  * @link    http://wpbeaches.com/
