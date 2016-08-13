@@ -189,7 +189,7 @@ function gc_register_theme_customizer( $wp_customize ) {
 	// Add control
   $wp_customize->add_control( new WP_Customize_Color_Control(
     $wp_customize, 'gc_footer_link_color', array(
-			'label'      => __( 'Footer Link Color', 'genesischild' ), //set the label to appear in the Customizer
+			'label'      => __( 'Footer Widgets Link Color', 'genesischild' ), //set the label to appear in the Customizer
 			'section'    => 'colors', //select the section for it to appear under
 			'settings'   => 'gc_footer_link_color' //pick the setting it applies to
 			)
@@ -205,7 +205,7 @@ function gc_register_theme_customizer( $wp_customize ) {
 	// Add control
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 	 $wp_customize, 'gc_footer_link_hover_color', array(
-			'label'      => __( 'Footer Link Hover Color', 'genesischild' ), //set the label to appear in the Customizer
+			'label'      => __( 'Footer Widgets Link Hover Color', 'genesischild' ), //set the label to appear in the Customizer
 			'section'    => 'colors', //select the section for it to appear under
 			'settings'   => 'gc_footer_link_hover_color' //pick the setting it applies to
 			)

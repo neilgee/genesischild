@@ -95,7 +95,8 @@ function gc_css() {
 		', $gc_link_hover_color ) : '';
 
 	$css .= ( gc_menu_color_default() !== $gc_menu_color  ) ? sprintf( '
-		.genesis-nav-menu a {
+		.genesis-nav-menu a,
+		.nav-primary .genesis-nav-menu .sub-menu a {
 			color: %s;
 		}
 		', $gc_menu_color ) : '';
@@ -106,6 +107,9 @@ function gc_css() {
 		.genesis-nav-menu .current-menu-item > a,
 		.genesis-nav-menu .sub-menu .current-menu-item > a:hover,
 		.genesis-nav-menu .sub-menu .current-menu-item > a:focus,
+		.nav-primary .genesis-nav-menu .sub-menu a:hover,
+		.nav-primary .genesis-nav-menu .sub-menu a:focus,
+		.nav-primary .genesis-nav-menu .sub-menu .current-menu-item > a,
 		.js nav button:focus,
 		.js .menu-toggle:focus  {
 			color: %s;
