@@ -39,6 +39,10 @@
  	return '#ffffff';
  }
 
+ function  gc_footerwidgets_background_color_default() {
+   return '#333';
+ }
+
 add_action( 'customize_register', 'gc_register_theme_customizer', 20 );
 /**
  * Register for the Customizer
@@ -210,6 +214,22 @@ function gc_register_theme_customizer( $wp_customize ) {
 			'settings'   => 'gc_footer_link_hover_color' //pick the setting it applies to
 			)
 	) );
+
+  // Add Footer Widgets background color
+  // Add setting.
+  $wp_customize->add_setting( 'gc_footerwidgets_background_color', array(
+      'default'           => gc_footerwidgets_background_color_default(),
+      'sanitize_callback' => 'sanitize_hex_color',
+  ) );
+
+  // Add control
+  $wp_customize->add_control( new WP_Customize_Color_Control(
+   $wp_customize, 'gc_footerwidgets_background_color', array(
+      'label'      => __( 'Footer Widgets Background  Color', 'genesischild' ), //set the label to appear in the Customizer
+      'section'    => 'colors', //select the section for it to appear under
+      'settings'   => 'gc_footerwidgets_background_color' //pick the setting it applies to
+      )
+  ) );
 
 	// Remove default Genesis logo/title
 	$wp_customize->remove_control('blog_title');

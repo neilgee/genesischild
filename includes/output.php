@@ -23,15 +23,17 @@ function gc_css() {
 	$handle  = defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME ? sanitize_title_with_dashes( CHILD_THEME_NAME ) : 'child-theme';
 
 	/* Our Customiser settings, stored as variables */
-	$hero_bg_image              = get_theme_mod( 'hero_bg');
-	$gc_link_color              = get_theme_mod( 'gc_link_color', gc_link_color_default() );
-	$gc_link_hover_color        = get_theme_mod( 'gc_link_hover_color', gc_link_hover_color_default() );
-	$gc_menu_color              = get_theme_mod( 'gc_menu_color', gc_menu_color_default() );
-	$gc_menu_hover_color        = get_theme_mod( 'gc_menu_hover_color', gc_menu_hover_color_default() );
-	$gc_button_color            = get_theme_mod( 'gc_button_color', gc_button_color_default() );
-	$gc_button_hover_color      = get_theme_mod( 'gc_button_hover_color', gc_button_hover_color_default() );
-	$gc_footer_link_color       = get_theme_mod( 'gc_footer_link_color', gc_footer_link_color_default() );
-	$gc_footer_link_hover_color = get_theme_mod( 'gc_footer_link_hover_color', gc_footer_link_hover_color_default() );
+	$hero_bg_image                     = get_theme_mod( 'hero_bg');
+	$gc_link_color                     = get_theme_mod( 'gc_link_color', gc_link_color_default() );
+	$gc_link_hover_color               = get_theme_mod( 'gc_link_hover_color', gc_link_hover_color_default() );
+	$gc_menu_color                     = get_theme_mod( 'gc_menu_color', gc_menu_color_default() );
+	$gc_menu_hover_color               = get_theme_mod( 'gc_menu_hover_color', gc_menu_hover_color_default() );
+	$gc_button_color                   = get_theme_mod( 'gc_button_color', gc_button_color_default() );
+	$gc_button_hover_color             = get_theme_mod( 'gc_button_hover_color', gc_button_hover_color_default() );
+	$gc_footer_link_color              = get_theme_mod( 'gc_footer_link_color', gc_footer_link_color_default() );
+	$gc_footer_link_hover_color        = get_theme_mod( 'gc_footer_link_hover_color', gc_footer_link_hover_color_default() );
+	$gc_footerwidgets_background_color = get_theme_mod( 'gc_footerwidgets_background_color', gc_footerwidgets_background_color_default() );
+
 
 	//* Calculate Color Contrast
 	function gc_color_contrast( $color ) {
@@ -175,6 +177,12 @@ function gc_css() {
 			color: %s;
 		}
 		', $gc_footer_link_hover_color ) : '';
+
+		$css .= ( gc_footerwidgets_background_color_default() !== $gc_footerwidgets_background_color ) ? sprintf( '
+			.footer-widgets {
+				background-color: %s;
+			}
+			', $gc_footerwidgets_background_color ) : '';
 
 		// WooCommerce
 		if ( class_exists( 'WooCommerce' ) ) {

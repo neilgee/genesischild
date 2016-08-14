@@ -923,9 +923,8 @@ img.alignright,
 --------------------------------------------- */
 
 .featured-content .entry {
-	border-bottom: 2px solid #f5f5f5;
 	margin-bottom: 20px;
-	padding: 0 0 24px;
+	padding: 0 0 20px;
 }
 
 .footer-widgets .entry {
@@ -1247,10 +1246,35 @@ img.alignright,
 }
 
 
-/* # Content Area
+.home-top-container {
+background: #f5f5f5;
+}
+.home-middle-container {
+background: #ddd;
+}
+.home-bottom-container {
+background: #aaa;
+}
+
+
+
+
+/* # Home Content Widget Areas
 ---------------------------------------------------------------------------------------------------- */
+.home-content .widget-title {
+	text-align: center;
+	font-size: 32px;
+}
 
+.home-content .entry {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	text-align: center;
+}
 
+.home-content .entry p:last-child{
+	margin-bottom: 0;
+}
 
 
 /* # PreHeader
@@ -1535,7 +1559,7 @@ li.comment {
 	background-color: #fff;
 	font-size: 16px;
 	line-height: 1;
-	padding: 40px 0;
+	padding: 10px 0;
 	text-align: center;
 }
 
@@ -1765,14 +1789,6 @@ GenesisChild  - Beaver Builder Full Width
 		text-align: center;
 	}
 
-	.home-module-container {
-		text-align: center;
-	}
-
-	.home-module-container .one-third {
-		margin-bottom: 30px;
-	}
-
 
 	.content,
 	.content-sidebar-sidebar .content,
@@ -1810,6 +1826,14 @@ GenesisChild  - Beaver Builder Full Width
 		background-position: center top;
 	}
 
+	.home-content {
+		margin-bottom: 60px;
+	}
+
+	.home-content .entry {
+		margin-bottom: 30px;
+	}
+
 	.genesis-nav-menu li,
 	.site-header ul.genesis-nav-menu,
 	.site-header .search-form {
@@ -1830,6 +1854,10 @@ GenesisChild  - Beaver Builder Full Width
 
 	.genesis-nav-menu li.right {
 		display: none;
+	}
+
+	.footer-widgets {
+		text-align: center;
 	}
 
 	.footer-widgets-1 {
@@ -1853,6 +1881,12 @@ GenesisChild  - Beaver Builder Full Width
 
 	.archive-pagination li a {
 		margin-bottom: 4px;
+	}
+
+	.alignleft,
+	.alignright {
+		text-align: center;
+		float: none;
 	}
 
 }
