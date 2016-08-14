@@ -1,8 +1,8 @@
 #GenesisChild
 
-This is a basic starter **Genesis Child Theme** to be used with the **Genesis Framework** on **WordPress**.
+This is a basic starter **GenesisChild Theme** to be used with the **Genesis Framework** on **WordPress**.
 
-There is also a Mobile First version of this starter theme - https://github.com/neilgee/genesischild-mobile-first
+There is also a Mobile First version of this starter theme (Which is the one I prefer to use)- https://github.com/neilgee/genesischild-mobile-first
 
 This Genesischild theme has a number of widgets areas, some Front Page only.
 
@@ -25,7 +25,7 @@ This Genesischild theme has a number of widgets areas, some Front Page only.
 * Post Footer Right
 
 ###Home Page
-The Home Page has been widgetised and the default Genesis loop can be removed.
+The Home Page has been widgetized and the default Genesis loop can be removed.
 
 
 To remove the Genesis home page loop tweak the **front-page.php** file by uncommenting line 88:
@@ -59,7 +59,17 @@ Only difference is the main home page 3 modules are now stacked in the theme, Ho
 To use this you have to enable the BackStretch script in */includes/scripts-styles.php* at line 54
 
 ###Customizer
-- Colors > options for link, link hover, menu, menu hover, button, button hover
+- Customizer options
+  - link,
+  - link hover
+  - menu,
+  - menu hover,
+  - button,
+  - button hover,
+  - footer links,
+  - footer links hover,
+  - footer widgets background color
+  
 - Site Identity > Logo upload
 - Featured Images > background image behind Hero Widget
 
@@ -80,7 +90,7 @@ All CSS files are in */includes/scripts-styles.php*
 ###WooCommerce
 - WooCommerce style sheet set to load before main style sheet
 - Some generic CSS styles declared in styles.css
-- WooCommerce theme support declared as an action in functions.php but commented out
+- WooCommerce theme support declared as an action in woocommerce.php but commented out - the woocommerce.php file is on includes and is called in via functions.php as an include, this is commented out be default.
 - Using Genesis Connect for WooCommerce
 
 ###Miscellaneous
@@ -89,24 +99,24 @@ All CSS files are in */includes/scripts-styles.php*
 - 'Read More' link is enabled on post excerpts
 - Comments header changed to 'Leave a Comment'
 - HTML Tags and Attributes is removed from comments
-- The font 'Open Sans' is enqueued from Google Fonts in functions.php
+- The font 'Open Sans' is enqueued from Google Fonts in *includes/scripts-styles.php*
 - Author name removed in Post Meta for posts
-- SVG support for uploads and fallbacks can use PNG format fallback filed in same directory
+- SVG support for image uploads
 - Beaver Builder full width CSS styles added - leaves header and footer elements intact but full width for inner page.
 - Genesis Theme defaults now in */includes*
 - Generic landing page added
 
 ###Modular Approach
 At the top of functions.php there a number of include files that you can comment/uncomment for adding functionality.
-- customize.php contains all the Customizer options.
-- output.php renders the Customizer options CSS
-- responsive-menu.php adds the Genesis Responsive Menu
-- scripts-styles.php contains all JS and CSS files for inclusion
-- theme-defaults.php contains all the theme defaults
-- widgets.php contains all the widgets that need to be registered
-- woocommerce.php contains all the woocommerce functionality, commented out snippets included
-- class-featured-custom-post-type-widget.php widget for the Genesis Featured Custom posts
-- plugins.php is only used by me which contains a list of installable plugins via TPGMA
+- *customize.php* contains all the Customizer options.
+- *output.php* renders the Customizer options CSS
+- *responsive-menu.php* adds the Genesis Responsive Menu
+- *scripts-styles.php* contains all JS and CSS files for inclusion
+- *theme-defaults.php* contains all the theme defaults
+- *widgets.php* contains all the widgets that need to be registered
+- *woocommerce.php* contains all the woocommerce functionality, commented out snippets included
+- *class-featured-custom-post-type-widget.php* widget for the Genesis Featured Custom posts
+- *plugins.php* is only used by me which contains a list of installable plugins via TPGMA
 
 
 
