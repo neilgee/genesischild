@@ -69,7 +69,7 @@ To use this you have to enable the BackStretch script in */includes/scripts-styl
   - footer links,
   - footer links hover,
   - footer widgets background color
-  
+
 - Site Identity > Logo upload
 - Featured Images > background image behind Hero Widget
 
@@ -90,8 +90,8 @@ All CSS files are in */includes/scripts-styles.php*
 ###WooCommerce
 - WooCommerce style sheet set to load before main style sheet
 - Some generic CSS styles declared in styles.css
-- WooCommerce theme support declared as an action in woocommerce.php but commented out - the woocommerce.php file is on includes and is called in via functions.php as an include, this is commented out be default.
-- Using Genesis Connect for WooCommerce
+- WooCommerce theme support declared as an action in *woocommerce.php* but commented out - the *woocommerce.php* file is on *includes* and is called in via *functions.php* as an include, this is commented out be default.
+- Use Genesis Connect for WooCommerce plugin - https://wordpress.org/plugins/genesis-connect-woocommerce/
 
 ###Miscellaneous
 - PHP is enabled to execute in widget areas
