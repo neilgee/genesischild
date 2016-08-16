@@ -1241,7 +1241,8 @@ img.alignright,
 .herocontainer,
 .home-top-container,
 .home-middle-container,
-.home-bottom-container{
+.home-bottom-container,
+.footerwidgetheader-container {
 	padding: 2%;
 }
 
@@ -1489,7 +1490,7 @@ li.comment {
 /* # Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
 
-.footerwidgetheader .widget-title {
+.footerwidgetheader-container .widget-title {
 	text-align: center;
 	font-size: 30px;
 	margin: 20px auto;

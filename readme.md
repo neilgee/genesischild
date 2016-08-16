@@ -59,7 +59,7 @@ Only difference is the main home page 3 modules are now stacked in the theme, Ho
 To use this you have to enable the BackStretch script in */includes/scripts-styles.php* at line 54
 
 ###Customizer
-- Customizer options
+- Customizer options, you can set colors for the options below...
   - link,
   - link hover
   - menu,
@@ -124,6 +124,6 @@ At the top of functions.php there a number of include files that you can comment
 
 Download the zip rename the theme '**genesischild**' - place this theme in your WordPress installation **"/wp-content/themes/"** and activate in WordPress Dashboard
 
-![Genesis Child Theme](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesis-markedup2.png)
+![Genesis Child Theme](https://wpbeaches.com/images/gc-screen.png)
 
-![Genesis Child Theme Widget Areas](http://coolestguidesontheplanet.com/wp-content/themes/gee/images/genesischild-widgets1.png)
+![Genesis Child Theme Widget Areas](https://wpbeaches.com/images/gc-screen-widgets.png)
