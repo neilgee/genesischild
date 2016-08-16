@@ -98,7 +98,7 @@ add_action( 'genesis_before_header','gc_preheader_widget' );
  */
 function gc_hero_widget() {
 	genesis_widget_area( 'hero', array(
-		'before' => '<section class="herocontainer"><div class="wrap hero">',
+		'before' => '<section class="herocontainer"><div class="wrap hero home-content">',
 		'after'  => '</div></section>',
 	));
 }
@@ -109,7 +109,7 @@ function gc_hero_widget() {
  */
 function gc_optin_widget() {
 	genesis_widget_area( 'optin', array(
-		'before' => '<aside class="optincontainer"><div class="wrap optin">',
+		'before' => '<aside class="optincontainer"><div class="wrap optin home-content">',
 		'after'  => '</div></aside>',
 	));
 }
