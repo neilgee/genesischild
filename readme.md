@@ -4,7 +4,7 @@ This is a basic starter **GenesisChild Theme** to be used with the **Genesis Fra
 
 There is also a Mobile First version of this starter theme (Which is the one I prefer to use)- https://github.com/neilgee/genesischild-mobile-first
 
-This Genesischild theme has a number of widgets areas, some Front Page only.
+This Genesischild theme has a number of widgets areas, the majority are Front Page only.
 
 ###Widgetised Areas
 - The theme contains the following widgets
@@ -45,8 +45,8 @@ Areas are highlighted to show boundaries and full width wraps these colors are c
 Only difference is the main home page 3 modules are now stacked in the theme, Home Top, Home Middle and Home Bottom.
 
 ###Menus
-- Primary Menu is positioned in Header Right Widget Hook and set to Primary Location
-- Secondary Menu remains in default area and is Secondary Location
+- Primary Menu is positioned above Header Right Widget Hook and is set to Primary Location
+- Secondary Menu remains in default area and is Secondary Location spanning full width below the logo/header right.
 - Responsive menu is added but not enabled, to enable it uncomment in *functions.php* line 39 *	// include_once( get_stylesheet_directory() . '/includes/responsive-menu.php' );*
 
 ###Custom Logo
@@ -97,7 +97,6 @@ All CSS files are in */includes/scripts-styles.php*
 - PHP is enabled to execute in widget areas
 - Shortcode enabled in widget areas
 - 'Read More' link is enabled on post excerpts
-- Comments header changed to 'Leave a Comment'
 - HTML Tags and Attributes is removed from comments
 - The font 'Open Sans' is enqueued from Google Fonts in *includes/scripts-styles.php*
 - Author name removed in Post Meta for posts
@@ -116,8 +115,6 @@ At the top of functions.php there a number of include files that you can comment
 - *widgets.php* contains all the widgets that need to be registered
 - *woocommerce.php* contains all the woocommerce functionality, commented out snippets included
 - *class-featured-custom-post-type-widget.php* widget for the Genesis Featured Custom posts
-- *plugins.php* is only used by me which contains a list of installable plugins via TPGMA
-
 
 
 
