@@ -74,6 +74,14 @@ To use this you have to enable the BackStretch script in */includes/scripts-styl
 - Featured Images > background image behind Hero Widget
 
 
+###Featured Custom Post Type Widget for Genesis
+- Bundled in the theme is the 'Featured Custom Post Type Widget for Genesis', the widget is available from the normal widget area in the dashboard *Appearance > Widgets*.
+
+This widget builds on the default Genesis supplied Featured Post widget but can also display Custom Post Types and Taxonomies as well as output them in columns.
+
+*Ref - https://github.com/calliaweb/featured-custom-post-type-widget-for-genesis
+
+
 ###Javascripts
 All scripts are in */includes/scripts-styles.php*
 - FontAwesome is enabled.
