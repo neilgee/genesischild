@@ -129,6 +129,6 @@ At the top of functions.php there a number of include files that you can comment
 
 Download the zip rename the theme '**genesischild**' - place this theme in your WordPress installation **"/wp-content/themes/"** and activate in WordPress Dashboard
 
-![Genesis Child Theme](https://wpbeaches.com/images/gc-screen.png)
+![Genesis Child Theme](https://wpbeaches.com/images/gc-screen1.png)
 
 ![Genesis Child Theme Widget Areas](https://wpbeaches.com/images/gc-screen-widgets.png)
