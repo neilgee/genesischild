@@ -131,4 +131,6 @@ Download the zip rename the theme '**genesischild**' - place this theme in your 
 
 ![Genesis Child Theme](https://wpbeaches.com/images/gc-screen1.png)
 
+![Genesis Child Theme Customizer](https://wpbeaches.com/images/gc-customizer.png)
+
 ![Genesis Child Theme Widget Areas](https://wpbeaches.com/images/gc-screen-widgets.png)
