@@ -33,6 +33,22 @@ function gc_css() {
 	$gc_footer_link_color              = get_theme_mod( 'gc_footer_link_color', gc_footer_link_color_default() );
 	$gc_footer_link_hover_color        = get_theme_mod( 'gc_footer_link_hover_color', gc_footer_link_hover_color_default() );
 	$gc_footerwidgets_background_color = get_theme_mod( 'gc_footerwidgets_background_color', gc_footerwidgets_background_color_default() );
+	// WooCommerce
+	if ( class_exists( 'WooCommerce' ) ) {
+	$gc_woo_button_color             = get_theme_mod( 'gc_woo_button_color', gc_woo_button_color_default() );
+	$gc_woo_button_hover_color       = get_theme_mod( 'gc_woo_button_hover_color', gc_woo_button_hover_color_default() );
+	$gc_woo_button_alt_color         = get_theme_mod( 'gc_woo_button_alt_color', gc_woo_button_alt_color_default() );
+	$gc_woo_button_alt_hover_color   = get_theme_mod( 'gc_woo_button_alt_hover_color', gc_woo_button_alt_hover_color_default() );
+	$gc_woo_button_dis_color         = get_theme_mod( 'gc_woo_button_dis_color', gc_woo_button_dis_color_default() );
+	$gc_woo_button_dis_hover_color   = get_theme_mod( 'gc_woo_button_dis_hover_color', gc_woo_button_dis_hover_color_default() );
+
+	$gc_woo_price_color		 = get_theme_mod( 'gc_woo_price_color', gc_woo_price_color_default() );
+	$gc_woo_sale_price_color	 = get_theme_mod( 'gc_woo_sale_price_color', gc_woo_sale_price_color_default() );
+	
+	$gc_woo_error_color	         = get_theme_mod( 'gc_woo_error_color', gc_woo_error_color_default() );
+	$gc_woo_info_color	         = get_theme_mod( 'gc_woo_info_color', gc_woo_info_color_default() );
+	$gc_woo_message_color	         = get_theme_mod( 'gc_woo_message_color', gc_woo_message_color_default() );
+	}	
 
 
 	//* Calculate Color Contrast
@@ -47,7 +63,6 @@ function gc_css() {
 		$luminosity = ( ( $red * 0.2126 ) + ( $green * 0.7152 ) + ( $blue * 0.0722 ) );
 
 		return ( $luminosity > 128 ) ? '#333333' : '#ffffff';
-
 	}
 
 	//* Calculate Color Brightness
@@ -64,7 +79,6 @@ function gc_css() {
 		$blue  = max( 0, min( 255, $blue + $change ) );
 
 		return '#'.dechex( $red ).dechex( $green ).dechex( $blue );
-
 	}
 
 	/* Start off with •nuffink*/
@@ -72,10 +86,10 @@ function gc_css() {
 
 
 	$css .= ( !empty($hero_bg_image) ) ? sprintf('
-	.herocontainer {
+		.herocontainer {
 		background: url(%s) no-repeat center;
 		background-size: cover;
-	}
+		}
 	', $hero_bg_image ) : '';
 
 	$css .= ( gc_link_color_default() !== $gc_link_color ) ? sprintf( '
@@ -126,7 +140,7 @@ function gc_css() {
 		.button,
 		.widget .button,
 		.enews-widget input[type="submit"],
-  	.archive-pagination li a,
+  		.archive-pagination li a,
 		a.more-link {
 			background-color: %s;
 			color: %s;
@@ -178,54 +192,172 @@ function gc_css() {
 		}
 		', $gc_footer_link_hover_color ) : '';
 
-		$css .= ( gc_footerwidgets_background_color_default() !== $gc_footerwidgets_background_color ) ? sprintf( '
-			.footer-widgets {
-				background-color: %s;
-			}
-			', $gc_footerwidgets_background_color ) : '';
-
-		// WooCommerce
-		if ( class_exists( 'WooCommerce' ) ) {
-
-			$css .= ( gc_button_hover_color_default() !== $gc_button_hover_color ) ? sprintf( '
-				.woocommerce #respond input#submit.alt:hover,
-				.woocommerce a.button.alt:hover,
-				.woocommerce button.button.alt:hover,
-				.woocommerce input.button.alt:hover  {
-					background-color: %s;
-					color: %s;
-				}
-				', $gc_button_hover_color, gc_color_contrast( $gc_button_hover_color ) ) : '';
-
-
-
-			$css .= ( gc_button_color_default() !== $gc_button_color ) ? sprintf( '
-			.woocommerce #respond input#submit.alt,
-			.woocommerce a.button.alt,
-			.woocommerce button.button.alt,
-			.woocommerce input.button.alt,
-			.woocommerce span.onsale {
-					background-color: %s;
-					color: %s;
-				}
-				', $gc_button_color, gc_color_contrast( $gc_button_color ) ) : '';
-
-			$css .= ( gc_menu_color_default() !== $gc_menu_color  ) ? sprintf( '
-			.woocommerce-info {
-					border-top-color: %s;
-				}
-				', $gc_menu_color ) : '';
-
-
-			$css .= ( gc_menu_color_default() !== $gc_menu_color  ) ? sprintf( '
-			.woocommerce-info:before {
-				    color:%s;
-				}
-				', $gc_menu_color ) : '';
-
-
-
+	$css .= ( gc_footerwidgets_background_color_default() !== $gc_footerwidgets_background_color ) ? sprintf( '
+		.footer-widgets {
+			background-color: %s;
 		}
+		', $gc_footerwidgets_background_color ) : '';
+
+	// WooCommerce
+	if ( class_exists( 'WooCommerce' ) ) {
+
+		$css .= ( gc_woo_button_color_default() !== $gc_woo_button_color ) ? sprintf( '
+
+		.woocommerce a.button,
+		.woocommerce #respond input#submit,
+		.woocommerce button.button, 
+		.woocommerce input.button {
+				background-color: %s;
+				color: %s;
+		}
+		', $gc_woo_button_color, gc_color_contrast( $gc_woo_button_color ) ) : '';
+		
+		$css .= ( gc_woo_button_hover_color_default() !== $gc_woo_button_hover_color ) ? sprintf( '
+		
+		.woocommerce #respond input#submit:hover, 
+		.woocommerce a.button:hover, 
+		.woocommerce button.button:hover, 
+		.woocommerce input.button:hover  {
+			background-color: %s;
+			color: %s;
+		}
+		', $gc_woo_button_hover_color, gc_color_contrast( $gc_woo_button_hover_color ) ) : '';
+		
+		$css .= ( gc_woo_button_alt_color_default() !== $gc_woo_button_alt_color ) ? sprintf( '
+
+		.woocommerce #respond input#submit.alt,
+		.woocommerce a.button.alt,
+		.woocommerce button.button.alt,
+		.woocommerce input.button.alt,
+		.woocommerce span.onsale {
+				background-color: %s;
+				color: %s;
+		}
+		', $gc_woo_button_alt_color, gc_color_contrast( $gc_woo_button_alt_color ) ) : '';
+		
+		$css .= ( gc_woo_button_alt_hover_color_default() !== $gc_woo_button_alt_hover_color ) ? sprintf( '
+		
+		.woocommerce #respond input#submit.alt:hover,
+		.woocommerce a.button.alt:hover,
+		.woocommerce button.button.alt:hover,
+		.woocommerce input.button.alt:hover {
+			background-color: %s;
+			color: %s;
+		}
+		', $gc_woo_button_alt_hover_color, gc_color_contrast( $gc_woo_button_alt_hover_color ) ) : '';
+		
+		$css .= ( gc_woo_button_dis_color_default() !== $gc_woo_button_dis_color ) ? sprintf( '
+
+		.woocommerce #respond input#submit.disabled, 
+		.woocommerce #respond input#submit:disabled, 
+		.woocommerce #respond input#submit:disabled[disabled], 
+		.woocommerce a.button.disabled, .woocommerce a.button:disabled, 
+		.woocommerce a.button:disabled[disabled], 
+		.woocommerce button.button.disabled, 
+		.woocommerce button.button:disabled, 
+		.woocommerce button.button:disabled[disabled], 
+		.woocommerce input.button.disabled, 
+		.woocommerce input.button:disabled, 
+		.woocommerce input.button:disabled[disabled] {
+				background-color: %s;
+		}
+		', $gc_woo_button_dis_color, gc_color_contrast( $gc_woo_button_dis_color ) ) : '';
+		
+		$css .= ( gc_woo_button_dis_hover_color_default() !== $gc_woo_button_dis_hover_color ) ? sprintf( '
+		
+		.woocommerce #respond input#submit.disabled:hover, 
+		.woocommerce #respond input#submit:disabled:hover, 
+		.woocommerce #respond input#submit:disabled[disabled]:hover, 
+		.woocommerce a.button.disabled:hover, 
+		.woocommerce a.button:disabled:hover, 
+		.woocommerce a.button:disabled[disabled]:hover, 
+		.woocommerce button.button.disabled:hover, 
+		.woocommerce button.button:disabled:hover, 
+		.woocommerce button.button:disabled[disabled]:hover, 
+		.woocommerce input.button.disabled:hover, 
+		.woocommerce input.button:disabled:hover, 
+		.woocommerce input.button:disabled[disabled]:hover {
+			background-color: %s;
+		}
+		', $gc_woo_button_dis_hover_color, gc_color_contrast( $gc_woo_button_dis_hover_color ) ) : '';
+		
+		
+
+		$css .= ( gc_woo_price_color_default() !== $gc_woo_price_color ) ? sprintf( '
+		
+		.woocommerce div.product p.price, 
+		.woocommerce div.product span.price,
+		.woocommerce ul.products li.product .price {
+			color: %s;
+		}
+		', $gc_woo_price_color, gc_color_contrast( $gc_woo_price_color ) ) : '';
+		
+		$css .= ( gc_woo_sale_price_color_default() !== $gc_woo_sale_price_color ) ? sprintf( '
+		
+		.woocommerce span.onsale {
+			background-color: %s;
+		}
+		', $gc_woo_sale_price_color, gc_color_contrast( $gc_woo_sale_price_color ) ) : '';
+			
+		
+		
+		$css .= ( gc_woo_info_color_default() !== $gc_woo_info_color  ) ? sprintf( '
+		.woocommerce-info {
+			border-top-color: %s;
+		}
+		', $gc_woo_info_color ) : '';
+
+
+		$css .= ( gc_woo_info_color_default() !== $gc_woo_info_color  ) ? sprintf( '
+		.woocommerce-info:before {
+		    color:%s;
+		}
+		', $gc_woo_info_color ) : '';
+		
+		$css .= ( gc_woo_error_color_default() !== $gc_woo_error_color  ) ? sprintf( '
+		.woocommerce-error {
+			border-top-color: %s;
+		}
+		', $gc_woo_error_color ) : '';
+
+
+		$css .= ( gc_woo_error_color_default() !== $gc_woo_error_color  ) ? sprintf( '
+		.woocommerce-error:before,
+		.woocommerce form .form-row.woocommerce-invalid label,
+		.woocommerce form .form-row .required,
+		.woocommerce a.remove {
+		    color:%s !important;
+		}
+		', $gc_woo_error_color ) : '';
+		
+		$css .= ( gc_woo_error_color_default() !== $gc_woo_error_color  ) ? sprintf( '
+		.woocommerce form .form-row.woocommerce-invalid .select2-container, 
+		.woocommerce form .form-row.woocommerce-invalid input.input-text, 
+		.woocommerce form .form-row.woocommerce-invalid select {
+		    border-color: %s;
+		}
+		', $gc_woo_error_color ) : '';
+		
+		$css .= ( gc_woo_error_color_default() !== $gc_woo_error_color  ) ? sprintf( '
+		.woocommerce a.remove:hover {
+		    background: %s;
+		}
+		', $gc_woo_error_color ) : '';
+		
+		$css .= ( gc_woo_message_color_default() !== $gc_woo_message_color  ) ? sprintf( '
+		.woocommerce-message {
+			border-top-color: %s;
+		}
+		', $gc_woo_message_color ) : '';
+
+
+		$css .= ( gc_woo_message_color_default() !== $gc_woo_message_color  ) ? sprintf( '
+		.woocommerce-message:before {
+		    color:%s;
+		}
+		', $gc_woo_message_color ) : '';
+
+	}
 
 	if ( $css ) {
 		wp_add_inline_style( $handle, $css );

@@ -28,9 +28,7 @@ remove_action ( 'genesis_before_header', 'genesis_skip_links', 5 );
 //* Dequeue Skip Links Script
 add_action( 'wp_enqueue_scripts', 'gc_dequeue_skip_links' );
 function gc_dequeue_skip_links() {
-
 	wp_dequeue_script( 'skip-links' );
-
 }
 
 //* Force full width content layout

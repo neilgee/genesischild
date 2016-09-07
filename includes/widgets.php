@@ -72,6 +72,7 @@ function gc_extra_widgets() {
 	) );
 }
 
+add_action( 'genesis_before_header','gc_preheader_widget' );
 /**
  * Position the PreHeader Area.
  */
@@ -89,7 +90,6 @@ function gc_preheader_widget() {
 		echo '</div></section>';
 	}
 }
-add_action( 'genesis_before_header','gc_preheader_widget' );
 
 
 /**
@@ -133,6 +133,7 @@ function gc_homecontent_widget() {
 	) );
 }
 
+add_action( 'genesis_before_footer','gc_footerwidgetheader', 5 );
 /**
  * Position Footer Widget Header.
  */
@@ -143,8 +144,9 @@ function gc_footerwidgetheader() {
 		echo '</div></div>';
 	}
 }
-add_action( 'genesis_before_footer','gc_footerwidgetheader', 5 );
 
+remove_action( 'genesis_footer', 'genesis_do_footer' );
+add_action( 'genesis_footer','gc_footer_widget' );
 /**
  * Position the Footer Area.
  */
@@ -154,9 +156,8 @@ function gc_footer_widget() {
 		'after'  => '</div>',
 	));
 }
-remove_action( 'genesis_footer', 'genesis_do_footer' );
-add_action( 'genesis_footer','gc_footer_widget' );
 
+add_action( 'genesis_after_footer','gc_postfooter_widget' );
 /**
  * Position the PostFooter Area.
  */
@@ -174,8 +175,8 @@ function gc_postfooter_widget() {
 		echo '</div></div>';
 	}
 }
-add_action( 'genesis_after_footer','gc_postfooter_widget' );
 
+add_action( 'genesis_before_loop','gc_before_entry_widget' );
 /**
  * Position the Before Content Area.
  */
@@ -187,9 +188,8 @@ function gc_before_entry_widget() {
 		) );
 	}
 }
-add_action( 'genesis_before_loop','gc_before_entry_widget' );
 
-
+// add_action( 'widgets_init', 'gc_remove_some_widgets' );
 /**
  * Remove Unwanted Widgts.
  */
@@ -197,5 +197,3 @@ function gc_remove_some_widgets() {
 	// Example below, to action these uncomment the add_action above.
 	unregister_sidebar( 'sidebar-alt' );
 }
-// Uncomment action below.
-// add_action( 'widgets_init', 'gc_remove_some_widgets' );
