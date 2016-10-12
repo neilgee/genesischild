@@ -96,10 +96,11 @@ All CSS files are in */includes/scripts-styles.php*
 - Media Queries set at 767px and 1200px
 
 ###WooCommerce
-- WooCommerce style sheet set to load before main style sheet
-- Some generic CSS styles declared in styles.css
-- WooCommerce theme support declared as an action in *woocommerce.php* but commented out - the *woocommerce.php* file is on *includes* and is called in via *functions.php* as an include, this is commented out be default.
-- Use Genesis Connect for WooCommerce plugin - https://wordpress.org/plugins/genesis-connect-woocommerce/
+- All WooCommmerce functionality including CSS is only activated if WooCommerce plugin is installed and activated.
+- Install and activate Genesis Connect for WooCommerce plugin - https://wordpress.org/plugins/genesis-connect-woocommerce/
+- WooCommerce functions are then included and can be seen in */includes/woocommerce.php*, these functions have some active and others commented out, read the comments to see if you require theme
+- WooCommerce CSS is at */css/woo.css* it is set to load after default WooCommerce CSS
+- Once WooCommerce is active there are a number of additional Customizer options for control of color in WooCommerce elements, this will be visible in the last panel of the Customizer
 
 ###Miscellaneous
 - PHP is enabled to execute in widget areas
@@ -134,3 +135,5 @@ Download the zip rename the theme '**genesischild**' - place this theme in your 
 ![Genesis Child Theme Customizer](https://wpbeaches.com/images/gc-customizer.png)
 
 ![Genesis Child Theme Widget Areas](https://wpbeaches.com/images/gc-screen-widgets.png)
+
+![Genesis Child WooCommerce Customizer](https://wpbeaches.com/images/woocommerce-customizer.png)
