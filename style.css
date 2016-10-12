@@ -68,9 +68,8 @@ Template: genesis
 
 /* ## Baseline Normalize
 --------------------------------------------- */
-/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
-html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}template,[hidden]{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}button,input{overflow:visible}button,select{text-transform:none}button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:0.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
-
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:0.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
 
 
 /* ## Box Sizing
@@ -573,16 +572,24 @@ th:first-child {
 
 /* ## Site Containers
 --------------------------------------------- */
+.site-container {
+	display: -ms-flexbox;
+	display:flex;
+	flex-direction:column;
+	height:100vh;
+}
+
+.site-inner {
+	-ms-flex:1;
+	flex:1;
+	width: 100%;
+	padding: 20px 0;
+	word-wrap: break-word;
+}
 
 .wrap {
 	margin: 0 auto;
 	max-width: 1200px;
-}
-
-.site-inner {
-	clear: both;
-	padding-top: 10px;
-	word-wrap: break-word;
 }
 
 .landing-page .site-inner {
@@ -1595,89 +1602,7 @@ li.comment {
 	position: initial !important;
 }
 
-/*Woo Commerce */
 
-.woocommerce a.button,
-.woocommerce button.button,
-.woocommerce input.button,
-.woocommerce #respond input#submit,
-.woocommerce #content input.button,
-.woocommerce-page a.button,
-.woocommerce-page button.button,
-.woocommerce-page input.button,
-.woocommerce-page #respond input#submit,
-.woocommerce-page #content input.button {
-	font-size: 12px;
-}
-
-.woocommerce ul.products li.product,
-.woocommerce-page ul.products li.product {
-	padding: 1%;
-}
-
-.woocommerce a[title="View Cart"]{
-	display: block;
-	clear:both;
-}
-
-.woocommerce ul li {
-	list-style-type: none;
-}
-
-.woocommerce .input-checkbox,
-.woocommerce .input-radio {
-	box-shadow: none;
-	width: auto;
-}
-
-.woocommerce .related ul li.product img,
-.woocommerce .related ul.products li.product img,
-.woocommerce .upsells.products ul li.product img,
-.woocommerce .upsells.products ul.products li.product img,
-.woocommerce-page .related ul li.product img,
-.woocommerce-page .related ul.products li.product img,
-.woocommerce-page .upsells.products ul li.product img,
-.woocommerce-page .upsells.products ul.products li.product img {
-	width: auto;
-}
-
-.woocommerce div.product div.images img,
-.woocommerce #content div.product div.images img,
-.woocommerce-page div.product div.images img,
-.woocommerce-page #content div.product div.images img {
-	width: auto;
-}
-
-.woocommerce ul.products li.product a img,
-.woocommerce-page ul.products li.product a img {
-	width:auto;
-}
-
-.woocommerce .related ul li.product,
-.woocommerce .related ul.products li.product,
-.woocommerce .upsells.products ul li.product,
-.woocommerce .upsells.products ul.products li.product,
-.woocommerce-page .related ul li.product,
-.woocommerce-page .related ul.products li.product,
-.woocommerce-page .upsells.products ul li.product,
-.woocommerce-page .upsells.products ul.products li.product {
-	padding: 4%;
-}
-
-.woocommerce-cart table.cart input {
-	padding: 8px;
-}
-
-.woocommerce .quantity .qty {
-	padding: 4px;
-	font-size: 14px;
-}
-
-.woocommerce form .form-row input.input-text,
-.woocommerce form .form-row textarea {
-	padding: 10px;
-	font-size: 16px;
-}
 
 
 /*
@@ -1767,6 +1692,7 @@ GenesisChild  - Beaver Builder Full Width
 	}
 
 }
+
 
 @media only screen and (max-width: 767px) {
 
@@ -1898,6 +1824,153 @@ GenesisChild  - Beaver Builder Full Width
 	.alignright {
 		text-align: center;
 		float: none;
+	}
+
+}
+
+
+
+
+
+
+
+
+/* Print Styles
+---------------------------------------------------------------------------------------------------- */
+
+@media print {
+
+	*,
+	*:before,
+	*:after {
+		background: transparent !important;
+		box-shadow: none !important;
+		color: #000 !important;
+		text-shadow: none !important;
+	}
+
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
+
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+
+	a[href^="javascript:"]:after,
+	a[href^="#"]:after,
+	.site-title > a:after {
+		content: "";
+	}
+
+	thead {
+		display: table-header-group;
+	}
+
+	img,
+	tr {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
+	@page {
+		margin: 2cm 0.5cm;
+	}
+
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	blockquote,
+	pre {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
+
+	.content,
+	.content-sidebar {
+		width: 100%;
+	}
+
+	button,
+	input,
+	select,
+	textarea,
+	.breadcrumb,
+	.comment-edit-link,
+	.comment-form,
+	.comment-list .reply a,
+	.comment-reply-title,
+	.edit-link,
+	.entry-comments-link,
+	.entry-footer,
+	.genesis-box,
+	.header-widget-area,
+	.hidden-print,
+	.home-top,
+	.nav-primary,
+	.nav-secondary,
+	.post-edit-link,
+	.sidebar {
+		display: none !important;
+	}
+
+	.title-area {
+		text-align: center;
+		width: 100%;
+	}
+
+	.site-title > a {
+		margin: 0;
+		text-decoration: none;
+		text-indent: 0;
+	}
+
+	.site-inner {
+		padding-top: 0;
+		position: relative;
+		top: -100px;
+	}
+
+	.author-box {
+		margin-bottom: 0;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		orphans: 3;
+		page-break-after: avoid;
+		page-break-inside: avoid;
+		widows: 3;
+	}
+
+
+	img {
+		page-break-after: avoid;
+		page-break-inside: avoid;
+	}
+
+	blockquote,
+	pre,
+	table {
+		page-break-inside: avoid;
+	}
+
+	dl,
+	ol,
+	ul {
+		page-break-before: avoid;
 	}
 
 }

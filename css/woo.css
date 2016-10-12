@@ -1,0 +1,85 @@
+
+/* WooCommerce
+---------------------------------------------------------------------------------------------------- */
+
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit,
+.woocommerce #content input.button,
+.woocommerce-page a.button,
+.woocommerce-page button.button,
+.woocommerce-page input.button,
+.woocommerce-page #respond input#submit,
+.woocommerce-page #content input.button {
+	font-size: 12px;
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+	padding: 1%;
+}
+
+.woocommerce a[title="View Cart"]{
+	display: block;
+	clear:both;
+}
+
+.woocommerce ul li {
+	list-style-type: none;
+}
+
+.woocommerce .input-checkbox,
+.woocommerce .input-radio {
+	box-shadow: none;
+	width: auto;
+}
+
+.woocommerce .related ul li.product img,
+.woocommerce .related ul.products li.product img,
+.woocommerce .upsells.products ul li.product img,
+.woocommerce .upsells.products ul.products li.product img,
+.woocommerce-page .related ul li.product img,
+.woocommerce-page .related ul.products li.product img,
+.woocommerce-page .upsells.products ul li.product img,
+.woocommerce-page .upsells.products ul.products li.product img {
+	width: auto;
+}
+
+.woocommerce div.product div.images img,
+.woocommerce #content div.product div.images img,
+.woocommerce-page div.product div.images img,
+.woocommerce-page #content div.product div.images img {
+	width: auto;
+}
+
+.woocommerce ul.products li.product a img,
+.woocommerce-page ul.products li.product a img {
+	width:auto;
+}
+
+.woocommerce .related ul li.product,
+.woocommerce .related ul.products li.product,
+.woocommerce .upsells.products ul li.product,
+.woocommerce .upsells.products ul.products li.product,
+.woocommerce-page .related ul li.product,
+.woocommerce-page .related ul.products li.product,
+.woocommerce-page .upsells.products ul li.product,
+.woocommerce-page .upsells.products ul.products li.product {
+	padding: 4%;
+}
+
+.woocommerce-cart table.cart input {
+	padding: 8px;
+}
+
+.woocommerce .quantity .qty {
+	padding: 4px;
+	font-size: 14px;
+}
+
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+	padding: 10px;
+	font-size: 16px;
+}

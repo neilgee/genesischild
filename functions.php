@@ -36,12 +36,12 @@ function gc_theme_setup() {
 	require_once( get_stylesheet_directory() . '/includes/customize.php' );
 	// Add in our CSS for our customizer options.
 	require_once( get_stylesheet_directory() . '/includes/output.php' );
-	
+
 	// WooCommerce
 	if ( class_exists( 'WooCommerce' ) ) {
 	// WooCommerce functions
 		include_once( get_stylesheet_directory() . '/includes/woocommerce.php' );
-	}	
+	}
 	// Genesis Default Responsive Menu
 	//include_once( get_stylesheet_directory() . '/includes/responsive-menu.php' );
 	// Get the plugins.
@@ -85,15 +85,6 @@ function gc_theme_setup() {
 	// Image sizes - add in required image sizes here.
 	//
 	add_image_size( 'blog-feature', 300, 200, true );
-
-	// Unregister Genesis page layouts
-
-	// genesis_unregister_layout( 'content-sidebar' );
-	// genesis_unregister_layout( 'sidebar-content' );
-	// genesis_unregister_layout( 'content-sidebar-sidebar' );
-	// genesis_unregister_layout( 'sidebar-sidebar-content' );
-	// genesis_unregister_layout( 'sidebar-content-sidebar' );
-	// genesis_unregister_layout( 'full-width-content' );
 
 	// Re-arrange header nav.
 	remove_action( 'genesis_after_header','genesis_do_nav' );
@@ -156,16 +147,6 @@ function gc_theme_setup() {
 		}
 	}
 
-	add_filter( 'theme_page_templates', 'gc_remove_blog_archive' );
-	/**
-	 * Remove Genesis Blog & Archive.
-	 */
-	function gc_remove_blog_archive( $templates ) {
-		unset( $templates['page_blog.php'] );
-		unset( $templates['page_archive.php'] );
-		return $templates;
-	}
-
 	// Remove blog header from blog posts page.
 	remove_action( 'genesis_before_loop', 'genesis_do_posts_page_heading' );
 
@@ -182,14 +163,7 @@ function gc_theme_setup() {
 	// Remove Genesis header style so we can use the customiser and header function gc_swap_header to add our header logo.
 	// remove_action( 'wp_head', 'genesis_custom_header_style' );
 
-	add_action( 'genesis_theme_settings_metaboxes', 'gc_remove_metaboxes' );
-	/* Removing custom title/logo metabox from Genesis theme options page.
-	 * See http://www.billerickson.net/code/remove-metaboxes-from-genesis-theme-settings/
-	 * Updated to use $_genesis_admin_settings instead of legacy variable in Bill's example.
-	 */
-	function gc_remove_metaboxes( $_genesis_admin_settings ) {
-		remove_meta_box( 'genesis-theme-settings-header', $_genesis_admin_settings, 'main' );
-	}
+
 
 	add_filter( 'genesis_seo_title','gc_custom_logo', 10, 3 );
 	/**

@@ -74,3 +74,33 @@ function gc_social_default_styles( $defaults ) {
 	return $args;
 
 }
+
+// Unregister Genesis page layouts
+
+// genesis_unregister_layout( 'content-sidebar' );
+// genesis_unregister_layout( 'sidebar-content' );
+// genesis_unregister_layout( 'content-sidebar-sidebar' );
+// genesis_unregister_layout( 'sidebar-sidebar-content' );
+// genesis_unregister_layout( 'sidebar-content-sidebar' );
+// genesis_unregister_layout( 'full-width-content' );
+
+
+add_filter( 'theme_page_templates', 'gc_remove_blog_archive' );
+/**
+ * Remove Genesis Blog & Archive.
+ */
+function gc_remove_blog_archive( $templates ) {
+	unset( $templates['page_blog.php'] );
+	unset( $templates['page_archive.php'] );
+	return $templates;
+}
+
+
+add_action( 'genesis_theme_settings_metaboxes', 'gc_remove_metaboxes' );
+/* Removing custom title/logo metabox from Genesis theme options page.
+ * See http://www.billerickson.net/code/remove-metaboxes-from-genesis-theme-settings/
+ * Updated to use $_genesis_admin_settings instead of legacy variable in Bill's example.
+ */
+function gc_remove_metaboxes( $_genesis_admin_settings ) {
+	remove_meta_box( 'genesis-theme-settings-header', $_genesis_admin_settings, 'main' );
+}
