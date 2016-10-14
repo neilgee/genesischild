@@ -1629,6 +1629,10 @@ GenesisChild  - Beaver Builder Full Width
 	display: none;
 }
 
+.fl-rich-text p:last-of-type {
+	margin-bottom: 0;
+}
+
 
 @media only screen and (max-width: 1200px) {
 

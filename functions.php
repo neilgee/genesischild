@@ -61,20 +61,22 @@ function gc_theme_setup() {
 	// Allow for a custom background.
 	add_theme_support( 'custom-background' );
 	// Add support for custom header change the dimensions to suit.
-	 //add_theme_support( 'custom-header');
+
+	//  add_theme_support( 'custom-header', array(
 	// 	'flex-width'  => true,
 	// 	'flex-height' => true,
 	// 	'width'       => 400,
 	// 	'height'      => 150,
 	// 	'header-text' => false,
-	// ) );
+	// ));
+
 	// Add support for custom logo change the dimensions to suit. Need WordPress 4.5 for this.
 	add_theme_support( 'custom-logo', array(
 		'height'      => 150, // set to your dimensions
 		'width'       => 400,
 		'flex-height' => true,
 		'flex-width'  => true,
-	) );
+	));
 	// Add Accessibility support.
 	add_theme_support( 'genesis-accessibility', array( '404-page', 'headings', 'drop-down-menu', 'search-form', 'skip-links' ) );
 	// Add widget area after posts.
