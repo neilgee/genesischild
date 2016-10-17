@@ -44,11 +44,11 @@ function gc_css() {
 
 	$gc_woo_price_color		 = get_theme_mod( 'gc_woo_price_color', gc_woo_price_color_default() );
 	$gc_woo_sale_price_color	 = get_theme_mod( 'gc_woo_sale_price_color', gc_woo_sale_price_color_default() );
-	
+
 	$gc_woo_error_color	         = get_theme_mod( 'gc_woo_error_color', gc_woo_error_color_default() );
 	$gc_woo_info_color	         = get_theme_mod( 'gc_woo_info_color', gc_woo_info_color_default() );
 	$gc_woo_message_color	         = get_theme_mod( 'gc_woo_message_color', gc_woo_message_color_default() );
-	}	
+	}
 
 
 	//* Calculate Color Contrast
@@ -205,26 +205,51 @@ function gc_css() {
 
 		.woocommerce a.button,
 		.woocommerce #respond input#submit,
-		.woocommerce button.button, 
+		.woocommerce button.button,
 		.woocommerce input.button {
 				background-color: %s;
 				color: %s;
 		}
 		', $gc_woo_button_color, gc_color_contrast( $gc_woo_button_color ) ) : '';
-		
+
 		$css .= ( gc_woo_button_hover_color_default() !== $gc_woo_button_hover_color ) ? sprintf( '
-		
-		.woocommerce #respond input#submit:hover, 
-		.woocommerce a.button:hover, 
-		.woocommerce button.button:hover, 
+
+		.woocommerce #respond input#submit:hover,
+		.woocommerce a.button:hover,
+		.woocommerce button.button:hover,
 		.woocommerce input.button:hover  {
 			background-color: %s;
 			color: %s;
 		}
 		', $gc_woo_button_hover_color, gc_color_contrast( $gc_woo_button_hover_color ) ) : '';
-		
+
 		$css .= ( gc_woo_button_alt_color_default() !== $gc_woo_button_alt_color ) ? sprintf( '
 
+
+		.woocommerce #respond input#submit.alt.disabled,
+		.woocommerce #respond input#submit.alt.disabled:hover,
+		.woocommerce #respond input#submit.alt:disabled,
+		.woocommerce #respond input#submit.alt:disabled:hover,
+		.woocommerce #respond input#submit.alt:disabled[disabled],
+		.woocommerce #respond input#submit.alt:disabled[disabled]:hover,
+		.woocommerce a.button.alt.disabled,
+		.woocommerce a.button.alt.disabled:hover,
+		.woocommerce a.button.alt:disabled,
+		.woocommerce a.button.alt:disabled:hover,
+		.woocommerce a.button.alt:disabled[disabled],
+		.woocommerce a.button.alt:disabled[disabled]:hover,
+		.woocommerce button.button.alt.disabled,
+		.woocommerce button.button.alt.disabled:hover,
+		.woocommerce button.button.alt:disabled,
+		.woocommerce button.button.alt:disabled:hover,
+		.woocommerce button.button.alt:disabled[disabled],
+		.woocommerce button.button.alt:disabled[disabled]:hover,
+		.woocommerce input.button.alt.disabled,
+		.woocommerce input.button.alt.disabled:hover,
+		.woocommerce input.button.alt:disabled,
+		.woocommerce input.button.alt:disabled:hover,
+		.woocommerce input.button.alt:disabled[disabled],
+		.woocommerce input.button.alt:disabled[disabled]:hover,
 		.woocommerce #respond input#submit.alt,
 		.woocommerce a.button.alt,
 		.woocommerce button.button.alt,
@@ -234,9 +259,9 @@ function gc_css() {
 				color: %s;
 		}
 		', $gc_woo_button_alt_color, gc_color_contrast( $gc_woo_button_alt_color ) ) : '';
-		
+
 		$css .= ( gc_woo_button_alt_hover_color_default() !== $gc_woo_button_alt_hover_color ) ? sprintf( '
-		
+
 		.woocommerce #respond input#submit.alt:hover,
 		.woocommerce a.button.alt:hover,
 		.woocommerce button.button.alt:hover,
@@ -245,62 +270,62 @@ function gc_css() {
 			color: %s;
 		}
 		', $gc_woo_button_alt_hover_color, gc_color_contrast( $gc_woo_button_alt_hover_color ) ) : '';
-		
+
 		$css .= ( gc_woo_button_dis_color_default() !== $gc_woo_button_dis_color ) ? sprintf( '
 
-		.woocommerce #respond input#submit.disabled, 
-		.woocommerce #respond input#submit:disabled, 
-		.woocommerce #respond input#submit:disabled[disabled], 
-		.woocommerce a.button.disabled, .woocommerce a.button:disabled, 
-		.woocommerce a.button:disabled[disabled], 
-		.woocommerce button.button.disabled, 
-		.woocommerce button.button:disabled, 
-		.woocommerce button.button:disabled[disabled], 
-		.woocommerce input.button.disabled, 
-		.woocommerce input.button:disabled, 
+		.woocommerce #respond input#submit.disabled,
+		.woocommerce #respond input#submit:disabled,
+		.woocommerce #respond input#submit:disabled[disabled],
+		.woocommerce a.button.disabled, .woocommerce a.button:disabled,
+		.woocommerce a.button:disabled[disabled],
+		.woocommerce button.button.disabled,
+		.woocommerce button.button:disabled,
+		.woocommerce button.button:disabled[disabled],
+		.woocommerce input.button.disabled,
+		.woocommerce input.button:disabled,
 		.woocommerce input.button:disabled[disabled] {
 				background-color: %s;
 		}
 		', $gc_woo_button_dis_color, gc_color_contrast( $gc_woo_button_dis_color ) ) : '';
-		
+
 		$css .= ( gc_woo_button_dis_hover_color_default() !== $gc_woo_button_dis_hover_color ) ? sprintf( '
-		
-		.woocommerce #respond input#submit.disabled:hover, 
-		.woocommerce #respond input#submit:disabled:hover, 
-		.woocommerce #respond input#submit:disabled[disabled]:hover, 
-		.woocommerce a.button.disabled:hover, 
-		.woocommerce a.button:disabled:hover, 
-		.woocommerce a.button:disabled[disabled]:hover, 
-		.woocommerce button.button.disabled:hover, 
-		.woocommerce button.button:disabled:hover, 
-		.woocommerce button.button:disabled[disabled]:hover, 
-		.woocommerce input.button.disabled:hover, 
-		.woocommerce input.button:disabled:hover, 
+
+		.woocommerce #respond input#submit.disabled:hover,
+		.woocommerce #respond input#submit:disabled:hover,
+		.woocommerce #respond input#submit:disabled[disabled]:hover,
+		.woocommerce a.button.disabled:hover,
+		.woocommerce a.button:disabled:hover,
+		.woocommerce a.button:disabled[disabled]:hover,
+		.woocommerce button.button.disabled:hover,
+		.woocommerce button.button:disabled:hover,
+		.woocommerce button.button:disabled[disabled]:hover,
+		.woocommerce input.button.disabled:hover,
+		.woocommerce input.button:disabled:hover,
 		.woocommerce input.button:disabled[disabled]:hover {
 			background-color: %s;
 		}
 		', $gc_woo_button_dis_hover_color, gc_color_contrast( $gc_woo_button_dis_hover_color ) ) : '';
-		
-		
+
+
 
 		$css .= ( gc_woo_price_color_default() !== $gc_woo_price_color ) ? sprintf( '
-		
-		.woocommerce div.product p.price, 
+
+		.woocommerce div.product p.price,
 		.woocommerce div.product span.price,
 		.woocommerce ul.products li.product .price {
 			color: %s;
 		}
 		', $gc_woo_price_color, gc_color_contrast( $gc_woo_price_color ) ) : '';
-		
+
 		$css .= ( gc_woo_sale_price_color_default() !== $gc_woo_sale_price_color ) ? sprintf( '
-		
+
 		.woocommerce span.onsale {
 			background-color: %s;
 		}
 		', $gc_woo_sale_price_color, gc_color_contrast( $gc_woo_sale_price_color ) ) : '';
-			
-		
-		
+
+
+
 		$css .= ( gc_woo_info_color_default() !== $gc_woo_info_color  ) ? sprintf( '
 		.woocommerce-info {
 			border-top-color: %s;
@@ -313,7 +338,7 @@ function gc_css() {
 		    color:%s;
 		}
 		', $gc_woo_info_color ) : '';
-		
+
 		$css .= ( gc_woo_error_color_default() !== $gc_woo_error_color  ) ? sprintf( '
 		.woocommerce-error {
 			border-top-color: %s;
@@ -329,21 +354,21 @@ function gc_css() {
 		    color:%s !important;
 		}
 		', $gc_woo_error_color ) : '';
-		
+
 		$css .= ( gc_woo_error_color_default() !== $gc_woo_error_color  ) ? sprintf( '
-		.woocommerce form .form-row.woocommerce-invalid .select2-container, 
-		.woocommerce form .form-row.woocommerce-invalid input.input-text, 
+		.woocommerce form .form-row.woocommerce-invalid .select2-container,
+		.woocommerce form .form-row.woocommerce-invalid input.input-text,
 		.woocommerce form .form-row.woocommerce-invalid select {
 		    border-color: %s;
 		}
 		', $gc_woo_error_color ) : '';
-		
+
 		$css .= ( gc_woo_error_color_default() !== $gc_woo_error_color  ) ? sprintf( '
 		.woocommerce a.remove:hover {
 		    background: %s;
 		}
 		', $gc_woo_error_color ) : '';
-		
+
 		$css .= ( gc_woo_message_color_default() !== $gc_woo_message_color  ) ? sprintf( '
 		.woocommerce-message {
 			border-top-color: %s;
