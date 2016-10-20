@@ -836,3 +836,9 @@ class Genesis_Featured_Custom_Post_Type extends WP_Widget {
 	}
 
 }
+
+add_action( 'widgets_init', 'gfcptw_register_widget' );
+// Register the widget
+function gfcptw_register_widget() {
+register_widget( 'Genesis_Featured_Custom_Post_Type' );
+}
