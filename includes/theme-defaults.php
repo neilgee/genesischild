@@ -26,9 +26,9 @@ function gc_theme_defaults( $defaults ) {
 }
 
 
-add_action( 'after_switch_theme', 'gc_theme_setting_defaults' );
+//add_action( 'after_switch_theme', 'gc_theme_setting_defaults' );
 /**
- * Genesischild Theme Setup After swicthing themes.
+ * Genesischild Theme Setup After switching themes.
  *
  * @package genesischild
  */
@@ -38,7 +38,7 @@ function gc_theme_setting_defaults() {
 
 		genesis_update_settings( array(
 			'blog_cat_num'              => 5,
-			'content_archive'           => 'excerpts',
+			// Causes issues with media uploader plugins //'content_archive'           => 'excerpts',
 			'content_archive_limit'     => 0,
 			'content_archive_thumbnail' => 1,
 			'posts_nav'                 => 'numeric',
