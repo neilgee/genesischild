@@ -2,9 +2,9 @@
 
 This is a basic starter **GenesisChild Theme** to be used with the **Genesis Framework** on **WordPress**.
 
-There is also a Mobile First version of this starter theme (Which is the one I prefer to use)- https://github.com/neilgee/genesischild-mobile-first
+There is also a Mobile First version of this starter theme (Which is the one I prefer to use as my preferred starter) - https://github.com/neilgee/genesischild-mobile-first
 
-This Genesischild theme has a number of widgets areas, the majority are Front Page only.
+This GenesisChild theme has a number of widgets areas, the majority are Front Page only.
 
 ###Widgetised Areas
 - The theme contains the following widgets
@@ -52,6 +52,7 @@ Only difference is the main home page 3 modules are now stacked in the theme, Ho
 ###Custom Logo
 - Custom Logo is supported via the Customizer, suggested size is 400x150px which you can change in the *add_theme_support('custom-logo')* array in *functions.php*
 - The header logo  uses an `<img>` element and can support the SVG format.
+- SVGs are set to be allowed for upload by the constant 'ALLOW_UNFILTERED_UPLOADS' declared in *functions.php*
 
 ###Background Image
 - Background Images is supported, a background image can be uploaded in the WP Dashboard via Appearance > Background, this will scale to fit any viewport via BackStretchJS.
@@ -77,23 +78,24 @@ To use this you have to enable the BackStretch script in */includes/scripts-styl
 ###Featured Custom Post Type Widget for Genesis
 - Bundled in the theme is the 'Featured Custom Post Type Widget for Genesis', the widget is available from the normal widget area in the dashboard *Appearance > Widgets*.
 
-This widget builds on the default Genesis supplied Featured Post widget but can also display Custom Post Types and Taxonomies as well as output them in columns.
+This widget builds on the default Genesis supplied Featured Post widget but can also display Custom Post Types and Taxonomies as well as output them in columns. It is not necessary to install the plugin.
 
 *Ref - https://github.com/calliaweb/featured-custom-post-type-widget-for-genesis
 
 
 ###Javascripts
 All scripts are in */includes/scripts-styles.php*
-- FontAwesome is enabled.
+- FontAwesome is disabled.
 - placeholder.js is enabled.
 - backstretch.min.js is disabled.
 - FItVids is disabled
 
 ###CSS
 All CSS files are in */includes/scripts-styles.php*
-- Regular style.css with all Genesis Framework and placeholders to start new project
+- Regular style.css
 - 2 x IE styles in CSS directory, one targets IE8 and lower, the other IE9 and lower
 - Media Queries set at 767px and 1200px
+- Flexbox styles have been used in CSS for *.wrap* and other page layouts - Flexbox and all CSS styles have been autoprefixed to cater for last 5 browser versions.
 
 ###WooCommerce
 - All WooCommmerce functionality including CSS is only activated if WooCommerce plugin is installed and activated.
@@ -113,6 +115,8 @@ All CSS files are in */includes/scripts-styles.php*
 - Beaver Builder full width CSS styles added - leaves header and footer elements intact but full width for inner page.
 - Genesis Theme defaults now in */includes*
 - Generic landing page added
+- Flexbox sticky footer added on site container with IE10/11 support
+
 
 ###Modular Approach
 At the top of functions.php there a number of include files that you can comment/uncomment for adding functionality.
@@ -124,8 +128,6 @@ At the top of functions.php there a number of include files that you can comment
 - *widgets.php* contains all the widgets that need to be registered
 - *woocommerce.php* contains all the woocommerce functionality, commented out snippets included
 - *class-featured-custom-post-type-widget.php* widget for the Genesis Featured Custom posts
-
-
 
 
 Download the zip rename the theme '**genesischild**' - place this theme in your WordPress installation **"/wp-content/themes/"** and activate in WordPress Dashboard
