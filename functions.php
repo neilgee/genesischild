@@ -22,6 +22,9 @@ function gc_theme_setup() {
 	 define( 'CHILD_THEME_URL', 'http://wpbeaches.com' );
 	 define( 'CHILD_THEME_VERSION', '2.4.0' );
 
+	 /** Allow SVG */
+ 	define( 'ALLOW_UNFILTERED_UPLOADS', true );
+
 	// Load in optional files.
 
 	// Setup Theme Defaults.
@@ -182,7 +185,7 @@ function gc_theme_setup() {
 	function gc_custom_logo( $title, $inside, $wrap ) {
 		// Check to see if the Custom Logo function exists and set what goes inside the wrapping tags.
 		if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) :
-			$logo = the_custom_logo();
+			$logo = get_custom_logo();
 		else :
 		 	$logo = get_bloginfo( 'name' );
 		endif;
