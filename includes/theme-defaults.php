@@ -1,13 +1,13 @@
 <?php
 /**
- * Genesischild default set up.
+ * GenesisChild default set up.
  *
  * @package genesischild
  */
 
 add_filter( 'genesis_theme_settings_defaults', 'gc_theme_defaults' );
 /**
- * Genesischild Theme Setting Defaults.
+ * GenesisChild Theme Setting Defaults.
  *
  * @package genesischild
  * @param mixed $defaults Set the theme defaults.
@@ -28,7 +28,7 @@ function gc_theme_defaults( $defaults ) {
 
 //add_action( 'after_switch_theme', 'gc_theme_setting_defaults' );
 /**
- * Genesischild Theme Setup After switching themes.
+ * GenesisChild Theme Setup After switching themes.
  *
  * @package genesischild
  */
@@ -77,12 +77,13 @@ function gc_social_default_styles( $defaults ) {
 
 // Unregister Genesis page layouts
 
+// genesis_unregister_layout( 'full-width-content' );
 // genesis_unregister_layout( 'content-sidebar' );
 // genesis_unregister_layout( 'sidebar-content' );
 // genesis_unregister_layout( 'content-sidebar-sidebar' );
 // genesis_unregister_layout( 'sidebar-sidebar-content' );
 // genesis_unregister_layout( 'sidebar-content-sidebar' );
-// genesis_unregister_layout( 'full-width-content' );
+
 
 
 add_filter( 'theme_page_templates', 'gc_remove_blog_archive' );
