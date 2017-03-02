@@ -138,6 +138,8 @@ class Genesis_Featured_Custom_Post_Type extends WP_Widget {
 
 		$wp_query = new WP_Query( $query_args );
 
+                echo '<div class="featured-wrap">';
+
 		if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 			$_genesis_displayed_ids[] = get_the_ID();
@@ -259,6 +261,8 @@ class Genesis_Featured_Custom_Post_Type extends WP_Widget {
 			) );
 
 		endwhile; endif;
+
+                echo '</div>';
 
 		if ( 'full' !== $instance['columns'] ) {
 			remove_filter( 'post_class', array( $this, 'add_post_class_' . $instance['columns'] ) );
