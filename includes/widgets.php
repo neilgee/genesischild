@@ -189,7 +189,7 @@ function gc_before_entry_widget() {
 	}
 }
 
-// add_action( 'widgets_init', 'gc_remove_some_widgets' );
+add_action( 'widgets_init', 'gc_remove_some_widgets' );
 /**
  * Remove Unwanted Widgts.
  */
