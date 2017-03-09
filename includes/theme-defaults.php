@@ -104,4 +104,14 @@ add_action( 'genesis_theme_settings_metaboxes', 'gc_remove_metaboxes' );
  */
 function gc_remove_metaboxes( $_genesis_admin_settings ) {
 	remove_meta_box( 'genesis-theme-settings-header', $_genesis_admin_settings, 'main' );
+	remove_meta_box( 'genesis-theme-settings-blogpage', $_genesis_admin_settings, 'main' );
+	// remove_meta_box( 'genesis-theme-settings-breadcrumb', $_genesis_admin_settings, 'main' );
+	// remove_meta_box( 'genesis-theme-settings-version', $_genesis_admin_settings, 'main' );
+	// remove_meta_box( 'genesis-theme-settings-feeds', $_genesis_admin_settings, 'main' );
+	// remove_meta_box( 'genesis-theme-settings-layout', $_genesis_admin_settings, 'main' );
+	// remove_meta_box( 'genesis-theme-settings-nav', $_genesis_admin_settings, 'main' );
+	// remove_meta_box( 'genesis-theme-settings-comments', $_genesis_admin_settings, 'main' );
+	// remove_meta_box( 'genesis-theme-settings-posts', $_genesis_admin_settings, 'main' );
+	// remove_meta_box( 'genesis-theme-settings-scripts', $_genesis_admin_settings, 'main' );
+
 }
