@@ -1,0 +1,78 @@
+
+/*
+Beaver Builder Full Width
+---------------------------------------------------------------------------------------------------- */
+
+
+.fl-builder .site-inner .wrap {
+	padding: 0;
+}
+
+.content-sidebar .site-inner .wrap {
+	padding-left: 5%;
+    	padding-right: 5%;
+}
+.fl-builder .breadcrumb,
+.fl-builder .entry-header {
+	display: none;
+}
+
+.fl-builder-content {
+	width: 100%;
+}
+
+.fl-rich-text p:last-of-type {
+	margin-bottom: 0;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+	.fl-builder .site-inner {
+		padding: 0;
+		border-top: none;
+	}
+
+	.fl-builder .site-inner .wrap {
+		max-width: none;
+	}
+
+	.fl-builder .entry {
+		padding: 0;
+		margin-bottom: 0;
+		border-top: none;
+	}
+
+	.content-sidebar .site-inner .wrap {
+		max-width: 960px;
+		padding-left: 1%;
+		padding-right: 1%;
+	}
+
+}
+
+@media only screen and (min-width: 1200px) {
+	.content-sidebar .site-inner .wrap {
+		max-width: 1200px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+
+	.fl-builder .split-list ul {
+		margin-bottom: 0;
+	}
+
+	.fl-col-small .split-list .fl-node-content {
+		margin-bottom: 0;
+	}
+
+	.fl-col-small + .fl-col-small .split-list .fl-node-content {
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+
+	.fl-col-small {
+		max-width: 500px;
+	}
+}
