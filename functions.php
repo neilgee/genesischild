@@ -45,6 +45,13 @@ function gc_theme_setup() {
 	// WooCommerce functions
 		include_once( get_stylesheet_directory() . '/includes/woocommerce.php' );
 	}
+
+	// BeaverBuilder
+	if ( class_exists( 'FLBuilderModel' ) ) {
+	// BeaverBuilder functions
+		include_once( get_stylesheet_directory() . '/includes/beaverbuilder.php' );
+	}
+
 	// Genesis Default Responsive Menu
 	//include_once( get_stylesheet_directory() . '/includes/responsive-menu.php' );
 	// Get the plugins.
