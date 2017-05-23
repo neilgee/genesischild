@@ -66,8 +66,7 @@ function gc_theme_setup() {
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 	// RWD viewport.
 	add_theme_support( 'genesis-responsive-viewport' );
-	// Footer Widgets - change number to suit.
-	add_theme_support( 'genesis-footer-widgets', 3 );
+
 	// Allow for a custom background.
 	add_theme_support( 'custom-background' );
 	// Add support for custom header change the dimensions to suit.
@@ -89,8 +88,6 @@ function gc_theme_setup() {
 	));
 	// Add Accessibility support.
 	add_theme_support( 'genesis-accessibility', array( '404-page', 'headings', 'drop-down-menu', 'search-form', 'skip-links' ) );
-	// Add widget area after posts.
-	add_theme_support( 'genesis-after-entry-widget-area' );
 	// Add structural wraps.
 	add_theme_support( 'genesis-structural-wraps', array( 'site-inner', 'header', 'menu-secondary', 'footer-widgets', 'footer' ) );
 

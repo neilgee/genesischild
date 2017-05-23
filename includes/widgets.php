@@ -145,6 +145,9 @@ function gc_footerwidgetheader() {
 	}
 }
 
+// Footer Widgets - change number to suit.
+add_theme_support( 'genesis-footer-widgets', 3 );
+
 remove_action( 'genesis_footer', 'genesis_do_footer' );
 add_action( 'genesis_footer','gc_footer_widget' );
 /**
@@ -188,6 +191,10 @@ function gc_before_entry_widget() {
 		) );
 	}
 }
+
+// Add widget area after posts.
+add_theme_support( 'genesis-after-entry-widget-area' );
+
 
 add_action( 'widgets_init', 'gc_remove_some_widgets' );
 /**
