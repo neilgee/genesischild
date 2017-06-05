@@ -10,18 +10,36 @@
  * @link    http://wpbeaches.com
  */
 
- add_action( 'wp_enqueue_scripts', 'gc_responsive_menu');
+add_action( 'wp_enqueue_scripts', 'gc_responsive_menu' );
  /**
   * Responsive Menu Scripts and Styles Enqueued
   */
- function gc_responsive_menu() {
- 	wp_enqueue_script( 'genesischild-responsive-menu', get_stylesheet_directory_uri() . '/js/responsive-menu.js', array( 'jquery' ), '1.0.0', true );
- 	$output = array(
- 		'mainMenu' => __( 'Menu', 'genesischild' ),
- 		'subMenu'  => __( 'Menu', 'genesischild' ),
- 	);
- 	wp_localize_script( 'genesischild-responsive-menu', 'genesisSampleL10n', $output );
- 	wp_enqueue_style( 'genesischildcss' , get_stylesheet_directory_uri() . '/css/responsive-menu.css', array(), '2.4.2', 'all' );
+  function gc_responsive_menu() {
+  	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+  	wp_enqueue_script( 'genesischild-responsive-menu', get_stylesheet_directory_uri() . "/js/responsive-menus{$suffix}.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
+  	wp_localize_script(
+  		'genesischild-responsive-menu',
+  		'genesis_responsive_menu',
+  		genesischild_responsive_menu_settings()
+  	);
+        wp_enqueue_style( 'genesischildcss' , get_stylesheet_directory_uri() . '/css/responsive-menu.css', array(), '2.4.2', 'all' );
 
-
+  }
+  // Define our responsive menu settings.
+  function genesischild_responsive_menu_settings() {
+  	$settings = array(
+  		'mainMenu'          => __( 'Menu', 'genesischild' ),
+  		'menuIconClass'     => 'dashicons-before dashicons-menu',
+  		'subMenu'           => __( 'Submenu', 'genesischild' ),
+  		'subMenuIconsClass' => 'dashicons-before dashicons-arrow-down-alt2',
+  		'menuClasses'       => array(
+  			'combine' => array(
+  				'.nav-primary',
+  				'.nav-header',
+                                '.nav-secondary',
+  			),
+  			'others'  => array(),
+  		),
+  	);
+  	return $settings;
  }

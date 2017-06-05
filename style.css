@@ -893,9 +893,6 @@ img.alignright,
 	margin-bottom: 0;
 }
 
-.sticky {
-}
-
 .entry-content .wp-audio-shortcode,
 .entry-content .wp-playlist,
 .entry-content .wp-video {
@@ -1026,7 +1023,7 @@ img.alignright,
 
 .site-header {
 	background-color: #fff;
-	min-height: 120px;
+	/*min-height: 120px;*/
 }
 
 .site-header .wrap {
@@ -1115,6 +1112,7 @@ img.alignright,
 }
 
 .genesis-nav-menu .sub-menu {
+	border-top: 1px solid #eee;
 	left: -9999px;
 	opacity: 0;
 	position: absolute;
