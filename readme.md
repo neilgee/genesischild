@@ -47,7 +47,13 @@ Only difference is the main home page 3 modules are now stacked in the theme, Ho
 ### Menus
 - Primary Menu is positioned above Header Right Widget Hook and is set to Primary Location
 - Secondary Menu remains in default area and is Secondary Location spanning full width below the logo/header right.
-- Responsive menu is added but not enabled, to enable it uncomment in *functions.php* line 39 *	// include_once( get_stylesheet_directory() . '/includes/responsive-menu.php' );*
+- Genesis Responsive Menu version 1.1.2 is added but not enabled, to enable it uncomment in *functions.php* line 56
+
+```
+// include_once( get_stylesheet_directory() . '/includes/responsive-menu.php' );
+```
+Then the CSS & JS files will load for the menu.
+The *.nav-primary* and *.nav-secondary* menus are set to combine and appear as one under 768px, see this at */includes/responsive-menu.php line 36* to add separate further mobile nav menus add at */includes/responsive-menu.php line 41*
 
 ### Custom Logo
 - Custom Logo is supported via the Customizer, suggested size is 400x150px which you can change in the *add_theme_support('custom-logo')* array in *functions.php*
