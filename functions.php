@@ -156,6 +156,17 @@ function gc_theme_setup() {
 		}
 	}
 
+	add_action ( 'genesis_before_loop', 'gc_remove_post_info' );
+	/**
+	 * Remove Post Info and Post Meta on all CPTs but leave on posts
+	 */
+	function gc_remove_post_info() {
+		if ( 'post' !== get_post_type() ) {//add in your CPT name
+			remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+			remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+		}
+	}
+
 	// Remove blog header from blog posts page.
 	remove_action( 'genesis_before_loop', 'genesis_do_posts_page_heading' );
 
