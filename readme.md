@@ -79,6 +79,8 @@ To use this you have to enable the BackStretch script in */includes/scripts-styl
 
 - Site Identity > Logo upload
 - Featured Images > background image behind Hero Widget
+- Featured Image display on single posts as an image at the top of the content
+
 
 
 ### Featured Custom Post Type Widget for Genesis
@@ -105,10 +107,15 @@ All CSS files are in */includes/scripts-styles.php*
 
 ### WooCommerce
 - All WooCommmerce functionality including CSS is only activated if WooCommerce plugin is installed and activated.
-- Install and activate Genesis Connect for WooCommerce plugin - https://wordpress.org/plugins/genesis-connect-woocommerce/
-- WooCommerce functions are then included and can be seen in */includes/woocommerce.php*, these functions have some active and others commented out, read the comments to see if you require theme
-- WooCommerce CSS is at */css/woo.css* it is set to load after default WooCommerce CSS
+- Prompt to Install and activate Genesis Connect for WooCommerce plugin - no need to declare support in functions.php
+- WooCommerce functions are then included and can be seen in */includes/woocommerce/woocommerce.php*, these functions have some active and others commented out, read the comments to see if you require theme
+- WooCommerce CSS is at */includes/woocommerce/woo.css* it is set to load after default WooCommerce CSS
 - Once WooCommerce is active there are a number of additional Customizer options for control of color in WooCommerce elements, this will be visible in the last panel of the Customizer
+- Support added for swipe, lightbox and zoom image settings if not required comment out from */includes/woocommerce/woocommerce.php*
+- Default set to 12 products per shop page
+
+### BeaverBuilder
+- All BeaverBuilder CSS is only activated if BeaverBuilder plugin is installed and activated.
 
 ### Miscellaneous
 - PHP is enabled to execute in widget areas
@@ -132,8 +139,13 @@ At the top of functions.php there a number of include files that you can comment
 - *scripts-styles.php* contains all JS and CSS files for inclusion
 - *theme-defaults.php* contains all the theme defaults
 - *widgets.php* contains all the widgets that need to be registered
-- *woocommerce.php* contains all the woocommerce functionality, commented out snippets included
+- *beaverbuilder.php* contains all the BeaverBuilder functionality - only enabled if BeaverBuilder plugin is active
+- */includes/woocommerce/woocommerce.php* contains all the woocommerce functionality, commented out snippets included - only enabled if WooCommerce plugin is active
 - *class-featured-custom-post-type-widget.php* widget for the Genesis Featured Custom posts
+
+### Theme Defaults
+In `/includes/theme-defaults.php` there are a number of related Genesis theme options which have been set to my own needs for a starter theme including unregistering some widget areas and layouts.
+Also you can remove certain Genesis theme metaboxes, change to suit your needs, the file is documented.
 
 
 Download the zip rename the theme '**genesischild**' - place this theme in your WordPress installation **"/wp-content/themes/"** and activate in WordPress Dashboard

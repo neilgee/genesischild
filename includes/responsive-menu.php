@@ -28,11 +28,11 @@ add_action( 'wp_enqueue_scripts', 'gc_responsive_menu' );
   // Define our responsive menu settings.
   function genesischild_responsive_menu_settings() {
   	$settings = array(
-  		'mainMenu'          => __( 'Menu', 'genesischild' ),
-  		'menuIconClass'     => 'dashicons-before dashicons-menu',
-  		'subMenu'           => __( 'Submenu', 'genesischild' ),
-  		'subMenuIconsClass' => 'dashicons-before dashicons-arrow-down-alt2',
-  		'menuClasses'       => array(
+  		'mainMenu'         => __( 'Menu', 'genesischild' ),
+  		'menuIconClass'    => 'dashicons-before dashicons-menu',
+  		'subMenu'          => __( 'Submenu', 'genesischild' ),
+  		'subMenuIconClass' => 'dashicons-before dashicons-arrow-down-alt2',
+  		'menuClasses'      => array(
   			'combine' => array(
   				'.nav-primary',
   				'.nav-header',

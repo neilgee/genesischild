@@ -233,4 +233,24 @@ function gc_register_theme_customizer( $wp_customize ) {
 
 	// Remove default Genesis logo/title
 	$wp_customize->remove_control('blog_title');
+
+
+         // Add featured image section to the Customizer
+         $wp_customize->add_section( 'gc_single_image_section', array(
+                 'title'       => __( 'Post and Page Images', 'genesischild' ),
+                 'description' => __( 'Choose if you would like to display the featured image above the content on single posts and pages.', 'genesischild' ),
+                 'priority'    => 200, // puts the customizer section lower down
+         ) );
+         // Add featured image setting to the Customizer
+         $wp_customize->add_setting( 'gc_single_image_setting', array(
+                 'default'    => false, // set the option as enabled by default
+                 'capability' => 'edit_theme_options',
+         ) );
+         $wp_customize->add_control( 'gc_single_image_setting', array(
+                 'section'  => 'gc_single_image_section',
+                 'settings' => 'gc_single_image_setting',
+                 'label'    => __( 'Show featured image on posts and pages?', 'genesischild' ),
+                 'type'     => 'checkbox'
+         ));
+
 }

@@ -25,7 +25,8 @@
 	clear:both;
 }
 
-.woocommerce ul li {
+.woocommerce ul li,
+.woocommerce .wc_payment_method  {
 	list-style-type: none;
 }
 
@@ -82,4 +83,22 @@
 .woocommerce form .form-row textarea {
 	padding: 10px;
 	font-size: 16px;
+}
+
+/* Flexbox on WooCommerce archive products */
+.woocommerce .products ul,
+.woocommerce ul.products {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.woocommerce ul.products li.product .button {
+	margin-top: auto;
+	display: table;
 }

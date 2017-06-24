@@ -17,6 +17,10 @@ Beaver Builder Full Width
 	display: none;
 }
 
+.fl-builder .fl-widget .entry-header {
+	display: block;
+}
+
 .fl-builder-content {
 	width: 100%;
 }
@@ -24,6 +28,17 @@ Beaver Builder Full Width
 .fl-rich-text p:last-of-type {
 	margin-bottom: 0;
 }
+
+.flbuilder .entry-content {
+	margin-bottom: 0;
+}
+
+.fl-builder .content .entry,
+.fl-builder .entry  {
+	padding: 20px 0;
+}
+
+
 
 
 @media only screen and (min-width: 768px) {

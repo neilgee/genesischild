@@ -9,7 +9,7 @@ Template: genesis
 */
 
 
-/* # Table of Contents
+/* Table of Contents
 - HTML5 Reset
 	- Baseline Normalize
 	- Box Sizing
@@ -63,16 +63,17 @@ Template: genesis
 */
 
 
-/* # HTML5 Reset
+/* HTML5 Reset
 ---------------------------------------------------------------------------------------------------- */
 
-/* ## Baseline Normalize
+/* Baseline Normalize
 --------------------------------------------- */
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
-html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:0.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type="button"],/* 1 */
+[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,/* 1 */
+menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
 
-
-/* ## Box Sizing
+/* Box Sizing
 --------------------------------------------- */
 
 html,
@@ -86,7 +87,7 @@ input[type="search"] {
 	box-sizing: inherit;
 }
 
-/* ## Float Clearing
+/* Float Clearing
 --------------------------------------------- */
 
 .author-box:before,
@@ -125,10 +126,10 @@ input[type="search"] {
 }
 
 
-/* # Defaults
+/* Defaults
 ---------------------------------------------------------------------------------------------------- */
 
-/* ## Typographical Elements
+/* Typographical Elements
 --------------------------------------------- */
 
 
@@ -152,16 +153,6 @@ textarea:focus,
 .button,
 .gallery img {
 	transition:         all 0.1s ease-in-out;
-}
-
-::-moz-selection {
-	background-color: #333;
-	color: #fff;
-}
-
-::selection {
-	background-color: #333;
-	color: #fff;
 }
 
 a {
@@ -211,6 +202,11 @@ i {
 	font-style: italic;
 }
 
+mark {
+	background: #ddd;
+	color: #000;
+}
+
 blockquote {
 	margin: 40px;
 }
@@ -226,7 +222,7 @@ blockquote::before {
 }
 
 
-/* ## Headings
+/* Headings
 --------------------------------------------- */
 
 h1,
@@ -266,10 +262,12 @@ h6 {
 	font-size: 16px;
 }
 
-/* ## Colors
+/* Colors
 --------------------------------------------- */
 
-/* ## Objects
+
+
+/* Objects
 --------------------------------------------- */
 
 embed,
@@ -300,7 +298,7 @@ figure {
   }
 }
 
-/* ## Gallery
+/* Gallery
 --------------------------------------------- */
 
 .gallery {
@@ -345,6 +343,17 @@ figure {
 	width: 11.1111%;
 }
 
+.gallery-columns-2 .gallery-item:nth-child(2n+1),
+.gallery-columns-3 .gallery-item:nth-child(3n+1),
+.gallery-columns-4 .gallery-item:nth-child(4n+1),
+.gallery-columns-5 .gallery-item:nth-child(5n+1),
+.gallery-columns-6 .gallery-item:nth-child(6n+1),
+.gallery-columns-7 .gallery-item:nth-child(7n+1),
+.gallery-columns-8 .gallery-item:nth-child(8n+1),
+.gallery-columns-9 .gallery-item:nth-child(9n+1) {
+	clear: left;
+}
+
 .gallery img {
 	border: 1px solid #ddd;
 	height: auto;
@@ -356,7 +365,7 @@ figure {
 	border: 1px solid #999;
 }
 
-/* ## Forms
+/* Forms
 --------------------------------------------- */
 
 input,
@@ -367,7 +376,7 @@ textarea {
 	color: #333;
 	font-size: 18px;
 	font-weight: 300;
-	padding: 16px;
+	padding: 12px;
 	width: 100%;
 }
 
@@ -492,7 +501,7 @@ a.more-link:hover {
 }
 
 
-/* ## Tables
+/* Tables
 --------------------------------------------- */
 
 table {
@@ -501,6 +510,7 @@ table {
 	line-height: 2;
 	margin-bottom: 40px;
 	width: 100%;
+	word-break: break-all;
 }
 
 tbody {
@@ -528,43 +538,44 @@ th:first-child {
 }
 
 
-/* ## Screen Reader Text
+/* Screen Reader Text
 --------------------------------------------- */
 
 .screen-reader-text,
 .screen-reader-text span,
 .screen-reader-shortcut {
-	position: absolute !important;
+	border: 0;
 	clip: rect(0, 0, 0, 0);
 	height: 1px;
-	width: 1px;
-	border: 0;
 	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
 }
 
 .screen-reader-text:focus,
 .screen-reader-shortcut:focus,
 .genesis-nav-menu .search input[type="submit"]:focus,
-.widget_search input[type="submit"]:focus  {
+.widget_search input[type="submit"]:focus {
+	background: #fff;
+	box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
 	clip: auto !important;
-	height: auto;
-	width: auto;
+	color: #333;
 	display: block;
 	font-size: 1em;
 	font-weight: bold;
+	height: auto;
 	padding: 15px 23px 14px;
-	color: #333;
-	background: #fff;
-	z-index: 100000; /* Above WP toolbar. */
 	text-decoration: none;
-	box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
 }
 
 
-/* # Structure and Layout
+/* Structure and Layout
 ---------------------------------------------------------------------------------------------------- */
 
-/* ## Site Containers
+/* Site Containers - Sticky Footer
 --------------------------------------------- */
 .site-container {
 	display: -ms-flexbox;
@@ -602,10 +613,10 @@ th:first-child {
 }
 
 
-/* ## Column Widths and Positions
+/* Column Widths and Positions
 --------------------------------------------- */
 
-/* ### Wrapping div for .content and .sidebar-primary */
+/* Wrapping div for .content and .sidebar-primary */
 
 .content-sidebar-sidebar .content-sidebar-wrap,
 .sidebar-content-sidebar .content-sidebar-wrap,
@@ -622,7 +633,7 @@ th:first-child {
 	float: right;
 }
 
-/* ### Content */
+/* Content */
 
 .content {
 	float: right;
@@ -645,7 +656,7 @@ th:first-child {
 	width: 100%;
 }
 
-/* ### Primary Sidebar */
+/* Primary Sidebar */
 
 .sidebar-primary {
 	float: right;
@@ -657,7 +668,7 @@ th:first-child {
 	float: left;
 }
 
-/* ### Secondary Sidebar */
+/* Secondary Sidebar */
 
 .sidebar-secondary {
 	float: left;
@@ -668,7 +679,7 @@ th:first-child {
 	float: right;
 }
 
-/* ## Column Classes
+/* Column Classes
 --------------------------------------------- */
 /* Link: http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css */
 
@@ -725,10 +736,10 @@ th:first-child {
 }
 
 
-/* # Common Classes
+/* Common Classes
 ---------------------------------------------------------------------------------------------------- */
 
-/* ## Avatar
+/* Avatar
 --------------------------------------------- */
 
 .avatar {
@@ -749,11 +760,14 @@ th:first-child {
 	margin: 0 16px 24px 0;
 }
 
-/* ## Genesis
+/* Genesis
 --------------------------------------------- */
 
 .breadcrumb {
-	margin-bottom: 20px;
+	background-color: #fff;
+	font-size: 14px;
+	margin-bottom: 1px;
+	padding: 12px 30px;
 }
 
 .archive-description,
@@ -774,7 +788,7 @@ th:first-child {
 	margin-bottom: 0;
 }
 
-/* ## Search Form
+/* Search Form
 --------------------------------------------- */
 
 .search-form {
@@ -802,7 +816,7 @@ th:first-child {
 	width: 1px;
 }
 
-/* ## Titles
+/* Titles
 --------------------------------------------- */
 
 .archive-title {
@@ -832,7 +846,7 @@ th:first-child {
 	color: #fff;
 }
 
-/* ## WordPress
+/* WordPress
 --------------------------------------------- */
 
 a.aligncenter img {
@@ -899,7 +913,7 @@ img.alignright,
 	margin: 0 0 28px;
 }
 
-/* # Widgets
+/* Widgets
 ---------------------------------------------------------------------------------------------------- */
 
 .widget {
@@ -928,7 +942,7 @@ img.alignright,
 	text-align: center;
 }
 
-/* ## Featured Content
+/* Featured Content
 --------------------------------------------- */
 
 .featured-content .entry {
@@ -945,10 +959,10 @@ img.alignright,
 }
 
 
-/* # Plugins
+/* Plugins
 ---------------------------------------------------------------------------------------------------- */
 
-/* ## Genesis eNews Extended
+/* Genesis eNews Extended
 --------------------------------------------- */
 
 .enews-widget,
@@ -987,14 +1001,14 @@ img.alignright,
 	margin-top: 24px;
 }
 
-/* ## Jetpack
+/* Jetpack
 --------------------------------------------- */
 
 #wpstats {
 	display: none;
 }
 
-/* # Skip Links
+/* Skip Links
 ---------------------------------------------------------------------------------------------------- */
 .genesis-skip-link {
 	margin: 0;
@@ -1013,7 +1027,7 @@ img.alignright,
 }
 
 
-/* # Site Header
+/* Site Header
 ---------------------------------------------------------------------------------------------------- */
 
 .preheaderright {
@@ -1030,7 +1044,7 @@ img.alignright,
 	padding: 20px 0;
 }
 
-/* ## Title Area
+/* Title Area
 --------------------------------------------- */
 
 .title-area {
@@ -1072,7 +1086,7 @@ img.alignright,
 	text-indent: -9999px;
 }
 
-/* ## Widget Area
+/* Widget Area
 --------------------------------------------- */
 
 .site-header .widget-area {
@@ -1082,7 +1096,7 @@ img.alignright,
 }
 
 
-/* # Site Navigation
+/* Site Navigation
 ---------------------------------------------------------------------------------------------------- */
 
 .genesis-nav-menu {
@@ -1177,7 +1191,7 @@ img.alignright,
 	padding-right: 0;
 }
 
-/* ## Accessible Menu
+/* Accessible Menu
 --------------------------------------------- */
 
 .menu .menu-item:focus {
@@ -1190,12 +1204,8 @@ img.alignright,
 	opacity: 1;
 }
 
-/* ## Site Header Navigation
+/* Site Header Navigation
 --------------------------------------------- */
-
-.site-header .sub-menu {
-	border-top: 1px solid #eee;
-}
 
 .site-header .sub-menu .sub-menu {
 	margin-top: -56px;
@@ -1205,7 +1215,7 @@ img.alignright,
 	margin-left: 0;
 }
 
-/* ## Primary Navigation
+/* Primary Navigation
 --------------------------------------------- */
 
 .nav-primary {
@@ -1233,7 +1243,7 @@ img.alignright,
 	color: #c3251d;
 }
 
-/* ## Secondary Navigation
+/* Secondary Navigation
 --------------------------------------------- */
 
 .nav-secondary {
@@ -1254,19 +1264,19 @@ img.alignright,
 
 
 .home-top-container {
-background: #f5f5f5;
+	background: #f5f5f5;
 }
 .home-middle-container {
-background: #ddd;
+	background: #ddd;
 }
 .home-bottom-container {
-background: #aaa;
+	background: #aaa;
 }
 
 
 
 
-/* # Home Content Widget Areas
+/* Home Content Widget Areas
 ---------------------------------------------------------------------------------------------------- */
 .home-content section {
 	clear: both;
@@ -1294,52 +1304,52 @@ background: #aaa;
 }
 
 
-/* # PreHeader
+/* PreHeader
 ---------------------------------------------------------------------------------------------------- */
 
 
 
-/* # Hero
----------------------------------------------------------------------------------------------------- */
-
-
-
-
-/* # Optin
+/* Hero
 ---------------------------------------------------------------------------------------------------- */
 
 
 
 
-/* # Home Top
+/* Optin
 ---------------------------------------------------------------------------------------------------- */
 
 
 
 
-
-/* # Home Middle
+/* Home Top
 ---------------------------------------------------------------------------------------------------- */
 
 
 
 
 
-/* # Home Bottom
+/* Home Middle
 ---------------------------------------------------------------------------------------------------- */
 
 
 
 
 
-/* # Footer Header
+/* Home Bottom
 ---------------------------------------------------------------------------------------------------- */
 
 
 
 
 
-/* ## Entries
+/* Footer Header
+---------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* Entries
 --------------------------------------------- */
 
 .entry {
@@ -1375,7 +1385,7 @@ background: #aaa;
 	color: #ddd;
 }
 
-/* ## Entry Meta
+/* Entry Meta
 --------------------------------------------- */
 
 p.entry-meta {
@@ -1449,7 +1459,7 @@ p.entry-meta {
     vertical-align: sub;
 }
 
-/* ## Pagination
+/* Pagination
 --------------------------------------------- */
 
 .pagination {
@@ -1481,7 +1491,7 @@ p.entry-meta {
 	text-decoration: underline;
 }
 
-/* ## Comments
+/* Comments
 --------------------------------------------- */
 
 .comment-respond,
@@ -1543,9 +1553,6 @@ li.comment {
 	display: none;
 }
 
-.bypostauthor {
-}
-
 .form-allowed-tags {
 	background-color: #f5f5f5;
 	font-size: 16px;
@@ -1553,7 +1560,7 @@ li.comment {
 }
 
 
-/* # Sidebars
+/* Sidebars
 ---------------------------------------------------------------------------------------------------- */
 
 .sidebar {
@@ -1577,7 +1584,7 @@ li.comment {
 }
 
 
-/* # Footer Widgets
+/* Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
 
 .footerwidgetheader-container .widget-title {
@@ -1642,7 +1649,7 @@ li.comment {
 }
 
 
-/* # Site Footer
+/* Site Footer
 ---------------------------------------------------------------------------------------------------- */
 
 .site-footer {
@@ -1659,7 +1666,7 @@ li.comment {
 
 
 
-/*Facebook Like Box Responsiveness*/
+/* Facebook Like Box Responsiveness */
 
 .fb_iframe_widget {
 	display: block !important;
@@ -1676,7 +1683,7 @@ li.comment {
 
 
 
-/* # Media Queries
+/* Media Queries
 ---------------------------------------------------------------------------------------------------- */
 
 @media only screen and (max-width: 1200px) {

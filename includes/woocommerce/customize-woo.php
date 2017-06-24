@@ -11,11 +11,11 @@
  function  gc_woo_button_color_default() {
  return '#ebe9eb';
  }
- // 
+ //
  function  gc_woo_button_hover_color_default() {
   return '#dad8da';
  }
- 
+
  function  gc_woo_button_alt_color_default() {
  return '#a46497';
  }
@@ -23,7 +23,7 @@
  function  gc_woo_button_alt_hover_color_default() {
   return '#935386';
  }
- 
+
  function  gc_woo_button_dis_color_default() {
  return '#eee';
  }
@@ -31,27 +31,27 @@
 function  gc_woo_button_dis_hover_color_default() {
   return '#ddd';
  }
- 
+
  function gc_woo_price_color_default() {
   return '#77a464';
  }
- 
+
  function gc_woo_sale_price_color_default() {
   return '#77a464';
  }
- 
+
  function gc_woo_error_color_default() {
   return '#b81c23';
  }
- 
+
  function gc_woo_info_color_default() {
   return '#1e85be';
  }
- 
+
  function gc_woo_message_color_default() {
   return '#8fae1b';
  }
- 
+
 
 
 add_action( 'customize_register', 'gc_register_theme_customizer_woo', 20 );
@@ -59,7 +59,7 @@ add_action( 'customize_register', 'gc_register_theme_customizer_woo', 20 );
  * Register for the Customizer
  */
 function gc_register_theme_customizer_woo( $wp_customize ) {
-	
+
 
 	// Add in WooCommerce in default panel
 	// Add section.
@@ -100,7 +100,7 @@ function gc_register_theme_customizer_woo( $wp_customize ) {
 		'settings'   => 'gc_woo_button_hover_color' //pick the setting it applies to
 		)
         ) );
-        
+
         // Add buttons background alt color
         // Add setting.
         $wp_customize->add_setting( 'gc_woo_button_alt_color', array(
@@ -132,7 +132,7 @@ function gc_register_theme_customizer_woo( $wp_customize ) {
                 'settings'   => 'gc_woo_button_alt_hover_color' //pick the setting it applies to
                 )
         ) );
-        
+
         // Add buttons background disabled color
         // Add setting.
         $wp_customize->add_setting( 'gc_woo_button_dis_color', array(
@@ -164,7 +164,7 @@ function gc_register_theme_customizer_woo( $wp_customize ) {
                 'settings'   => 'gc_woo_button_dis_hover_color' //pick the setting it applies to
                 )
         ) );
-        
+
         // Add price color
         // Add setting.
         $wp_customize->add_setting( 'gc_woo_price_color', array(
@@ -180,7 +180,7 @@ function gc_register_theme_customizer_woo( $wp_customize ) {
                 'settings'   => 'gc_woo_price_color' //pick the setting it applies to
                 )
         ) );
-        
+
         // Add sale price color
         // Add setting.
         $wp_customize->add_setting( 'gc_woo_sale_price_color', array(
@@ -196,7 +196,7 @@ function gc_register_theme_customizer_woo( $wp_customize ) {
                 'settings'   => 'gc_woo_sale_price_color' //pick the setting it applies to
                 )
         ) );
-        
+
         // Add INFO color
         // Add setting.
         $wp_customize->add_setting( 'gc_woo_info_color', array(
@@ -212,7 +212,7 @@ function gc_register_theme_customizer_woo( $wp_customize ) {
                 'settings'   => 'gc_woo_info_color' //pick the setting it applies to
                 )
         ) );
-        
+
         // Add Error color
         // Add setting.
         $wp_customize->add_setting( 'gc_woo_error_color', array(
@@ -228,7 +228,7 @@ function gc_register_theme_customizer_woo( $wp_customize ) {
                 'settings'   => 'gc_woo_error_color' //pick the setting it applies to
                 )
         ) );
-        
+
         // Add Message color
         // Add setting.
         $wp_customize->add_setting( 'gc_woo_message_color', array(

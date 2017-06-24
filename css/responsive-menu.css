@@ -136,7 +136,7 @@
 
 
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
 
 
 	.genesis-responsive-menu .genesis-nav-menu .sub-menu,
@@ -196,6 +196,12 @@
 		position: relative;
 		width: 100%;
 		z-index: 1000;
+	}
+
+	.menu-toggle,
+	.menu-toggle:focus,
+	.menu-toggle:hover {
+		border-top: 1px solid #eee;
 	}
 
 	.menu-toggle::before {

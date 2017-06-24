@@ -1,6 +1,6 @@
 <?php
 /**
- * Genesischild Theme
+ * GenesisChild Theme
  *
  * @package genesischild
  * @author  NeilGee
@@ -10,7 +10,7 @@
 
 add_action( 'genesis_setup', 'gc_theme_setup', 15 );
 /**
- * Genesischild theme set up
+ * GenesisChild theme set up
  *
  * Start the engine the other way around - set up child after parent - add in theme supports, actions and filters
  *
@@ -20,10 +20,10 @@ function gc_theme_setup() {
 	// Child theme constant settings.
 	 define( 'CHILD_THEME_NAME', 'genesischild' );
 	 define( 'CHILD_THEME_URL', 'http://wpbeaches.com' );
-	 define( 'CHILD_THEME_VERSION', '2.4.0' );
+	 define( 'CHILD_THEME_VERSION', '2.5.0' );
 
 	 /** Allow SVG */
- 	define( 'ALLOW_UNFILTERED_UPLOADS', true );
+	 define( 'ALLOW_UNFILTERED_UPLOADS', true );
 
 	// Load in optional files.
 
@@ -43,7 +43,7 @@ function gc_theme_setup() {
 	// WooCommerce
 	if ( class_exists( 'WooCommerce' ) ) {
 	// WooCommerce functions
-		include_once( get_stylesheet_directory() . '/includes/woocommerce.php' );
+		include_once( get_stylesheet_directory() . '/includes/woocommerce/woocommerce.php' );
 	}
 
 	// BeaverBuilder
@@ -54,6 +54,7 @@ function gc_theme_setup() {
 
 	// Genesis Default Responsive Menu
 	//include_once( get_stylesheet_directory() . '/includes/responsive-menu.php' );
+
 	// Get the plugins.
 	//require_once  get_stylesheet_directory() . '/plugins.php';
 
@@ -64,13 +65,14 @@ function gc_theme_setup() {
 
 	// HTML5 goodness.
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+
 	// RWD viewport.
 	add_theme_support( 'genesis-responsive-viewport' );
 
 	// Allow for a custom background.
 	add_theme_support( 'custom-background' );
-	// Add support for custom header change the dimensions to suit.
 
+	// Add support for custom header change the dimensions to suit.
 	//  add_theme_support( 'custom-header', array(
 	// 	'flex-width'  => true,
 	// 	'flex-height' => true,
@@ -86,14 +88,37 @@ function gc_theme_setup() {
 		'flex-height' => true,
 		'flex-width'  => true,
 	));
+
 	// Add Accessibility support.
-	add_theme_support( 'genesis-accessibility', array( '404-page', 'headings', 'drop-down-menu', 'search-form', 'skip-links' ) );
+	add_theme_support( 'genesis-accessibility', array( '404-page', 'headings', /*'drop-down-menu',*/ 'search-form', 'skip-links' ) );
+
 	// Add structural wraps.
 	add_theme_support( 'genesis-structural-wraps', array( 'site-inner', 'header', 'menu-secondary', 'footer-widgets', 'footer' ) );
 
 	// Image sizes - add in required image sizes here.
-	//
 	add_image_size( 'blog-feature', 300, 200, true );
+	add_image_size( 'medium', 300, 300, true );
+
+
+	add_action( 'genesis_entry_content', 'gc_featured_image', 1 );
+	/**
+	 * Add featured image on single post.
+	 **/
+	function gc_featured_image() {
+		 $add_single_image = get_theme_mod( 'gc_single_image_setting', true ); //sets the customizer setting to a variable
+		 $image = genesis_get_image( array( // more options here -> genesis/lib/functions/image.php
+			 'format'  => 'html',
+			 'size'    => 'large',// add in your image size large, medium or thumbnail - for custom see the post
+			 'context' => '',
+			 'attr'    => array ( 'class' => 'aligncenter' ), // set a default WP image class
+		 ) );
+		 // For other sizes - size => array(300, 450, true),
+		 if ( is_single() && ( true === $add_single_image ) ) {
+		 if ( $image ) {
+		 	printf( '<div class="featured-image-class">%s</div>', $image ); // wraps the featured image in a div with css class you can control
+			 }
+		 }
+ 	}
 
 	// Re-arrange header nav.
 	remove_action( 'genesis_after_header','genesis_do_nav' );
@@ -116,6 +141,15 @@ function gc_theme_setup() {
 		$output = sprintf( '<p>%s &#x02026;</p><p class="more-link-wrap">%s</p>', $content, str_replace( '&#x02026;', '', $link ) );
 
 		return $output;
+	}
+
+	add_filter( 'get_the_content_more_link', 'gc_filter_read_more_link' );
+	/**
+	 * Modify the WordPress read more link when entry content is showing
+	 **/
+	function gc_filter_read_more_link() {
+
+		return sprintf( '<a href="%1$s" class="%2$s" title="Read More">%3$s</a>', get_permalink(), 'more-link', __( ' Read More' ) );
 	}
 
 	add_filter( 'comment_form_defaults', 'gc_comment_form_defaults' );
@@ -169,6 +203,28 @@ function gc_theme_setup() {
 
 	// Remove blog header from blog posts page.
 	remove_action( 'genesis_before_loop', 'genesis_do_posts_page_heading' );
+	//add_action( 'genesis_before_content', 'genesis_do_posts_page_heading' );
+
+	// Moves Title and Description on CPT Archive
+	remove_action( 'genesis_before_loop', 'genesis_do_cpt_archive_title_description' );
+	add_action( 'genesis_before_content', 'genesis_do_cpt_archive_title_description' );
+
+	// Moves Title and Description on Date Archive
+	remove_action( 'genesis_before_loop', 'genesis_do_date_archive_title' );
+	add_action( 'genesis_before_content', 'genesis_do_cpt_archive_title_description' );
+
+	// Moves Title and Description on Archive, Taxonomy, Category, Tag
+	remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
+	add_action( 'genesis_before_content', 'genesis_do_taxonomy_title_description', 15 );
+
+	// Moves Title and Description on Author Archive
+	remove_action( 'genesis_before_loop', 'genesis_do_author_title_description', 15 );
+	add_action( 'genesis_before_content', 'genesis_do_author_title_description', 15 );
+
+	// Moves Title and Description on Blog Template Page
+	remove_action( 'genesis_before_loop', 'genesis_do_blog_template_heading' );
+	add_action( 'genesis_before_content', 'genesis_do_blog_template_heading' );
+
 
 
 	add_filter( 'upload_mimes', 'gc_add_svg_images' );

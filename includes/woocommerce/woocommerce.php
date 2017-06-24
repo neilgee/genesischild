@@ -1,8 +1,9 @@
 <?php
 
 // Declare WooCommerce support for your theme - install the plugin and below and uncomment the line below that.
-// https://wordpress.org/plugins/genesis-connect-woocommerce/
-add_theme_support( 'genesis-connect-woocommerce' );
+// Add the Genesis Connect WooCommerce notice.
+include_once( get_stylesheet_directory() . '/includes/woocommerce/woocommerce-notice.php' );
+
 
 
 add_action( 'wp_enqueue_scripts', 'woo_css_styles', 900 );
@@ -10,11 +11,16 @@ add_action( 'wp_enqueue_scripts', 'woo_css_styles', 900 );
  * WOO CSS styles.
  */
 function woo_css_styles() {
-wp_enqueue_style( 'woocss' , get_stylesheet_directory_uri() . '/css/woo.css', array(), '2.0.0', 'all' );
+wp_enqueue_style( 'woocss' , get_stylesheet_directory_uri() . '/includes/woocommerce/woo.css', array(), '2.0.0', 'all' );
 }
 
 // Customizer Options
-include_once( get_stylesheet_directory() . '/includes/customize-woo.php' );
+include_once( get_stylesheet_directory() . '/includes/woocommerce/customize-woo.php' );
+
+// Supports for zoom/slider/gallery
+add_theme_support( 'wc-product-gallery-lightbox' );
+add_theme_support( 'wc-product-gallery-slider' );
+add_theme_support( 'wc-product-gallery-zoom' );
 
 
 add_filter( 'genesis_site_layout', 'gc_woo_layout' );
@@ -23,6 +29,27 @@ function gc_woo_layout() {
         if( is_page ( array( 'cart', 'checkout' )) || is_shop() || 'product' == get_post_type() ) {
                 return 'full-width-content';
         }
+}
+
+// How many products per page
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
+
+
+add_filter( 'woocommerce_pagination_args', 'gc_woocommerce_pagination' );
+/**
+ * Update the next and previous arrows to the default Genesis style.
+ *
+ * @since 2.3.0
+ *
+ * @return string New next and previous text string.
+ */
+function gc_woocommerce_pagination( $args ) {
+
+	$args['prev_text'] = sprintf( '&laquo; %s', __( 'Previous Page', 'genesis-sample' ) );
+	$args['next_text'] = sprintf( '%s &raquo;', __( 'Next Page', 'genesis-sample' ) );
+
+	return $args;
+
 }
 
 
